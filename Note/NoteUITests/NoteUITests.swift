@@ -2,7 +2,7 @@
 //  NoteUITests.swift
 //  NoteUITests
 //
-//  Created by Hongyang Lin on 3/15/21.
+//  Created on 3/15/21.
 //
 
 import XCTest
