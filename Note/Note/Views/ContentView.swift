@@ -13,7 +13,6 @@ struct ContentView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            Color(red: 100, green: 50, blue: 50)
             MainView()
                 .offset(self.offset)
                 .animation(.spring())
@@ -28,6 +27,7 @@ struct ContentView: View {
                             } else {
                                 self.offset.height = geometry.size.height * 0.9
                             }
+                            
                         }
                 )
         }
