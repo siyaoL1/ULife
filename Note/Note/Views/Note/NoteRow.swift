@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct NoteRow: View {
+    @EnvironmentObject var modelData: ModelData
     var note: NoteType
     
+    var noteIndex: Int {
+        modelData.notes.firstIndex(where: { $0.id == note.id })!
+    }
     
     var body: some View {
         let time = "\(note.dateComponents.year!)/\(note.dateComponents.month!)/\(note.dateComponents.day!)"
@@ -22,23 +26,18 @@ struct NoteRow: View {
             Spacer()
             
             Text(time).font(/*@START_MENU_TOKEN@*/.headline/*@END_MENU_TOKEN@*/).fontWeight(.light).foregroundColor(Color.gray).lineLimit(10)
-            if note.isFavorite {
-                Image(systemName: "star.fill")
-                    .foregroundColor(.yellow)
-            } else {
-                Image(systemName: "star.fill")
-                    .foregroundColor(.gray)
-            }
+            FavoriteButton(isSet: $modelData.notes[noteIndex].isFavorite)
         }
         .padding()
     }
 }
 
 struct NoteRow_Previews: PreviewProvider {
-    static var notes = ModelData().notes
+    static var modelData = ModelData()
     
     static var previews: some View {
-        NoteRow(note: notes[1])
+        NoteRow(note: modelData.notes[1])
+            .environmentObject(modelData)
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }

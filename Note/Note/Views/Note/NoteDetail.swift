@@ -8,17 +8,65 @@
 import SwiftUI
 
 struct NoteDetail: View {
+    @EnvironmentObject var modelData: ModelData
+    @State var output: String = ""
+    @State var input: String = "asdfasdfbas dfa fasdfa fadfasdfadsfa sdfa dfasdf asdfasdfas"
+    @State var typing = false
     var note: NoteType
     
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    var noteIndex: Int {
+        modelData.notes.firstIndex(where: { $0.id == note.id })!
     }
+        
+    var body: some View {
+        
+        let time = "\(note.dateComponents.year!)/\(note.dateComponents.month!)/\(note.dateComponents.day!)"
+        ZStack {
+
+            Color(red: 249/255, green: 247/255, blue: 236/255)
+                .edgesIgnoringSafeArea(.all)
+            
+            ScrollView {
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(note.title)
+                            .font(.title)
+                        Spacer()
+                        FavoriteButton(isSet: $modelData.notes[noteIndex].isFavorite)
+                    }
+                    
+                    Divider()
+                    
+//                    Text(note.content)
+//                        .fixedSize(horizontal: false, vertical: true)
+                    TextEditor(text: $input)
+                        .background(Color.clear)
+                        .foregroundColor(.black)
+                        .opacity(0.5)
+                        .frame(height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    
+                }
+//                MultilineTextView(text: $input)
+            }
+            .padding()
+            .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
+        }
+        .navigationTitle(time)
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
 }
 
 struct NoteDetail_Previews: PreviewProvider {
-    static var notes = ModelData().notes
+    init() {
+        UITextView.appearance().backgroundColor = .clear
+    }
+    static var modelData = ModelData()
     
     static var previews: some View {
-        NoteDetail(note: notes[0])
+        NoteDetail(note: modelData.notes[0])
+            .environmentObject(modelData)
     }
+
 }

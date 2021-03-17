@@ -17,25 +17,10 @@ struct NoteList: View {
         }
     }
     
-//    var body: some View {
-//        ZStack {
-//            Color(red: 0, green: 100, blue: 50)
-//            VStack {
-//                Toggle(isOn: $showFavoritesOnly) {
-//                    Text("Favorites only")
-//                }.padding()
-//
-//                ForEach(filteredLandmarks) { note in
-//                    NavigationLink(destination: NoteDetail(note: note)) {
-//                        NoteRow(note: note)
-//                    }
-//                }
-//            }.frame(width: 350, alignment: .top)
-//        }.clipShape(RoundedRectangle(cornerRadius: 40))
-//    }
     var body: some View {
         NavigationView {
-            VStack {
+            
+            VStack(alignment: .leading, spacing: 0) {
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
                 }.padding()
@@ -45,7 +30,8 @@ struct NoteList: View {
                         NoteRow(note: note)
                     }
                 }
-            }.frame(width: 350, alignment: .top)
+                Spacer()
+            }.frame(width: 350)
 //            .navigationTitle("Notes")
         }
     }

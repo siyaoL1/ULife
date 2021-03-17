@@ -9,15 +9,23 @@ import SwiftUI
 struct ContentViewSiyao: View {
     var body: some View {
         NoteList()
+            .padding(.top, -20)
     }
 }
 
 struct ContentViewSiyao_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
+        ZStack {
             ContentViewSiyao()
                 .environmentObject(ModelData())
-            FloatingMenu()
+
+            ZStack(alignment: .bottomTrailing) {
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                FloatingMenu()
+                    .padding()
+            }
         }
     }
 }
