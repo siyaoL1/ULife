@@ -21,6 +21,7 @@
 		879F3EFC2602AA1100C110BC /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F3EF02602AA1100C110BC /* FavoriteButton.swift */; };
 		879F3EFD2602AA1100C110BC /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F3EF12602AA1100C110BC /* FloatingMenu.swift */; };
 		879F3EFE2602AA1100C110BC /* ContentViewSiyao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F3EF22602AA1100C110BC /* ContentViewSiyao.swift */; };
+		879F3F062602ABC900C110BC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F3F052602ABC900C110BC /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		879F3EF02602AA1100C110BC /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		879F3EF12602AA1100C110BC /* FloatingMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
 		879F3EF22602AA1100C110BC /* ContentViewSiyao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewSiyao.swift; sourceTree = "<group>"; };
+		879F3F052602ABC900C110BC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			children = (
 				879F3EE92602AA1100C110BC /* Note */,
 				879F3EED2602AA1100C110BC /* ContentView.swift */,
+				879F3F052602ABC900C110BC /* MainView.swift */,
 				879F3EEE2602AA1100C110BC /* Helpers */,
 				879F3EF12602AA1100C110BC /* FloatingMenu.swift */,
 				879F3EF22602AA1100C110BC /* ContentViewSiyao.swift */,
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				879F3EFD2602AA1100C110BC /* FloatingMenu.swift in Sources */,
+				879F3F062602ABC900C110BC /* MainView.swift in Sources */,
 				879F3EF92602AA1100C110BC /* NoteRow.swift in Sources */,
 				879F3EF32602AA1100C110BC /* Note.xcdatamodeld in Sources */,
 				879F3EFA2602AA1100C110BC /* ContentView.swift in Sources */,
