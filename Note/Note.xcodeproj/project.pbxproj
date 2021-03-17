@@ -15,7 +15,15 @@
 		3C60A01B2600178800EA8D15 /* Note.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C60A0192600178800EA8D15 /* Note.xcdatamodeld */; };
 		3C60A0262600178800EA8D15 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C60A0252600178800EA8D15 /* NoteTests.swift */; };
 		3C60A0312600178900EA8D15 /* NoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C60A0302600178900EA8D15 /* NoteUITests.swift */; };
-		8747FD3F2600554F00C0F0CF /* siyao_part.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8747FD3E2600554F00C0F0CF /* siyao_part.swift */; };
+		8747FD3F2600554F00C0F0CF /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8747FD3E2600554F00C0F0CF /* FloatingMenu.swift */; };
+		876D3C762601D84D000EE8EA /* NoteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D3C752601D84D000EE8EA /* NoteType.swift */; };
+		876D3C7B2601E193000EE8EA /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D3C7A2601E193000EE8EA /* ModelData.swift */; };
+		876D3C832601E528000EE8EA /* ContentViewSiyao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D3C822601E528000EE8EA /* ContentViewSiyao.swift */; };
+		876D3C892601E588000EE8EA /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D3C882601E588000EE8EA /* NoteList.swift */; };
+		876D3C912601E59B000EE8EA /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D3C902601E59B000EE8EA /* NoteRow.swift */; };
+		876D3C962601E6CE000EE8EA /* NoteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D3C952601E6CE000EE8EA /* NoteDetail.swift */; };
+		876D3C9C2601E9D4000EE8EA /* noteData.json in Resources */ = {isa = PBXBuildFile; fileRef = 876D3C9B2601E9D4000EE8EA /* noteData.json */; };
+		876D3CA12601EADD000EE8EA /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876D3CA02601EADD000EE8EA /* SwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +58,15 @@
 		3C60A02C2600178900EA8D15 /* NoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C60A0302600178900EA8D15 /* NoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteUITests.swift; sourceTree = "<group>"; };
 		3C60A0322600178900EA8D15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8747FD3E2600554F00C0F0CF /* siyao_part.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = siyao_part.swift; sourceTree = "<group>"; };
+		8747FD3E2600554F00C0F0CF /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
+		876D3C752601D84D000EE8EA /* NoteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteType.swift; path = Note/Views/NoteType.swift; sourceTree = SOURCE_ROOT; };
+		876D3C7A2601E193000EE8EA /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = SOURCE_ROOT; };
+		876D3C822601E528000EE8EA /* ContentViewSiyao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewSiyao.swift; sourceTree = "<group>"; };
+		876D3C882601E588000EE8EA /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
+		876D3C902601E59B000EE8EA /* NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
+		876D3C952601E6CE000EE8EA /* NoteDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetail.swift; sourceTree = "<group>"; };
+		876D3C9B2601E9D4000EE8EA /* noteData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = noteData.json; sourceTree = "<group>"; };
+		876D3CA02601EADD000EE8EA /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +117,7 @@
 		3C60A00D2600178800EA8D15 /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				876D3C9A2601E9C5000EE8EA /* Resources */,
 				3CAC9E252600533200D20A89 /* Views */,
 				3CAC9E262600534B00D20A89 /* Models */,
 				3C60A00E2600178800EA8D15 /* NoteApp.swift */,
@@ -143,7 +160,11 @@
 			isa = PBXGroup;
 			children = (
 				3C60A0102600178800EA8D15 /* ContentView.swift */,
-				8747FD3E2600554F00C0F0CF /* siyao_part.swift */,
+				876D3C872601E554000EE8EA /* Note */,
+				8747FD3E2600554F00C0F0CF /* FloatingMenu.swift */,
+				876D3C822601E528000EE8EA /* ContentViewSiyao.swift */,
+				876D3CA02601EADD000EE8EA /* SwiftUIView.swift */,
+				876D3C6C2601D12A000EE8EA /* Helper */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,8 +172,35 @@
 		3CAC9E262600534B00D20A89 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				876D3C7A2601E193000EE8EA /* ModelData.swift */,
+				876D3C752601D84D000EE8EA /* NoteType.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		876D3C6C2601D12A000EE8EA /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		876D3C872601E554000EE8EA /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				876D3C882601E588000EE8EA /* NoteList.swift */,
+				876D3C902601E59B000EE8EA /* NoteRow.swift */,
+				876D3C952601E6CE000EE8EA /* NoteDetail.swift */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		876D3C9A2601E9C5000EE8EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				876D3C9B2601E9D4000EE8EA /* noteData.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				876D3C9C2601E9D4000EE8EA /* noteData.json in Resources */,
 				3C60A0162600178800EA8D15 /* Preview Assets.xcassets in Resources */,
 				3C60A0132600178800EA8D15 /* Assets.xcassets in Resources */,
 			);
@@ -284,11 +333,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				876D3CA12601EADD000EE8EA /* SwiftUIView.swift in Sources */,
 				3C60A0182600178800EA8D15 /* Persistence.swift in Sources */,
+				876D3C762601D84D000EE8EA /* NoteType.swift in Sources */,
 				3C60A0112600178800EA8D15 /* ContentView.swift in Sources */,
+				876D3C962601E6CE000EE8EA /* NoteDetail.swift in Sources */,
+				876D3C832601E528000EE8EA /* ContentViewSiyao.swift in Sources */,
 				3C60A00F2600178800EA8D15 /* NoteApp.swift in Sources */,
-				8747FD3F2600554F00C0F0CF /* siyao_part.swift in Sources */,
+				876D3C7B2601E193000EE8EA /* ModelData.swift in Sources */,
+				876D3C912601E59B000EE8EA /* NoteRow.swift in Sources */,
+				8747FD3F2600554F00C0F0CF /* FloatingMenu.swift in Sources */,
 				3C60A01B2600178800EA8D15 /* Note.xcdatamodeld in Sources */,
+				876D3C892601E588000EE8EA /* NoteList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
