@@ -123,12 +123,12 @@
 			children = (
 				879F3F942602AED500C110BC /* Views */,
 				879F3F8E2602AECF00C110BC /* Resources */,
-				879F3F862602AEB900C110BC /* NoteApp.swift */,
 				879F3F7E2602AEAB00C110BC /* Models */,
 				879F3F4F2602AE4300C110BC /* Assets.xcassets */,
 				879F3F542602AE4300C110BC /* Persistence.swift */,
 				879F3F592602AE4300C110BC /* Info.plist */,
 				879F3F562602AE4300C110BC /* Note.xcdatamodeld */,
+				879F3F862602AEB900C110BC /* NoteApp.swift */,
 				879F3F512602AE4300C110BC /* Preview Content */,
 			);
 			path = Note;
