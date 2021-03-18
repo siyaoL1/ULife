@@ -26,7 +26,7 @@ struct NoteList: View {
                     .foregroundColor(.gray)
                     .frame(width: 60,height:10,alignment: .topLeading)
                     .padding(13)
-                Text("").frame(height: 50)
+                Text("").frame(height: 20)
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
                 }.padding(20)
@@ -40,7 +40,9 @@ struct NoteList: View {
             }
             .frame(height: UIScreen.main.bounds.height, alignment: .topLeading)
             .background(Color(red: 249/255, green: 247/255, blue: 236/255))
-        }.clipShape(RoundedRectangle(cornerRadius: 44))
+        }
+//        .navigationBarHidden(true)
+        .clipShape(RoundedRectangle(cornerRadius: 44))
     }
 }
 

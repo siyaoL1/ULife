@@ -9,9 +9,7 @@ import SwiftUI
 
 struct NoteDetail: View {
     @EnvironmentObject var modelData: ModelData
-    @State var output: String = ""
     @State var input: String = "asdfasdfbas dfa fasdfa fadfasdfadsfa sdfa dfasdf asdfasdfas"
-    @State var typing = false
     var note: NoteType
     
     var noteIndex: Int {
@@ -40,12 +38,11 @@ struct NoteDetail: View {
                     
 //                    Text(note.content)
 //                        .fixedSize(horizontal: false, vertical: true)
-                    TextEditor(text: $input)
+                    TextEditor(text: $modelData.notes[noteIndex].content)
                         .background(Color.clear)
                         .foregroundColor(.black)
                         .opacity(0.5)
                         .frame(height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    
                 }
 //                MultilineTextView(text: $input)
             }
