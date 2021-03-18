@@ -9,7 +9,8 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State private var offset = CGSize(width: 0, height: UIScreen.main.bounds.height * 0.81)
+    @State private var offset =
+        CGSize(width: 0, height: UIScreen.main.bounds.height * 0.81)
     
     var body: some View {
         GeometryReader { geometry in
@@ -23,11 +24,10 @@ struct ContentView: View {
                         }
                         .onEnded {
                             if $0.translation.height < geometry.size.height * 0.5 {
-                                self.offset.height = geometry.size.height * 0.15
+                                self.offset.height = geometry.size.height * 0.07
                             } else {
                                 self.offset.height = geometry.size.height * 0.9
                             }
-                            
                         }
                 )
         }
