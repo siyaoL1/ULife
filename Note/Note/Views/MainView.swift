@@ -13,7 +13,7 @@ struct MainView: View {
     var body: some View {
         ZStack (alignment: .top) {
             
-            ContentViewSiyao()
+            NoteList()
                 .environmentObject(ModelData())
             
             // "+" button

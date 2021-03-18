@@ -10,28 +10,31 @@ import CoreData
 
 struct ContentView: View {
     @State private var offset =
-        CGSize(width: 0, height: UIScreen.main.bounds.height * 0.81)
+        CGSize(width: 0, height: UIScreen.main.bounds.height * 0.815)
     
     var body: some View {
-        GeometryReader { geometry in
+        GeometryReader { geo in
             MainView()
                 .offset(self.offset)
                 .animation(.spring())
                 .gesture(
-                    DragGesture()
+                    DragGesture(minimumDistance: 100, coordinateSpace: .global)
                         .onChanged { g in
                             self.offset.height = g.translation.height
+                            
                         }
                         .onEnded {
-                            if $0.translation.height < geometry.size.height * 0.5 {
-                                self.offset.height = geometry.size.height * 0.07
+                            if $0.translation.height < geo.size.height * 0.5 {
+                                self.offset.height = geo.size.height * 0.07
                             } else {
-                                self.offset.height = geometry.size.height * 0.9
+                                self.offset.height = geo.size.height * 0.92
                             }
                         }
                 )
         }
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

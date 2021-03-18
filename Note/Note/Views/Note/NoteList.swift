@@ -10,7 +10,6 @@ import SwiftUI
 struct NoteList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly = false
-    @State private var prompt: String = "Swipe up for notes"
     
     var filteredLandmarks: [NoteType] {
         modelData.notes.filter { note in
@@ -19,14 +18,16 @@ struct NoteList: View {
     }
     
     var body: some View {
+        
         NavigationView {
             
             VStack(spacing: 0) {
                 RoundedRectangle(cornerRadius: 45)
-                    .foregroundColor(.gray)
-                    .frame(width: 60,height:10,alignment: .topLeading)
+                    .foregroundColor(Color(red: 211/255, green: 211/255, blue: 211/255))
+                    .frame(width: 60, height:10)
                     .padding(13)
-                Text("").frame(height: 20)
+                Text("").frame(height: 45)
+                
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
                 }.padding(20)
@@ -36,12 +37,12 @@ struct NoteList: View {
                         NoteRow(note: note)
                     }
                 }
-                
             }
             .frame(height: UIScreen.main.bounds.height, alignment: .topLeading)
             .background(Color(red: 249/255, green: 247/255, blue: 236/255))
+            
         }
-//        .navigationBarHidden(true)
+        .frame(height: UIScreen.main.bounds.height*0.9)
         .clipShape(RoundedRectangle(cornerRadius: 44))
     }
 }
