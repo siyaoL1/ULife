@@ -12,6 +12,8 @@ class ToDoList: ObservableObject {
     
     init() {
         self.todolist.append(Event(id: Date(), name: "test1"))
+        self.todolist.append(Event(id: Date(), name: "Finish Project"))
+        self.todolist.append(Event(id: Date(), name: "Review class"))
     }
     
     func addEvent(id: Date, name: String) -> Void {

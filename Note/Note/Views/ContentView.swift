@@ -32,6 +32,17 @@ struct ContentView: View {
                 )
                 .environmentObject(ModelData())
         }
+//        }.gesture(
+//            DragGesture()
+//            .onEnded { value in
+//              let direction = detectDirection(value: value)
+//              if direction == .right {
+//                print("value ",value.translation.width)
+//                        ToDoView()
+//              }
+//            }
+//          )
+        
     }
 }
 
