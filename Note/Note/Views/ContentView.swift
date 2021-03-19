@@ -21,7 +21,6 @@ struct ContentView: View {
                     DragGesture(minimumDistance: 100, coordinateSpace: .global)
                         .onChanged { g in
                             self.offset.height = g.translation.height
-                            
                         }
                         .onEnded {
                             if $0.translation.height < geo.size.height * 0.5 {
@@ -33,16 +32,20 @@ struct ContentView: View {
                 )
         }
     }
-    
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(ModelData())
     }
-    
 }
+
+
+
+
+
+
+
 
 
 //struct ContentView: View {

@@ -10,6 +10,8 @@ import SwiftUI
 struct NoteDetail: View {
     @EnvironmentObject var modelData: ModelData
     @State var input: String = "asdfasdfbas dfa fasdfa fadfasdfadsfa sdfa dfasdf asdfasdfas"
+    @Environment(\.presentationMode) var presentationMode
+    
     var note: NoteType
     
     var noteIndex: Int {
@@ -21,8 +23,8 @@ struct NoteDetail: View {
         let time = "\(note.dateComponents.year!)/\(note.dateComponents.month!)/\(note.dateComponents.day!)"
         ZStack {
 
-            Color(red: 249/255, green: 247/255, blue: 236/255)
-                .edgesIgnoringSafeArea(.all)
+//            Color(red: 249/255, green: 247/255, blue: 236/255)
+//                .edgesIgnoringSafeArea(.all)
             
             ScrollView {
                 
@@ -33,7 +35,7 @@ struct NoteDetail: View {
                         Spacer()
                         FavoriteButton(isSet: $modelData.notes[noteIndex].isFavorite)
                     }
-                    
+                    Text(time)
                     Divider()
                     
 //                    Text(note.content)
@@ -48,9 +50,19 @@ struct NoteDetail: View {
             }
             .padding()
             .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
+            .background(Color(red: 249/255, green: 247/255, blue: 236/255))
         }
-        .navigationTitle(time)
+        //.navigationTitle(time)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
+                                    HStack {
+                                        Image(systemName: "chevron.backward")
+                                        Text("")
+                                    }
+                                }
+        )
     }
     
 }
