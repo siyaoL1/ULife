@@ -8,8 +8,10 @@ import SwiftUI
 
 struct ContentViewSiyao: View {
     var body: some View {
-        NoteList()
-            .padding(.top, -20)
+        ZStack {
+            NoteList()
+                .padding(.top, 30)
+        }.clipShape(RoundedRectangle(cornerRadius: 44))
     }
 }
 
@@ -19,13 +21,13 @@ struct ContentViewSiyao_Previews: PreviewProvider {
             ContentViewSiyao()
                 .environmentObject(ModelData())
 
-            ZStack(alignment: .bottomTrailing) {
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                FloatingMenu()
-                    .padding()
-            }
+//            ZStack(alignment: .bottomTrailing) {
+//                Rectangle()
+//                    .foregroundColor(.clear)
+//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                FloatingMenu()
+//                    .padding()
+//            }
         }
     }
 }

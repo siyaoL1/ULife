@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NoteDetail: View {
+struct NoteDetail_2: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
     
@@ -18,12 +18,11 @@ struct NoteDetail: View {
     }
         
     var body: some View {
-        // Retrive the time information from note data
+        
         let time = "\(note.dateComponents.year!)/\(note.dateComponents.month!)/\(note.dateComponents.day!)"
         ZStack {
             ScrollView {
                 VStack(alignment: .leading) {
-                    // Title field
                     HStack {
                         TextField("I feel like ...", text: $modelData.notes[noteIndex].title)
                             .font(.title)
@@ -34,7 +33,6 @@ struct NoteDetail: View {
                         .font(.subheadline)
                     Divider()
                     
-                    // Note field
                     TextEditor(text: $modelData.notes[noteIndex].content)
                         .background(Color.clear)
                         .foregroundColor(.black)
@@ -61,14 +59,14 @@ struct NoteDetail: View {
     
 }
 
-struct NoteDetail_Previews: PreviewProvider {
+struct NoteDetail_2_Previews: PreviewProvider {
     init() {
         UITextView.appearance().backgroundColor = .clear
     }
     static var modelData = ModelData()
     
     static var previews: some View {
-        NoteDetail(note: modelData.notes[0])
+        NoteDetail_2(note: modelData.notes[0])
             .environmentObject(modelData)
     }
 

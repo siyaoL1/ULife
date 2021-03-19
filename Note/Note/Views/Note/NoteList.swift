@@ -10,7 +10,7 @@ import SwiftUI
 struct NoteList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly = false
-
+    
     var filteredLandmarks: [NoteType] {
         modelData.notes.filter { note in
             (!showFavoritesOnly || note.isFavorite)
@@ -18,22 +18,31 @@ struct NoteList: View {
     }
     
     var body: some View {
+        
         NavigationView {
             
-            VStack(alignment: .leading, spacing: 0) {
+            VStack(spacing: 0) {
+                Spacer().frame(height:85)
+                
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
-                }.padding()
+                }.padding(20)
 
                 ForEach(filteredLandmarks) { note in
                     NavigationLink(destination: NoteDetail(note: note)) {
                         NoteRow(note: note)
+
+                    }.onTapGesture {
+                        modelData.inNotes = true
                     }
                 }
-                Spacer()
-            }.frame(width: 350)
-//            .navigationTitle("Notes")
+            }
+            .frame(height: UIScreen.main.bounds.height, alignment: .topLeading)
+            .background(Color(red: 249/255, green: 247/255, blue: 236/255))
+            
         }
+        .frame(height: UIScreen.main.bounds.height*0.89)
+        .clipShape(RoundedRectangle(cornerRadius: 44))
     }
 }
 

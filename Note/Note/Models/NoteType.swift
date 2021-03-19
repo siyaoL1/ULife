@@ -20,5 +20,16 @@ struct NoteType: Hashable, Codable, Identifiable {
         
         return Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: dateFormated)
     }
+    
+    init(newId: Int) {
+        self.id = newId
+        self.title = ""
+        self.content = ""
+        self.isFavorite = false
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let date = formatter.string(from: Date())
+        self.date = date
+    }
 }
 

@@ -6,8 +6,9 @@
 import Foundation
 import Combine
 
-final class ModelData: ObservableObject {
+class ModelData: ObservableObject {
     @Published var notes: [NoteType] = load("noteData.json")
+    @Published var inNotes: Bool = false
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

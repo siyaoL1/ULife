@@ -8,22 +8,39 @@
 import SwiftUI
 
 struct FloatingMenu: View {
-    
+    @EnvironmentObject var modelData: ModelData
     @State var showMenuItem1 = false
     @State var showMenuItem2 = false
     @State var showMenuItem3 = false
+    
+    @State var showMenuAction1 = false
+    @State var showMenuAction2 = false
     
     var body: some View {
         VStack {
             Spacer()
             if showMenuItem1 {
-                MenuItem(icon: "camera.fill")
+                VStack{
+                    Button(action: {
+                        self.showMenuAction1 = true
+                    }) {
+                        MenuItem(icon: "square.and.pencil")
+                    }
+                }.sheet(isPresented: $showMenuAction1, content: { NoteNew()})
             }
             if showMenuItem2 {
-                MenuItem(icon: "photo.on.rectangle")
+                VStack{
+                    Button(action: {
+                        self.showMenuAction1 = true
+                    }) {
+                        MenuItem(icon: "checkmark.circle")
+                    }
+                }.sheet(isPresented: $showMenuAction2, content: { TodoNew()})
             }
             if showMenuItem3 {
-                MenuItem(icon: "square.and.arrow.up.fill")
+                VStack{
+                    MenuItem(icon: "camera.fill")
+                }
             }
             Button(action: {
                 self.showMenu()
@@ -55,8 +72,11 @@ struct FloatingMenu: View {
 }
 
 struct FloatingMenu_Previews: PreviewProvider {
+    static var modelData = ModelData()
+
     static var previews: some View {
         FloatingMenu()
+            .environmentObject(modelData)
     }
 }
 

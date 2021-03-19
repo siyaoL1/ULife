@@ -8,24 +8,32 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var prompt: String = "Swipe up for notes"
+    @EnvironmentObject var modelData: ModelData
     
     var body: some View {
         ZStack (alignment: .top) {
-            Color(red: 249/255, green: 247/255, blue: 236/255)
-            VStack(spacing: -5) {
-                RoundedRectangle(cornerRadius: 45)
-                    .foregroundColor(.gray)
-                    .frame(width: 60,height:10,alignment: .topLeading)
-                    .padding(7)
-                Text(prompt).foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
+            
+            NoteList()
+                .environmentObject(modelData)
+        
+            VStack {
+                    RoundedRectangle(cornerRadius: 45)
+                        .foregroundColor(Color(red: 211/255, green: 211/255, blue: 211/255))
+                        .frame(width: 60, height:8)
+                        .padding(.top, 10)
+                HStack{
+                    Spacer().frame(width: 240, height: 100)
+                    FloatingMenu().padding(.bottom, 50)
+                        .environmentObject(modelData)
+                }
             }
+            
         }.clipShape(RoundedRectangle(cornerRadius: 44))
     }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView().environmentObject(ModelData())
     }
 }
