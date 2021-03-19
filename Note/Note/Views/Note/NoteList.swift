@@ -22,10 +22,6 @@ struct NoteList: View {
         NavigationView {
             
             VStack(spacing: 0) {
-//                RoundedRectangle(cornerRadius: 45)
-//                    .foregroundColor(Color(red: 211/255, green: 211/255, blue: 211/255))
-//                    .frame(width: 60, height:8)
-//                    .padding(.top, 20)
                 Spacer().frame(height:85)
                 
                 Toggle(isOn: $showFavoritesOnly) {

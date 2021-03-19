@@ -36,6 +36,7 @@ struct NoteDetail: View {
                         FavoriteButton(isSet: $modelData.notes[noteIndex].isFavorite)
                     }
                     Text(time)
+                        .font(.subheadline)
                     Divider()
                     
 //                    Text(note.content)
@@ -56,12 +57,12 @@ struct NoteDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading:
-                                Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-                                    HStack {
-                                        Image(systemName: "chevron.backward")
-                                        Text("")
-                                    }
-                                }
+            Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
+                HStack {
+                    Image(systemName: "chevron.backward")
+                    Text("")
+                }
+            }
         )
     }
     

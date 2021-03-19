@@ -17,13 +17,14 @@ struct FloatingMenu: View {
         VStack {
             Spacer()
             if showMenuItem1 {
-                MenuItem(icon: "camera.fill")
+                MenuItem(icon: "square.and.pencil")
+                    
             }
             if showMenuItem2 {
                 MenuItem(icon: "photo.on.rectangle")
             }
             if showMenuItem3 {
-                MenuItem(icon: "square.and.arrow.up.fill")
+                MenuItem(icon: "camera.fill")
             }
             Button(action: {
                 self.showMenu()

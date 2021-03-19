@@ -16,20 +16,14 @@ struct MainView: View {
             NoteList()
                 .environmentObject(ModelData())
         
-            if true {
-                VStack {
-                    
-                        RoundedRectangle(cornerRadius: 45)
-                            .foregroundColor(Color(red: 211/255, green: 211/255, blue: 211/255))
-                            .frame(width: 60, height:8)
-                            .padding(.top, 10)
-                    
-
-                    HStack{
-                        Spacer().frame(width: 240, height: 100)
-                        FloatingMenu().padding(.bottom, 50)
-                    }
-                    
+            VStack {
+                    RoundedRectangle(cornerRadius: 45)
+                        .foregroundColor(Color(red: 211/255, green: 211/255, blue: 211/255))
+                        .frame(width: 60, height:8)
+                        .padding(.top, 10)
+                HStack{
+                    Spacer().frame(width: 240, height: 100)
+                    FloatingMenu().padding(.bottom, 50)
                 }
             }
             
