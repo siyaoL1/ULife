@@ -14,7 +14,7 @@ struct MainView: View {
         ZStack (alignment: .top) {
             
             NoteList()
-                .environmentObject(ModelData())
+                .environmentObject(modelData)
         
             VStack {
                     RoundedRectangle(cornerRadius: 45)
@@ -24,6 +24,7 @@ struct MainView: View {
                 HStack{
                     Spacer().frame(width: 240, height: 100)
                     FloatingMenu().padding(.bottom, 50)
+                        .environmentObject(modelData)
                 }
             }
             
