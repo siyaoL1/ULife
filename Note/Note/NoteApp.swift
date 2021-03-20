@@ -1,7 +1,7 @@
 //
 //  NoteApp.swift
 //  Note
-//
+////
 //  Created on 3/15/21.
 //
 
@@ -13,8 +13,8 @@ struct NoteApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            ContentView().environmentObject(ModelData())
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
