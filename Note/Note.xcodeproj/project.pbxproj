@@ -32,6 +32,7 @@
 		879F3F822602AEAB00C110BC /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F3F802602AEAB00C110BC /* ModelData.swift */; };
 		879F3F872602AEB900C110BC /* NoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F3F862602AEB900C110BC /* NoteApp.swift */; };
 		879F3F902602AECF00C110BC /* noteData.json in Resources */ = {isa = PBXBuildFile; fileRef = 879F3F8F2602AECF00C110BC /* noteData.json */; };
+		87DF0A61260FEF91001E32A8 /* LeftSwipeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DF0A60260FEF91001E32A8 /* LeftSwipeTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		879F3F802602AEAB00C110BC /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		879F3F862602AEB900C110BC /* NoteApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteApp.swift; sourceTree = "<group>"; };
 		879F3F8F2602AECF00C110BC /* noteData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = noteData.json; sourceTree = "<group>"; };
+		87DF0A60260FEF91001E32A8 /* LeftSwipeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSwipeTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 		879F3F942602AED500C110BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				87DF0A60260FEF91001E32A8 /* LeftSwipeTest.swift */,
 				8749386E260547BA00C1A43E /* ToDoList */,
 				87235E402605461000719513 /* ContentView.swift */,
 				87235E3B2605461000719513 /* FloatingMenu.swift */,
@@ -384,6 +387,7 @@
 				87235E4C2605461000719513 /* ContentView.swift in Sources */,
 				879F3F872602AEB900C110BC /* NoteApp.swift in Sources */,
 				87235E472605461000719513 /* NoteRow.swift in Sources */,
+				87DF0A61260FEF91001E32A8 /* LeftSwipeTest.swift in Sources */,
 				87493871260547BA00C1A43E /* CardView.swift in Sources */,
 				87235E4B2605461000719513 /* MainView.swift in Sources */,
 				87235E482605461000719513 /* FloatingMenu.swift in Sources */,
