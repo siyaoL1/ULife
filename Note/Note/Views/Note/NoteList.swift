@@ -22,7 +22,7 @@ struct NoteList: View {
         NavigationView {
             
             VStack(spacing: 0) {
-                Spacer().frame(height:85)
+                Spacer().frame(height:95)
                 
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
@@ -32,17 +32,17 @@ struct NoteList: View {
                     NavigationLink(destination: NoteDetail(note: note)) {
                         NoteRow(note: note)
 
-                    }.onTapGesture {
+                    }.simultaneousGesture(TapGesture().onEnded{
                         modelData.inNotes = true
-                    }
+                    })
                 }
+
             }
-            .frame(height: UIScreen.main.bounds.height, alignment: .topLeading)
+            .frame(height: UIScreen.main.bounds.height*1.01, alignment: .topLeading)
             .background(Color(red: 249/255, green: 247/255, blue: 236/255))
-            
         }
-        .frame(height: UIScreen.main.bounds.height*0.89)
         .clipShape(RoundedRectangle(cornerRadius: 44))
+        
     }
 }
 

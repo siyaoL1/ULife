@@ -9,39 +9,36 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State private var offset =
-        CGSize(width: 0, height: UIScreen.main.bounds.height * 0.815)
+    @EnvironmentObject var modelData: ModelData
+    @State var showList: Bool = false
     
     var body: some View {
-        GeometryReader { geo in
-            MainView()
-                .offset(self.offset)
-                .animation(.spring())
-                .gesture(
-                    DragGesture(minimumDistance: 100, coordinateSpace: .global)
-                        .onChanged { g in
-                            self.offset.height = g.translation.height
+        
+        if !modelData.showCalendarPanel {
+            ZStack(alignment: Alignment.top) {
+                if modelData.showMainPanel {
+                    VStack{
+                        HStack(){
+                            
+                                Button(action: {modelData.showCalendarPanel = true}){
+                                    Image(systemName: "calendar")
+                                        .font(.system(size: 25.0))
+                                }.padding()
+                            
+                            Spacer()
+                            Button(action: {}){
+                                Image(systemName: "gearshape")
+                                    .font(.system(size: 25.0))
+                            }.padding()
                         }
-                        .onEnded {
-                            if $0.translation.height < geo.size.height * 0.5 {
-                                self.offset.height = geo.size.height * 0.07
-                            } else {
-                                self.offset.height = geo.size.height * 0.92
-                            }
-                        }
-                )
-                .environmentObject(ModelData())
+                    }
+                }
+                NotePanel()
+            }
+        } else {
+            ToDoView()
         }
-//        }.gesture(
-//            DragGesture()
-//            .onEnded { value in
-//              let direction = detectDirection(value: value)
-//              if direction == .right {
-//                print("value ",value.translation.width)
-//                        ToDoView()
-//              }
-//            }
-//          )
+            
         
     }
 }
