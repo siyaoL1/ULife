@@ -9,6 +9,9 @@ import Combine
 class ModelData: ObservableObject {
     @Published var notes: [NoteType] = load("noteData.json")
     @Published var inNotes: Bool = false
+    @Published var showNotesPanel: Bool = true
+    @Published var showMainPanel: Bool = true
+    @Published var showCalendarPanel: Bool = false
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

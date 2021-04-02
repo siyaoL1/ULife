@@ -9,40 +9,40 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State private var offset =
-        CGSize(width: 0, height: UIScreen.main.bounds.height * 0.815)
+    @EnvironmentObject var modelData: ModelData
+    @State var showList: Bool = false
     
     var body: some View {
-        GeometryReader { geo in
-            MainView()
-                .offset(self.offset)
-                .animation(.spring())
-                .gesture(
-                    DragGesture(minimumDistance: 100, coordinateSpace: .global)
-                        .onChanged { g in
-                            self.offset.height = g.translation.height
-                        }
-                        .onEnded {
-                            if $0.translation.height < geo.size.height * 0.5 {
-                                self.offset.height = geo.size.height * 0.07
-                            } else {
-                                self.offset.height = geo.size.height * 0.92
-                            }
-                        }
-                )
-                .environmentObject(ModelData())
+        ZStack(alignment: Alignment.top) {
+            if modelData.showMainPanel {
+                HStack{
+                    MainPanelBar().padding(.top, -UIScreen.main.bounds.width*0.95).navigate(to: ToDoView(), when: $modelData.showCalendarPanel)
+                }
+            }
+            if modelData.showNotesPanel {
+                NotePanel()
+            }
         }
-//        }.gesture(
-//            DragGesture()
-//            .onEnded { value in
-//              let direction = detectDirection(value: value)
-//              if direction == .right {
-//                print("value ",value.translation.width)
-//                        ToDoView()
-//              }
-//            }
-//          )
-        
+    }
+}
+
+extension View {
+    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
+        NavigationView {
+            ZStack {
+                self
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                NavigationLink(
+                    destination: view
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true),
+                    isActive: binding
+                ) {
+                    EmptyView()
+                }
+            }
+        }
     }
 }
 

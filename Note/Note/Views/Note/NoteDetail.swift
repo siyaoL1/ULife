@@ -38,27 +38,35 @@ struct NoteDetail: View {
                     TextEditor(text: $modelData.notes[noteIndex].content)
                         .background(Color.clear)
                         .foregroundColor(.black)
-                        .opacity(0.5)
-                        .frame(height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .opacity(0.65)
+                        .frame(height: UIScreen.main.bounds.height*0.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
-//                MultilineTextView(text: $input)
             }
             .padding()
             .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
-            .background(Color(red: 249/255, green: 247/255, blue: 236/255))
+            .background(Color(red: 249/255, green: 247/255, blue: 236/255, opacity: 0.25))
+            
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-            Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-                HStack {
+        .navigationBarItems(
+            leading:
+                Button(
+                    action:{
+                        self.presentationMode.wrappedValue.dismiss()
+                        modelData.inNotes = false
+                    }
+                ){
                     Image(systemName: "chevron.backward")
-                    Text("")
                 }
-            }
+            , trailing:
+                Button(
+                    action: {}
+                ){
+                    Image(systemName: "square.and.arrow.up")
+                }
         )
     }
-    
 }
 
 struct NoteDetail_Previews: PreviewProvider {
