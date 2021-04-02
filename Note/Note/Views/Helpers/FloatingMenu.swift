@@ -26,15 +26,15 @@ struct FloatingMenu: View {
                         MenuItem(icon: "square.and.pencil")
                     }.sheet(isPresented: $showMenuAction1, content: { NoteNew()})
             }
-            if showMenuItem2 {
-                VStack{
-                    Button(action: {
-                        self.showMenuAction2 = true
-                    }) {
-                        MenuItem(icon: "checkmark.circle")
-                    }
-                }.sheet(isPresented: $showMenuAction2, content: { ToDoView()})
-            }
+//            if showMenuItem2 {
+//                VStack{
+//                    Button(action: {
+//                        self.showMenuAction2 = true
+//                    }) {
+//                        MenuItem(icon: "checkmark.circle")
+//                    }
+//                }.sheet(isPresented: $showMenuAction2, content: { ToDoView()})
+//            }
             if showMenuItem3 {
                 VStack{
                     MenuItem(icon: "camera.fill")
