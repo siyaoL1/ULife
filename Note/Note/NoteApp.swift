@@ -14,6 +14,8 @@ struct NoteApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView().environmentObject(ModelData())
+//            LeftSwipeTest()
+            
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

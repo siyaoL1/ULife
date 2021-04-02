@@ -12,6 +12,7 @@ class ModelData: ObservableObject {
     @Published var showNotesPanel: Bool = true
     @Published var showMainPanel: Bool = true
     @Published var showCalendarPanel: Bool = false
+    @Published var alwaysFalse: Bool = false
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

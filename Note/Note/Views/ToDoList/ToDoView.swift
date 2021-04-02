@@ -26,7 +26,7 @@ struct ToDoView: View {
     }
     
     @EnvironmentObject var modelData: ModelData
-    @Environment(\.presentationMode) var presentationMode
+//    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var todolist = ToDoList()
     @State var newEvent: String = ""
     @State var text: String = ""
@@ -34,19 +34,18 @@ struct ToDoView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                        modelData.showCalendarPanel = false
-                    }) {
-                        HStack {
-                            Image(systemName: "chevron.backward")
-                            Text("Back")
-                        }
-                    }.padding()
-                    Spacer()
-                }
-                
+//                HStack {
+//                    Button(action: {
+//                        self.presentationMode.wrappedValue.dismiss()
+//                        modelData.showCalendarPanel = false
+//                    }) {
+//                        HStack {
+//                            Image(systemName: "chevron.backward")
+//                            Text("Back")
+//                        }
+//                    }.padding()
+//                    Spacer()
+//                }
                 
                 List {
                     Section(header: Text("New Event")) {
@@ -87,6 +86,8 @@ struct ToDoView: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
         }
+        .edgesIgnoringSafeArea([.top])
+
     }
 }
 struct ToDoView_Previews: PreviewProvider {

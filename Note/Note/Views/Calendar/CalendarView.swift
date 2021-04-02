@@ -50,6 +50,7 @@ extension DateFormatter {
 
 struct CalendarView: View {
     @EnvironmentObject var modelData: ModelData
+    @Environment(\.presentationMode) var presentationMode
    
     var monthsList: [Date] = []
     @State var selectedDay: Date = Date()
@@ -121,6 +122,20 @@ struct CalendarView: View {
     var body: some View {
         NavigationView {
             VStack{
+                HStack {
+                    Button(action: {
+//                        self.presentationMode.wrappedValue.dismiss()
+                        withAnimation() {
+                            modelData.showCalendarPanel = false
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                            Text("Back")
+                        }.foregroundColor(.orange)
+                    }.padding()
+                    Spacer()
+                }
                 
                 LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
                     Text("S")
@@ -168,48 +183,14 @@ struct CalendarView: View {
                         }
                     }
                     .padding()
-                    .navigationBarTitle("Calendar", displayMode: .inline)
+//                    .navigationBarTitle("Calendar", displayMode: .inline)
+                    .navigationBarHidden(true)
                     .onAppear {
                         item.scrollTo(Calendar.current.dateComponents([.year,.month,.day], from: Date()), anchor: .bottom)
                     }
                 }
             }
         }
-    }
-}
-
-
-
-struct ToNoteView : View {
-    @EnvironmentObject var modelData: ModelData
-    
-    let date: Date
-    var NotesOfTheDate: [NoteType] {
-        modelData.notes.filter { note in
-            (
-                Calendar.current.dateComponents([.year,.month,.day], from: date)
-                    == DateComponents(year: note.dateComponents.year,
-                                      month: note.dateComponents.month,
-                                      day: note.dateComponents.day)
-            )
-        }
-    }
-    var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                ForEach(NotesOfTheDate) { note in
-                    NavigationLink(destination: NoteDetail(note: note)) {
-                        NoteRow(note: note)
-                    }
-                }
-                Spacer()
-            }
-            .background(Color(red: 249/255, green: 247/255, blue: 236/255))
-            .navigationBarTitle("Notes", displayMode: .inline)
-            Spacer()
-        }
-//        .frame(height: UIScreen.main.bounds.height*0.89)
-//        .clipShape(RoundedRectangle(cornerRadius: 44))
     }
 }
 
