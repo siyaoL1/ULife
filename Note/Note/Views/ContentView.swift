@@ -8,43 +8,115 @@
 import SwiftUI
 import CoreData
 
+extension AnyTransition {
+    static var leftView: AnyTransition {
+        let insertion = AnyTransition.move(edge: .leading)
+            .combined(with: .opacity)
+        let removal = AnyTransition.move(edge: .trailing)
+            .combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+    
+    static var rightView: AnyTransition {
+        let insertion = AnyTransition.move(edge: .trailing)
+            .combined(with: .opacity)
+        let removal = AnyTransition.move(edge: .leading)
+            .combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+}
+
+
 struct ContentView: View {
-    @State private var offset =
-        CGSize(width: 0, height: UIScreen.main.bounds.height * 0.815)
+    @EnvironmentObject var modelData: ModelData
+    @State private var index: Int = 1
+    @State private var prevIndex: Int = 1
+    //    @State var showList: Bool = false
+    
+    var EdgeSwipe: some Gesture {
+        DragGesture()
+            .onEnded({gesture in
+                withAnimation {
+                    let direction = detectDirection(value: gesture)
+                    if gesture.startLocation.x < CGFloat(10.0) && direction == .left {
+                        print("left edge swipe")
+                        if self.index > 0 {
+                            self.prevIndex = index
+                            self.index -= 1
+                        }
+                    } else if gesture.startLocation.x > CGFloat(UIScreen.main.bounds.size.width - 10.0) && direction == .right {
+                        print("rigth edge swipe")
+                        if self.index < 2 {
+                            self.prevIndex = index
+                            self.index += 1
+                        }
+                    }
+                 }
+            })
+    }
     
     var body: some View {
-        GeometryReader { geo in
-            MainView()
-                .offset(self.offset)
-                .animation(.spring())
-                .gesture(
-                    DragGesture(minimumDistance: 100, coordinateSpace: .global)
-                        .onChanged { g in
-                            self.offset.height = g.translation.height
-                        }
-                        .onEnded {
-                            if $0.translation.height < geo.size.height * 0.5 {
-                                self.offset.height = geo.size.height * 0.07
-                            } else {
-                                self.offset.height = geo.size.height * 0.92
-                            }
-                        }
-                )
-                .environmentObject(ModelData())
+        ZStack {
+            if self.index == 0 {
+                LeftView()
+                    .transition(.leftView)
+                    .gesture(EdgeSwipe)
+                    .zIndex(0)
+            } else if self.index == 1 {
+                if prevIndex == 0 {
+                    MiddleView()
+                        .environmentObject(modelData)
+                        .transition(.rightView)
+                        .gesture(EdgeSwipe)
+                        .zIndex(0)
+                } else if prevIndex == 2 {
+                    MiddleView()
+                        .environmentObject(modelData)
+                        .transition(.leftView)
+                        .gesture(EdgeSwipe)
+                        .zIndex(0)
+                } else {
+                    MiddleView()
+                        .environmentObject(modelData)
+                        .transition(.leftView)
+                        .gesture(EdgeSwipe)
+                        .zIndex(0)
+                }
+
+            } else {
+                RightView()
+                    .transition(.rightView)
+                    .gesture(EdgeSwipe)
+                    .zIndex(0)
+            }
+            
+            if modelData.showCalendarPanel {
+                // Need to use asymmetric transition due to the ZStack disappearing sequence.
+                CalendarView().zIndex(1)
+                    .transition(.asymmetric(
+                                    insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
+                                    removal: AnyTransition.opacity))
+                    
+            }
+            
+            if modelData.showSettingPanel {
+                SettingView().zIndex(2)
+                    .transition(.asymmetric(
+                                    insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
+                                    removal: AnyTransition.opacity))
+            }
+                
+//            Button("Bla") {
+//                withAnimation {
+//                    self.index = index == 0 ? 1 : 0
+//                }
+//            }.foregroundColor(.black)
         }
-//        }.gesture(
-//            DragGesture()
-//            .onEnded { value in
-//              let direction = detectDirection(value: value)
-//              if direction == .right {
-//                print("value ",value.translation.width)
-//                        ToDoView()
-//              }
-//            }
-//          )
         
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

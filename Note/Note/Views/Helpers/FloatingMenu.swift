@@ -23,21 +23,21 @@ struct FloatingMenu: View {
                     Button(action: {
                         self.showMenuAction1 = true
                     }) {
-                        MenuItem(icon: "square.and.pencil")
+                        MenuItem(icon: "square.and.pencil").environmentObject(modelData)
                     }.sheet(isPresented: $showMenuAction1, content: { NoteNew()})
             }
-            if showMenuItem2 {
-                VStack{
-                    Button(action: {
-                        self.showMenuAction2 = true
-                    }) {
-                        MenuItem(icon: "checkmark.circle")
-                    }
-                }.sheet(isPresented: $showMenuAction2, content: { ToDoView()})
-            }
+//            if showMenuItem2 {
+//                VStack{
+//                    Button(action: {
+//                        self.showMenuAction2 = true
+//                    }) {
+//                        MenuItem(icon: "checkmark.circle")
+//                    }
+//                }.sheet(isPresented: $showMenuAction2, content: { ToDoView()})
+//            }
             if showMenuItem3 {
                 VStack{
-                    MenuItem(icon: "camera.fill")
+                    MenuItem(icon: "camera.fill").environmentObject(modelData)
                 }
             }
             Button(action: {
@@ -46,7 +46,7 @@ struct FloatingMenu: View {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
                     .frame(width: 80, height: 80)
-                    .foregroundColor(.orange)
+                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                     .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
             }
         }
@@ -79,13 +79,13 @@ struct FloatingMenu_Previews: PreviewProvider {
 }
 
 struct MenuItem: View {
-    
+    @EnvironmentObject var modelData: ModelData
     var icon: String
     
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(.orange)
+                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                 .frame(width: 55, height: 55)
             Image(systemName: icon)
                 .imageScale(.large)

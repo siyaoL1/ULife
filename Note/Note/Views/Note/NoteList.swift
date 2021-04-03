@@ -22,27 +22,27 @@ struct NoteList: View {
         NavigationView {
             
             VStack(spacing: 0) {
-                Spacer().frame(height:85)
+                Spacer().frame(height:95)
                 
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
                 }.padding(20)
 
                 ForEach(filteredLandmarks) { note in
-                    NavigationLink(destination: NoteDetail(note: note)) {
+                    NavigationLink(destination: NoteDetail(note: note).edgesIgnoringSafeArea(.bottom)) {
                         NoteRow(note: note)
 
-                    }.onTapGesture {
+                    }.simultaneousGesture(TapGesture().onEnded{
                         modelData.inNotes = true
-                    }
+                    })
                 }
+
             }
-            .frame(height: UIScreen.main.bounds.height, alignment: .topLeading)
-            .background(Color(red: 249/255, green: 247/255, blue: 236/255))
-            
+            .frame(height: UIScreen.main.bounds.height*1.01, alignment: .topLeading)
+            .background(modelData.colorThemes[modelData.themeID]["Primary"])
         }
-        .frame(height: UIScreen.main.bounds.height*0.89)
         .clipShape(RoundedRectangle(cornerRadius: 44))
+        
     }
 }
 
