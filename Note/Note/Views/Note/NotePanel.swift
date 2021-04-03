@@ -43,6 +43,8 @@ struct NotePanel: View {
     var body: some View {
         
         ZStack (alignment: .top) {
+            
+
             NoteList()
                 .environmentObject(modelData)
             
@@ -61,6 +63,7 @@ struct NotePanel: View {
                     }
                 }
             }
+            
         }
         .clipShape(RoundedRectangle(cornerRadius: 44))
         .offset(y: self.pos.rawValue + self.dragState.translation.height)

@@ -114,7 +114,7 @@ struct CalendarView: View {
         let dateOfToday = Calendar.current.dateComponents([.year,.month,.day], from: Date())
         let dateOfTheDay = Calendar.current.dateComponents([.year,.month,.day], from: date)
         if dateOfTheDay == dateOfToday {
-            return .orange
+            return modelData.colorThemes[modelData.themeID]["Primary"]!
         }
         return DateFormatter.monthDayYear.string(from: self.selectedDay) == DateFormatter.monthDayYear.string(from: date) ? Color.green : Color.white
     }
@@ -132,7 +132,7 @@ struct CalendarView: View {
                         HStack {
                             Image(systemName: "chevron.backward")
                             Text("Back")
-                        }.foregroundColor(.orange)
+                        }.foregroundColor(modelData.colorThemes[modelData.themeID]["Menu"])
                     }.padding()
                     Spacer()
                 }
@@ -157,7 +157,7 @@ struct CalendarView: View {
                                         if Calendar.current.isDate(day, equalTo: month, toGranularity: .month) {
                                             
                                             NavigationLink(
-                                                destination: ToNoteView(date: day),
+                                                destination: ToNoteView(date: day).edgesIgnoringSafeArea(.bottom),
                                                 label: {
                                                     Text(DateFormatter.dayFormatter.string(from: day))
                                                 })

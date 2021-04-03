@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct RightView: View {
+    @EnvironmentObject var modelData: ModelData
+
+    
     var body: some View {
         ZStack {
-            Color.orange
+            modelData.colorThemes[modelData.themeID]["Primary"]
             
             Button("More to come...") {
 //                withAnimation {
 //                    self.index = index == 0 ? 1 : 0
 //                }
-            }.foregroundColor(.white)
-        }
+            }
+        }.foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
@@ -25,5 +28,6 @@ struct RightView: View {
 struct RightView_Previews: PreviewProvider {
     static var previews: some View {
         RightView()
+            .environmentObject(ModelData())
     }
 }

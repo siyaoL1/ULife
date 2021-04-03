@@ -29,7 +29,7 @@ struct NoteList: View {
                 }.padding(20)
 
                 ForEach(filteredLandmarks) { note in
-                    NavigationLink(destination: NoteDetail(note: note)) {
+                    NavigationLink(destination: NoteDetail(note: note).edgesIgnoringSafeArea(.bottom)) {
                         NoteRow(note: note)
 
                     }.simultaneousGesture(TapGesture().onEnded{
@@ -39,7 +39,7 @@ struct NoteList: View {
 
             }
             .frame(height: UIScreen.main.bounds.height*1.01, alignment: .topLeading)
-            .background(Color(red: 249/255, green: 247/255, blue: 236/255))
+            .background(modelData.colorThemes[modelData.themeID]["Primary"])
         }
         .clipShape(RoundedRectangle(cornerRadius: 44))
         

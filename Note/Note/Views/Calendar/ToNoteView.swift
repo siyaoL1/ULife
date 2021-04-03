@@ -34,7 +34,7 @@ struct ToNoteView : View {
                         Image(systemName: "chevron.backward")
                         Text("Back")
                     }
-                    .foregroundColor(.orange)
+                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Menu"])
                 }.padding()
                 Spacer()
             }
@@ -42,14 +42,15 @@ struct ToNoteView : View {
             
             ForEach(NotesOfTheDate) { note in
                 NavigationLink(destination: NoteDetail(note: note)) {
-                    NoteRow(note: note)
+                    NoteRow(note: note).edgesIgnoringSafeArea(.bottom)
                 }
                 
             }
             Spacer()
         }
+        .edgesIgnoringSafeArea(.bottom)
         .navigationBarHidden(true)
-        .background(Color(red: 249/255, green: 247/255, blue: 236/255))
+        .background(modelData.colorThemes[modelData.themeID]["Primary"])
 
 
 //        .navigationBarTitle("Notes", displayMode: .inline)
