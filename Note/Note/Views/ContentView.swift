@@ -98,6 +98,13 @@ struct ContentView: View {
                                     removal: AnyTransition.opacity))
                     
             }
+            
+            if modelData.showSettingPanel {
+                SettingView().zIndex(2)
+                    .transition(.asymmetric(
+                                    insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
+                                    removal: AnyTransition.opacity))
+            }
                 
 //            Button("Bla") {
 //                withAnimation {

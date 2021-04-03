@@ -19,20 +19,20 @@ struct MainPanelBar: View {
                 }
             }){
                 Image(systemName: "calendar")
-                    .foregroundColor((Color(red: 150/255, green: 150/255, blue: 150/255)))
+                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                     .font(.system(size: 25.0))
 //                    .matchedGeometryEffect(id: "1", in: namespace, properties: .frame)
             }
             Spacer()
 //            Spacer().frame(width: UIScreen.main.bounds.width*0.85)
             Button(action: {
-                modelData.showCalendarPanel = true
+                modelData.showSettingPanel = true
 //                modelData.showNotesPanel = false
                 //这行没有的也可以的
             }){
                 Image(systemName: "list.dash")
                     .font(.system(size: 25.0))
-                    .foregroundColor(Color(red: 150/255, green: 150/255, blue: 150/255))
+                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
             }
         }.padding()
     }

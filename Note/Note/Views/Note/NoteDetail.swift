@@ -44,7 +44,7 @@ struct NoteDetail: View {
             }
             .padding()
             .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
-            .background(Color(red: 249/255, green: 247/255, blue: 236/255, opacity: 0.25))
+            .background(modelData.colorThemes[modelData.themeID]["Primary"])
             
         }
         .navigationBarTitleDisplayMode(.inline)
