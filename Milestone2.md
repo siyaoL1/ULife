@@ -35,12 +35,4 @@
  
  
  
-## Video Demonstration
-<!-- ![Demonstration GIF](Resources/demonstration2.gif) -->
-<img src="Resources/demonstration2.gif" height="500"/>
-<<<<<<< HEAD
- 
 
-
-=======
->>>>>>> fa50090d4b6068e009e917699c6413f0a343c210
