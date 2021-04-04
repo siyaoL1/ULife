@@ -18,7 +18,6 @@
 		87235E492605461000719513 /* MultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E3D2605461000719513 /* MultilineTextView.swift */; };
 		87235E4A2605461000719513 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E3E2605461000719513 /* FavoriteButton.swift */; };
 		87235E4C2605461000719513 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E402605461000719513 /* ContentView.swift */; };
-		87421806261807E80019613D /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87421805261807E80019613D /* DropDownMenu.swift */; };
 		87493871260547BA00C1A43E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8749386F260547BA00C1A43E /* CardView.swift */; };
 		87493872260547BA00C1A43E /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87493870260547BA00C1A43E /* ToDoView.swift */; };
 		87493877260547DD00C1A43E /* ToDoEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87493876260547DD00C1A43E /* ToDoEvent.swift */; };
@@ -72,7 +71,6 @@
 		87235E3D2605461000719513 /* MultilineTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultilineTextView.swift; sourceTree = "<group>"; };
 		87235E3E2605461000719513 /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		87235E402605461000719513 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		87421805261807E80019613D /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
 		8749386F260547BA00C1A43E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		87493870260547BA00C1A43E /* ToDoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		87493876260547DD00C1A43E /* ToDoEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoEvent.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				87DF0AA72616B4B6001E32A8 /* SettingView.swift */,
-				87421805261807E80019613D /* DropDownMenu.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -423,7 +420,6 @@
 				87235E492605461000719513 /* MultilineTextView.swift in Sources */,
 				87235E4C2605461000719513 /* ContentView.swift in Sources */,
 				879F3F872602AEB900C110BC /* NoteApp.swift in Sources */,
-				87421806261807E80019613D /* DropDownMenu.swift in Sources */,
 				87235E472605461000719513 /* NoteRow.swift in Sources */,
 				3C58192C2612F9CC003049B4 /* NotePanel.swift in Sources */,
 				87493871260547BA00C1A43E /* CardView.swift in Sources */,

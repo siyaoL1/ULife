@@ -76,7 +76,7 @@ struct NotePanel: View {
                 }
                 .onEnded(dragEnded)
         )
-        .environmentObject(ModelData())
+        .environmentObject(modelData)
     }
     
     private func dragEnded(drag: DragGesture.Value) {

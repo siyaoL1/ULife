@@ -31,7 +31,6 @@ struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var index: Int = 1
     @State private var prevIndex: Int = 1
-    //    @State var showList: Bool = false
     
     var EdgeSwipe: some Gesture {
         DragGesture()
@@ -100,17 +99,11 @@ struct ContentView: View {
             }
             
             if modelData.showSettingPanel {
-                SettingView().zIndex(2)
+                SettingView().zIndex(1)
                     .transition(.asymmetric(
                                     insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
                                     removal: AnyTransition.opacity))
             }
-                
-//            Button("Bla") {
-//                withAnimation {
-//                    self.index = index == 0 ? 1 : 0
-//                }
-//            }.foregroundColor(.black)
         }
         
     }
