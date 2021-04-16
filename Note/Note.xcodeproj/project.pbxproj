@@ -40,6 +40,7 @@
 		87DF0AB82616B9DE001E32A8 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DF0AB72616B9DE001E32A8 /* LeftView.swift */; };
 		87DF0AC02616B9EE001E32A8 /* RightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DF0ABF2616B9EE001E32A8 /* RightView.swift */; };
 		87DF0AC82616BF15001E32A8 /* ToNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DF0AC72616BF15001E32A8 /* ToNoteView.swift */; };
+		B4C95DAA26293365007F4B80 /* SaveAndLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C95DA926293364007F4B80 /* SaveAndLoad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		87DF0AB72616B9DE001E32A8 /* LeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		87DF0ABF2616B9EE001E32A8 /* RightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightView.swift; sourceTree = "<group>"; };
 		87DF0AC72616BF15001E32A8 /* ToNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToNoteView.swift; sourceTree = "<group>"; };
+		B4C95DA926293364007F4B80 /* SaveAndLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndLoad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 				879F3F7F2602AEAB00C110BC /* NoteType.swift */,
 				879F3F802602AEAB00C110BC /* ModelData.swift */,
 				8749387B2605493D00C1A43E /* SwipeDirection.swift */,
+				B4C95DA926293364007F4B80 /* SaveAndLoad.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				3C58192C2612F9CC003049B4 /* NotePanel.swift in Sources */,
 				87493871260547BA00C1A43E /* CardView.swift in Sources */,
 				87DF0AAD2616B6B8001E32A8 /* MiddleView.swift in Sources */,
+				B4C95DAA26293365007F4B80 /* SaveAndLoad.swift in Sources */,
 				3C9CEDB92612FFBB00864CCE /* test.swift in Sources */,
 				87235E482605461000719513 /* FloatingMenu.swift in Sources */,
 				87C6C6772617C05B0002A04C /* CustomizeList.swift in Sources */,

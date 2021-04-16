@@ -8,8 +8,10 @@ import Combine
 
 class ModelData: ObservableObject {
     @Published var notes: [NoteType] = load("noteData.json")
-    @Published var todoList: [ToDoEvent] = [ToDoEvent]()
-    
+//    @Published var todoList: [ToDoEvent] = [ToDoEvent]()
+//    @Published var notes: [NoteType]
+    @Published var todoList: [ToDoEvent]
+    var saveAndLoad: SaveLoadData = SaveLoadData()
     @Published var inNotes: Bool = false
     @Published var showNotesPanel: Bool = true
     @Published var showMainPanel: Bool = true
@@ -33,13 +35,21 @@ class ModelData: ObservableObject {
     ]
     
     init() {
-        self.todoList.append(ToDoEvent(id: 0, text: "test1"))
-        self.todoList.append(ToDoEvent(id: 1, text: "Finish Project"))
-        self.todoList.append(ToDoEvent(id: 2, text: "Review class"))
+        self.notes = self.saveAndLoad.loadNoteList(forKey: "noteList") ?? []
+        self.todoList = self.saveAndLoad.loadToDoEventList(forKey: "eventList") ?? []
+//        self.todoList.append(ToDoEvent(id: 0, text: "test1"))
+//        self.todoList.append(ToDoEvent(id: 1, text: "Finish Project"))
+//        self.todoList.append(ToDoEvent(id: 2, text: "Review class"))
     }
     
     func addEvent(id: Int, text: String) -> Void {
         self.todoList.append(ToDoEvent(id: id, text: text))
+        self.saveAndLoad.saveToDoEventList(eventList: self.todoList, forKey: "eventList")
+    }
+    
+    func addNote(note: NoteType) {
+        self.notes.append(note)
+        self.saveAndLoad.saveNoteList(noteList: self.notes, forKey: "noteList")
     }
 }
 

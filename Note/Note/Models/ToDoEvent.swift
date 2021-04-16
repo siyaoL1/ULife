@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ToDoEvent: Identifiable{
+struct ToDoEvent: Identifiable, Codable{
     var id: Int
     var text: String
     var date: Date = Date()
