@@ -17,8 +17,11 @@ class ModelData: ObservableObject {
     @Published var showNotesPanel: Bool = true
     @Published var showMainPanel: Bool = true
     @Published var showCalendarPanel: Bool = false
+    @Published var showCalendarDropDown: Bool = false
     @Published var showSettingPanel: Bool = false
     @Published var alwaysFalse: Bool = false
+    @Published var showSearchBar: Bool = false
+    @Published var showCollapseBack: Bool = true
     
     @Published var themeID: Int = 0
     let colorThemes: [[String:Color]] = [

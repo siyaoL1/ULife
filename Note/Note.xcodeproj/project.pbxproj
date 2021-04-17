@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C58192C2612F9CC003049B4 /* DiaryPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58192B2612F9CC003049B4 /* DiaryPanel.swift */; };
+		3C3372B7262A73BC00BFA52B /* CalendarDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3372B6262A73BC00BFA52B /* CalendarDropDown.swift */; };
+		3C3372BC262A73D200BFA52B /* NoteViewInDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3372BB262A73D200BFA52B /* NoteViewInDropDown.swift */; };
+		3C3372C1262A73F300BFA52B /* NoteDetailInDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3372C0262A73F300BFA52B /* NoteDetailInDropDown.swift */; };
+		3C3372C6262A745900BFA52B /* DropMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3372C5262A745900BFA52B /* DropMenu.swift */; };
+		3C58192C2612F9CC003049B4 /* NotePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58192B2612F9CC003049B4 /* NotePanel.swift */; };
 		3C9CEDB92612FFBB00864CCE /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9CEDB82612FFBB00864CCE /* test.swift */; };
 		87235E432605461000719513 /* NoteDetail_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E362605461000719513 /* NoteDetail_2.swift */; };
 		87235E442605461000719513 /* NoteNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E372605461000719513 /* NoteNew.swift */; };
@@ -67,7 +71,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3C58192B2612F9CC003049B4 /* DiaryPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPanel.swift; sourceTree = "<group>"; };
+		3C3372B6262A73BC00BFA52B /* CalendarDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDropDown.swift; sourceTree = "<group>"; };
+		3C3372BB262A73D200BFA52B /* NoteViewInDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewInDropDown.swift; sourceTree = "<group>"; };
+		3C3372C0262A73F300BFA52B /* NoteDetailInDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailInDropDown.swift; sourceTree = "<group>"; };
+		3C3372C5262A745900BFA52B /* DropMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropMenu.swift; sourceTree = "<group>"; };
+		3C58192B2612F9CC003049B4 /* NotePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePanel.swift; sourceTree = "<group>"; };
 		3C9CEDB82612FFBB00864CCE /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		87235E362605461000719513 /* NoteDetail_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetail_2.swift; sourceTree = "<group>"; };
 		87235E372605461000719513 /* NoteNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteNew.swift; sourceTree = "<group>"; };
@@ -143,6 +151,8 @@
 		87235E352605461000719513 /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				3C3372C0262A73F300BFA52B /* NoteDetailInDropDown.swift */,
+				3C58192B2612F9CC003049B4 /* NotePanel.swift */,
 				87235E362605461000719513 /* NoteDetail_2.swift */,
 				87235E372605461000719513 /* NoteNew.swift */,
 				87235E382605461000719513 /* NoteList.swift */,
@@ -155,6 +165,7 @@
 		87235E3C2605461000719513 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3C3372C5262A745900BFA52B /* DropMenu.swift */,
 				87235E3B2605461000719513 /* FloatingMenu.swift */,
 				87DF0AA22616B4AC001E32A8 /* MainPanelBar.swift */,
 				87235E3D2605461000719513 /* MultilineTextView.swift */,
@@ -298,6 +309,8 @@
 		87DF0A972616B476001E32A8 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				3C3372BB262A73D200BFA52B /* NoteViewInDropDown.swift */,
+				3C3372B6262A73BC00BFA52B /* CalendarDropDown.swift */,
 				87DF0A982616B476001E32A8 /* CalendarView.swift */,
 				87DF0AC72616BF15001E32A8 /* ToNoteView.swift */,
 			);
@@ -437,11 +450,13 @@
 			files = (
 				879F3F812602AEAB00C110BC /* NoteType.swift in Sources */,
 				879F3F552602AE4300C110BC /* Persistence.swift in Sources */,
+				3C3372C1262A73F300BFA52B /* NoteDetailInDropDown.swift in Sources */,
 				87493872260547BA00C1A43E /* ToDoView.swift in Sources */,
 				8749387C2605493D00C1A43E /* SwipeDirection.swift in Sources */,
 				87235E4A2605461000719513 /* FavoriteButton.swift in Sources */,
 				87DF0AA32616B4AC001E32A8 /* MainPanelBar.swift in Sources */,
 				87DF0A992616B476001E32A8 /* CalendarView.swift in Sources */,
+				3C3372C6262A745900BFA52B /* DropMenu.swift in Sources */,
 				87DF0AA82616B4B6001E32A8 /* SettingView.swift in Sources */,
 				87DF0AC82616BF15001E32A8 /* ToNoteView.swift in Sources */,
 				87DF0AB82616B9DE001E32A8 /* LeftView.swift in Sources */,
@@ -467,7 +482,8 @@
 				87235E462605461000719513 /* NoteDetail.swift in Sources */,
 				87493877260547DD00C1A43E /* ToDoEvent.swift in Sources */,
 				87235E432605461000719513 /* NoteDetail_2.swift in Sources */,
-				876A61022629F44E004AB13E /* DiaryRow.swift in Sources */,
+				3C3372BC262A73D200BFA52B /* NoteViewInDropDown.swift in Sources */,
+				3C3372B7262A73BC00BFA52B /* CalendarDropDown.swift in Sources */,
 				87235E452605461000719513 /* NoteList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

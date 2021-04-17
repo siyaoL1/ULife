@@ -79,10 +79,14 @@ struct DiaryPanel: View {
             self.pos = positionBelow
             modelData.showNotesPanel = false
             modelData.showMainPanel = true
+            
         } else if verticalMovement < 0 {
             self.pos = positionTop
             modelData.showNotesPanel = true
             modelData.showMainPanel = false
+            modelData.showSearchBar = false
+            modelData.showSettingPanel = false
+            modelData.showCalendarDropDown = false
         }
     }
 }
