@@ -11,36 +11,16 @@ struct MiddleView: View {
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {
-        ZStack(alignment: Alignment.top) {
-            NotePanel()
-
+        ZStack(alignment: .top) {
+            DiaryPanel()
+    
             if modelData.showMainPanel {
-                MainPanelBar()
+                MainPanelBar(t:"")
                     .transition(.opacity)
             }
         }.background(Color.white)
     }
 }
-
-//extension View {
-//    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
-//        NavigationView {
-//            ZStack {
-//                self
-//                    .navigationBarTitle("")
-//                    .navigationBarHidden(true)
-//                NavigationLink(
-//                    destination: view
-//                        .navigationBarTitle("")
-//                        .navigationBarHidden(true),
-//                    isActive: binding
-//                ) {
-//                    EmptyView()
-//                }
-//            }
-//        }
-//    }
-//}
 
 struct MiddleView_Previews: PreviewProvider {
     static var previews: some View {
