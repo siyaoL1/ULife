@@ -32,7 +32,8 @@ struct NoteNew : View {
                         
                         Button(action: {
                             note.id = modelData.notes.count
-                            modelData.notes.append(note)
+                            modelData.addNote(note: note)
+                            
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Save")

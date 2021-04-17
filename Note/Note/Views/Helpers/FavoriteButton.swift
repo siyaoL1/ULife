@@ -12,6 +12,7 @@ struct FavoriteButton: View {
     var body: some View {
         Button(action: {
             isSet.toggle()
+            modelData.saveAndLoad.saveNoteList(noteList: modelData.notes, forKey: "noteList")
             modelData.inNotes = false
         }) {
             Image(systemName: isSet ? "star.fill" : "star")

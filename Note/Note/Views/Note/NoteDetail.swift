@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct NoteDetail: View {
     @EnvironmentObject var modelData: ModelData
@@ -16,7 +17,15 @@ struct NoteDetail: View {
     var noteIndex: Int {
         modelData.notes.firstIndex(where: { $0.id == note.id })!
     }
-        
+    
+    func actionSheet() {
+        guard let data = URL(string: "https://www.google.com") else { return }
+        let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(
+            av, animated: true, completion: nil
+        )
+    }
+    
     var body: some View {
         // Retrive the time information from note data
         let time = "\(note.dateComponents.year!)/\(note.dateComponents.month!)/\(note.dateComponents.day!)"
@@ -61,12 +70,26 @@ struct NoteDetail: View {
                 }
             , trailing:
                 Button(
-                    action: {}
+                    action: actionSheet
                 ){
                     Image(systemName: "square.and.arrow.up")
                 }
         )
     }
+}
+
+struct NavigationConfigurator: UIViewControllerRepresentable {
+    var configure: (UINavigationController) -> Void = { _ in }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
+        UIViewController()
+    }
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
+        if let nc = uiViewController.navigationController {
+            self.configure(nc)
+        }
+    }
+
 }
 
 struct NoteDetail_Previews: PreviewProvider {

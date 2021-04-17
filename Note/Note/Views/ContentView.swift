@@ -31,7 +31,6 @@ struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var index: Int = 1
     @State private var prevIndex: Int = 1
-    //    @State var showList: Bool = false
     
     var EdgeSwipe: some Gesture {
         DragGesture()
@@ -39,17 +38,22 @@ struct ContentView: View {
                 withAnimation {
                     let direction = detectDirection(value: gesture)
                     if gesture.startLocation.x < CGFloat(10.0) && direction == .left {
-                        print("left edge swipe")
+                        //print("left edge swipe")
                         if self.index > 0 {
                             self.prevIndex = index
                             self.index -= 1
                         }
                     } else if gesture.startLocation.x > CGFloat(UIScreen.main.bounds.size.width - 10.0) && direction == .right {
-                        print("rigth edge swipe")
+                        //print("rigth edge swipe")
                         if self.index < 2 {
                             self.prevIndex = index
                             self.index += 1
                         }
+                    } else if direction == .down {
+                        modelData.showSearchBar = true
+                    } else if direction == .up {
+                        modelData.showSearchBar = false
+                        modelData.showCalendarDropDown = false
                     }
                  }
             })
@@ -65,19 +69,16 @@ struct ContentView: View {
             } else if self.index == 1 {
                 if prevIndex == 0 {
                     MiddleView()
-                        .environmentObject(modelData)
                         .transition(.rightView)
                         .gesture(EdgeSwipe)
                         .zIndex(0)
                 } else if prevIndex == 2 {
                     MiddleView()
-                        .environmentObject(modelData)
                         .transition(.leftView)
                         .gesture(EdgeSwipe)
                         .zIndex(0)
                 } else {
                     MiddleView()
-                        .environmentObject(modelData)
                         .transition(.leftView)
                         .gesture(EdgeSwipe)
                         .zIndex(0)
@@ -100,17 +101,18 @@ struct ContentView: View {
             }
             
             if modelData.showSettingPanel {
-                SettingView().zIndex(2)
+                SettingView().zIndex(1)
                     .transition(.asymmetric(
-                                    insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
+                                    insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)), //AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
                                     removal: AnyTransition.opacity))
             }
-                
-//            Button("Bla") {
-//                withAnimation {
-//                    self.index = index == 0 ? 1 : 0
-//                }
-//            }.foregroundColor(.black)
+            
+            if modelData.showCalendarDropDown {
+                DropMenu().zIndex(1)
+                    .transition(.asymmetric(
+                                    insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)), //AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
+                                    removal: AnyTransition.opacity))
+            }
         }
         
     }
