@@ -38,10 +38,14 @@ struct NoteList: View {
                 }
 
             }
-            .frame(height: UIScreen.main.bounds.height*1.01, alignment: .topLeading)
+            .frame(height:UIScreen.main.bounds.height*1.02, alignment: .topLeading)
             .background(modelData.colorThemes[modelData.themeID]["Primary"])
+            .clipShape(RoundedRectangle(cornerRadius: 45))
+            .background(NavigationConfigurator { nc in
+                nc.navigationBar.barTintColor = UIColor(modelData.colorThemes[modelData.themeID]["Primary"]!);
+                nc.navigationBar.titleTextAttributes = [.foregroundColor : modelData.colorThemes[modelData.themeID]["Primary"]!]
+                        })
         }
-        .clipShape(RoundedRectangle(cornerRadius: 44))
         
     }
 }

@@ -1,14 +1,13 @@
 //
-//  NoteDetail.swift
+//  NoteDetailInDropDown.swift
 //  Note
 //
-//  Created by Siyao Li on 3/17/21.
+//  Created by Hongyang Lin on 4/16/21.
 //
 
 import SwiftUI
-import UIKit
 
-struct NoteDetail: View {
+struct NoteDetailInDropDown: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
     
@@ -18,12 +17,11 @@ struct NoteDetail: View {
         modelData.notes.firstIndex(where: { $0.id == note.id })!
     }
     
-    func actionSheet() {
-        guard let data = URL(string: "https://www.google.com") else { return }
-        let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-        UIApplication.shared.windows.first?.rootViewController?.present(
-            av, animated: true, completion: nil
-        )
+    func action(val: DragGesture.Value) {
+        if detectDirection(value: val) == .left {
+            self.presentationMode.wrappedValue.dismiss()
+
+        }
     }
     
     var body: some View {
@@ -56,51 +54,15 @@ struct NoteDetail: View {
             .background(modelData.colorThemes[modelData.themeID]["Primary"])
             
         }
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(
-            leading:
-                Button(
-                    action:{
-                        self.presentationMode.wrappedValue.dismiss()
-                        modelData.inNotes = false
-                    }
-                ){
-                    Image(systemName: "chevron.backward")
-                }
-            , trailing:
-                Button(
-                    action: actionSheet
-                ){
-                    Image(systemName: "square.and.arrow.up")
-                }
-        )
+        .gesture(DragGesture().onEnded(action))
     }
 }
 
-struct NavigationConfigurator: UIViewControllerRepresentable {
-    var configure: (UINavigationController) -> Void = { _ in }
-
-    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
-        UIViewController()
-    }
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
-        if let nc = uiViewController.navigationController {
-            self.configure(nc)
-        }
-    }
-
-}
-
-struct NoteDetail_Previews: PreviewProvider {
-    init() {
-        UITextView.appearance().backgroundColor = .clear
-    }
+struct NoteDetailInDropDown_Previews: PreviewProvider {
     static var modelData = ModelData()
-    
     static var previews: some View {
-        NoteDetail(note: modelData.notes[0])
-            .environmentObject(modelData)
+        NoteDetailInDropDown(note: modelData.notes[0]).environmentObject(ModelData())
     }
-
 }

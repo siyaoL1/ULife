@@ -10,29 +10,56 @@ import SwiftUI
 struct MainPanelBar: View {
     @EnvironmentObject var modelData: ModelData
     @Namespace var namespace
+    @State var t: String
+    
+    func action() {
+        withAnimation(.easeInOut) {
+            modelData.showCalendarDropDown = true
+            modelData.showSearchBar = false
+        }
+    }
     
     var body: some View {
         HStack{
-            Button(action: {
-                withAnimation(.easeOut) {
-                    modelData.showCalendarPanel = true
-                }
-            }){
-                Image(systemName: "calendar")
-                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
-                    .font(.system(size: 25.0))
-//                    .matchedGeometryEffect(id: "1", in: namespace, properties: .frame)
-            }
             Spacer()
-//            Spacer().frame(width: UIScreen.main.bounds.width*0.85)
-            Button(action: {
-                modelData.showSettingPanel = true
-//                modelData.showNotesPanel = false
-                //这行没有的也可以的
-            }){
-                Image(systemName: "list.dash")
-                    .font(.system(size: 25.0))
-                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+            
+            if modelData.showSearchBar {
+                
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+                            .onAppear {
+                                modelData.showSearchBar = true
+                            }
+                            .animation(.easeInOut)
+                        TextField("diary title", text: $t)
+                            .frame(width:150)
+                        
+                    }
+                    .padding()
+                    .frame(height:30)
+                    .overlay(RoundedRectangle(cornerRadius:20).stroke(modelData.colorThemes[modelData.themeID]["Secondary"]!))
+                    .animation(.easeOut)
+                    .transition(.scale)
+                
+                Button(action:{action()}) {
+                    Image(systemName: "calendar")
+                        .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+                        .font(.system(size: 25.0))
+                        .animation(.easeInOut)
+                }
+            }
+
+            Spacer()
+            
+            if !modelData.showSearchBar && !modelData.showCalendarDropDown {
+                Button(action: {
+                    modelData.showSettingPanel = true
+                }){
+                    Image(systemName: "list.dash")
+                        .font(.system(size: 25.0))
+                        .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+                }
             }
         }.padding()
     }
@@ -40,6 +67,6 @@ struct MainPanelBar: View {
 
 struct MainPanelBar_Previews: PreviewProvider {
     static var previews: some View {
-        MainPanelBar().environmentObject(ModelData())
+        MainPanelBar(t: "").environmentObject(ModelData())
     }
 }
