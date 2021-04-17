@@ -13,8 +13,7 @@ struct MiddleView: View {
     var body: some View {
         ZStack(alignment: .top) {
             DiaryPanel()
-                
-
+    
             if modelData.showMainPanel {
                 MainPanelBar(t:"")
                     .transition(.opacity)

@@ -69,19 +69,16 @@ struct ContentView: View {
             } else if self.index == 1 {
                 if prevIndex == 0 {
                     MiddleView()
-                        .environmentObject(modelData)
                         .transition(.rightView)
                         .gesture(EdgeSwipe)
                         .zIndex(0)
                 } else if prevIndex == 2 {
                     MiddleView()
-                        .environmentObject(modelData)
                         .transition(.leftView)
                         .gesture(EdgeSwipe)
                         .zIndex(0)
                 } else {
                     MiddleView()
-                        .environmentObject(modelData)
                         .transition(.leftView)
                         .gesture(EdgeSwipe)
                         .zIndex(0)

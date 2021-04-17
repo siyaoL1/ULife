@@ -18,6 +18,8 @@ struct DiaryList: View {
                     HStack {
                         Spacer()
                         DiaryRow(diary: diary)
+                            .padding(.top, 5)
+                            .padding(.bottom, 15)
                         Spacer()
                     }.frame(width: UIScreen.main.bounds.width)
                 }

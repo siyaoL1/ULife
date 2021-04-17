@@ -10,8 +10,7 @@ import SwiftUI
 struct DiaryRow: View {
     @EnvironmentObject var modelData: ModelData
     var diary: DiaryType
-    let weatherIcon = ["Sunny": "sun.max"]
-    
+    let weatherIcon = ["Sunny": "sun.max", "Sleepy": "zzz"]
     
     var body: some View {
         VStack {
@@ -58,7 +57,7 @@ struct DiaryRow: View {
         }
         .frame(width: 330, height: 170, alignment: .topLeading)
         .padding(10)
-        .background(modelData.colorThemes[modelData.themeID]["Addon"])
+        .background(Color(red: 249/255, green: 240/255, blue: 220/255))
         .cornerRadius(10)
         .overlay(
                 RoundedRectangle(cornerRadius: 10)
@@ -72,15 +71,12 @@ struct DiaryRow: View {
 struct DiaryRow_Previews: PreviewProvider {
     static var modelData = ModelData()
     
-//    static var previews: some View {
-//        NoteRow(note: modelData.notes[1])
-//            .environmentObject(modelData)
-//            .previewLayout(.fixed(width: 300, height: 70))
-//    }
     static var previews: some View {
-        DiaryRow(diary: modelData.diaries[0])
-//        "Apr.12, 2021"
-//        DiaryRow(diary: DiaryType(newId: 1))
-            .environmentObject(modelData)
+        ZStack {
+            Color(red: 249/255, green: 247/255, blue: 236/255)
+            DiaryRow(diary: modelData.diaries[0])
+                .environmentObject(modelData)
+        }
+        
     }
 }

@@ -18,7 +18,6 @@ struct NoteList: View {
     }
 
     var body: some View {
-
         NavigationView {
             VStack(spacing: 0) {
                 Toggle(isOn: $showFavoritesOnly) {
@@ -26,7 +25,7 @@ struct NoteList: View {
                 }.padding(20)
 
                 if (filteredLandmarks.count == 0) {
-                    Text("You don't have any note yet...")
+                    Text("Nothing to see right now...")
                         .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"]?.opacity(0.3))
                 } else {
                     ForEach(filteredLandmarks) { note in
@@ -40,9 +39,9 @@ struct NoteList: View {
                 }
                 Spacer()
             }
+            .edgesIgnoringSafeArea(.bottom)
             .navigationBarHidden(true)
             .background(modelData.colorThemes[modelData.themeID]["Primary"])
-            .clipShape(RoundedRectangle(cornerRadius: 45))
             .background(NavigationConfigurator { nc in
                 nc.navigationBar.barTintColor = UIColor(modelData.colorThemes[modelData.themeID]["Primary"]!);
                 nc.navigationBar.titleTextAttributes = [.foregroundColor : modelData.colorThemes[modelData.themeID]["Primary"]!]

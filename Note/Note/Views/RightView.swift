@@ -12,7 +12,12 @@ struct RightView: View {
     
     var body: some View {
         ZStack {
+            modelData.colorThemes[modelData.themeID]["Primary"]
+            
             NoteList()
+                .background(modelData.colorThemes[modelData.themeID]["Primary"])
+                .ignoresSafeArea()
+                .background(modelData.colorThemes[modelData.themeID]["Primary"])
                 .environmentObject(modelData)
             
             if !modelData.inNotes {
