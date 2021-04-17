@@ -8,6 +8,7 @@ import Combine
 
 class ModelData: ObservableObject {
     @Published var notes: [NoteType] = load("noteData.json")
+    @Published var diaries: [DiaryType] = load("diaryData.json")
 //    @Published var todoList: [ToDoEvent] = [ToDoEvent]()
 //    @Published var notes: [NoteType]
     @Published var todoList: [ToDoEvent]
@@ -24,7 +25,8 @@ class ModelData: ObservableObject {
         ["Primary": Color(red: 249/255, green: 247/255, blue: 236/255),
          "Secondary": Color.orange,
          "Text": Color(red: 105/255.0, green: 105/255.0, blue: 105/255.0),
-         "Background": Color.secondary.opacity(0.2)
+         "Background": Color.secondary.opacity(0.2),
+         "Addon": Color(red: 255/255, green: 225/255, blue: 117/255)
         ],
         ["Primary": Color(red: 238/255.0, green: 235/255.0, blue: 255/255.0),
 //            "Primary": Color(red: 222/255.0, green: 245/255.0, blue: 255/255.0),

@@ -9,19 +9,26 @@ import SwiftUI
 
 struct RightView: View {
     @EnvironmentObject var modelData: ModelData
-
     
     var body: some View {
         ZStack {
-            modelData.colorThemes[modelData.themeID]["Primary"]
+            NoteList()
+                .environmentObject(modelData)
             
-            Button("More to come...") {
-//                withAnimation {
-//                    self.index = index == 0 ? 1 : 0
-//                }
+            if !modelData.inNotes {
+                HStack(){
+                    Spacer()
+                    FloatingMenu()
+                        .padding(.bottom, 30)
+                        .padding(.trailing, 30)
+                        .environmentObject(modelData)
+                }
             }
-        }.foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
-        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        }
+        .padding(.top, 55)
+        .background(modelData.colorThemes[modelData.themeID]["Primary"])
+        .edgesIgnoringSafeArea(.all)
+        
     }
 }
 

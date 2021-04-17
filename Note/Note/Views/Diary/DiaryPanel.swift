@@ -35,7 +35,7 @@ enum DragState {
     }
 }
 
-struct NotePanel: View {
+struct DiaryPanel: View {
     @EnvironmentObject var modelData: ModelData
     @State var pos = PanelPosition.bottom
     @GestureState private var dragState = DragState.inactive
@@ -43,9 +43,7 @@ struct NotePanel: View {
     var body: some View {
         
         ZStack (alignment: .top) {
-            
-
-            NoteList()
+            DiaryList()
                 .environmentObject(modelData)
             
             if !modelData.inNotes {
@@ -55,15 +53,8 @@ struct NotePanel: View {
                             Color(red: 211/255, green: 211/255, blue: 211/255))
                         .frame(width: 60, height:8)
                         .padding(.top, 10)
-                    HStack{
-                        Spacer().frame(width: 240, height: 100)
-                        FloatingMenu()
-                            .padding(.bottom, 30)
-                            .environmentObject(modelData)
-                    }
                 }
             }
-            
         }
         .clipShape(RoundedRectangle(cornerRadius: 44))
         .offset(y: self.pos.rawValue + self.dragState.translation.height)
@@ -96,8 +87,8 @@ struct NotePanel: View {
     }
 }
 
-struct NotePanel_Previews: PreviewProvider {
+struct DiaryPanel_Previews: PreviewProvider {
     static var previews: some View {
-        NotePanel().environmentObject(ModelData())
+        DiaryPanel().environmentObject(ModelData())
     }
 }

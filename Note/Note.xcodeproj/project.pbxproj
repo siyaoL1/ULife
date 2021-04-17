@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C58192C2612F9CC003049B4 /* NotePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58192B2612F9CC003049B4 /* NotePanel.swift */; };
+		3C58192C2612F9CC003049B4 /* DiaryPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C58192B2612F9CC003049B4 /* DiaryPanel.swift */; };
 		3C9CEDB92612FFBB00864CCE /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9CEDB82612FFBB00864CCE /* test.swift */; };
 		87235E432605461000719513 /* NoteDetail_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E362605461000719513 /* NoteDetail_2.swift */; };
 		87235E442605461000719513 /* NoteNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E372605461000719513 /* NoteNew.swift */; };
@@ -22,6 +22,12 @@
 		87493872260547BA00C1A43E /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87493870260547BA00C1A43E /* ToDoView.swift */; };
 		87493877260547DD00C1A43E /* ToDoEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87493876260547DD00C1A43E /* ToDoEvent.swift */; };
 		8749387C2605493D00C1A43E /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8749387B2605493D00C1A43E /* SwipeDirection.swift */; };
+		876A61022629F44E004AB13E /* DiaryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A61012629F44E004AB13E /* DiaryRow.swift */; };
+		876A610A2629F459004AB13E /* DiaryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A61092629F459004AB13E /* DiaryDetail.swift */; };
+		876A610F2629F472004AB13E /* DiaryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A610E2629F472004AB13E /* DiaryList.swift */; };
+		876A6117262A0554004AB13E /* DiaryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A6116262A0554004AB13E /* DiaryType.swift */; };
+		876A611C262A0F15004AB13E /* diaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 876A611B262A0F15004AB13E /* diaryData.json */; };
+		876A612D262A373F004AB13E /* bla.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A612C262A373F004AB13E /* bla.swift */; };
 		879F3F502602AE4300C110BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879F3F4F2602AE4300C110BC /* Assets.xcassets */; };
 		879F3F532602AE4300C110BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879F3F522602AE4300C110BC /* Preview Assets.xcassets */; };
 		879F3F552602AE4300C110BC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F3F542602AE4300C110BC /* Persistence.swift */; };
@@ -61,7 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3C58192B2612F9CC003049B4 /* NotePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePanel.swift; sourceTree = "<group>"; };
+		3C58192B2612F9CC003049B4 /* DiaryPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPanel.swift; sourceTree = "<group>"; };
 		3C9CEDB82612FFBB00864CCE /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		87235E362605461000719513 /* NoteDetail_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetail_2.swift; sourceTree = "<group>"; };
 		87235E372605461000719513 /* NoteNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteNew.swift; sourceTree = "<group>"; };
@@ -76,6 +82,12 @@
 		87493870260547BA00C1A43E /* ToDoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		87493876260547DD00C1A43E /* ToDoEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoEvent.swift; sourceTree = "<group>"; };
 		8749387B2605493D00C1A43E /* SwipeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDirection.swift; sourceTree = "<group>"; };
+		876A61012629F44E004AB13E /* DiaryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRow.swift; sourceTree = "<group>"; };
+		876A61092629F459004AB13E /* DiaryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetail.swift; sourceTree = "<group>"; };
+		876A610E2629F472004AB13E /* DiaryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryList.swift; sourceTree = "<group>"; };
+		876A6116262A0554004AB13E /* DiaryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryType.swift; sourceTree = "<group>"; };
+		876A611B262A0F15004AB13E /* diaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = diaryData.json; sourceTree = "<group>"; };
+		876A612C262A373F004AB13E /* bla.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bla.swift; sourceTree = "<group>"; };
 		879F3F482602AE4200C110BC /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879F3F4F2602AE4300C110BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		879F3F522602AE4300C110BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -131,7 +143,6 @@
 		87235E352605461000719513 /* Note */ = {
 			isa = PBXGroup;
 			children = (
-				3C58192B2612F9CC003049B4 /* NotePanel.swift */,
 				87235E362605461000719513 /* NoteDetail_2.swift */,
 				87235E372605461000719513 /* NoteNew.swift */,
 				87235E382605461000719513 /* NoteList.swift */,
@@ -168,6 +179,18 @@
 				87C6C6762617C05B0002A04C /* CustomizeList.swift */,
 			);
 			path = ToDoList;
+			sourceTree = "<group>";
+		};
+		876A61002629F183004AB13E /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				3C58192B2612F9CC003049B4 /* DiaryPanel.swift */,
+				876A61012629F44E004AB13E /* DiaryRow.swift */,
+				876A61092629F459004AB13E /* DiaryDetail.swift */,
+				876A610E2629F472004AB13E /* DiaryList.swift */,
+				876A612C262A373F004AB13E /* bla.swift */,
+			);
+			path = Diary;
 			sourceTree = "<group>";
 		};
 		879F3F3F2602AE4200C110BC = {
@@ -235,11 +258,12 @@
 		879F3F7E2602AEAB00C110BC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				87493876260547DD00C1A43E /* ToDoEvent.swift */,
-				879F3F7F2602AEAB00C110BC /* NoteType.swift */,
-				879F3F802602AEAB00C110BC /* ModelData.swift */,
 				8749387B2605493D00C1A43E /* SwipeDirection.swift */,
+				87493876260547DD00C1A43E /* ToDoEvent.swift */,
+				879F3F802602AEAB00C110BC /* ModelData.swift */,
 				B4C95DA926293364007F4B80 /* SaveAndLoad.swift */,
+				879F3F7F2602AEAB00C110BC /* NoteType.swift */,
+				876A6116262A0554004AB13E /* DiaryType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +271,7 @@
 		879F3F8E2602AECF00C110BC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				876A611B262A0F15004AB13E /* diaryData.json */,
 				879F3F8F2602AECF00C110BC /* noteData.json */,
 			);
 			path = Resources;
@@ -255,6 +280,7 @@
 		879F3F942602AED500C110BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				876A61002629F183004AB13E /* Diary */,
 				87DF0A972616B476001E32A8 /* Calendar */,
 				3C9CEDB82612FFBB00864CCE /* test.swift */,
 				87421804261807D50019613D /* Setting */,
@@ -382,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				879F3F902602AECF00C110BC /* noteData.json in Resources */,
+				876A611C262A0F15004AB13E /* diaryData.json in Resources */,
 				879F3F532602AE4300C110BC /* Preview Assets.xcassets in Resources */,
 				879F3F502602AE4300C110BC /* Assets.xcassets in Resources */,
 			);
@@ -424,18 +451,23 @@
 				87235E4C2605461000719513 /* ContentView.swift in Sources */,
 				879F3F872602AEB900C110BC /* NoteApp.swift in Sources */,
 				87235E472605461000719513 /* NoteRow.swift in Sources */,
-				3C58192C2612F9CC003049B4 /* NotePanel.swift in Sources */,
+				876A610A2629F459004AB13E /* DiaryDetail.swift in Sources */,
+				3C58192C2612F9CC003049B4 /* DiaryPanel.swift in Sources */,
+				876A610F2629F472004AB13E /* DiaryList.swift in Sources */,
 				87493871260547BA00C1A43E /* CardView.swift in Sources */,
 				87DF0AAD2616B6B8001E32A8 /* MiddleView.swift in Sources */,
 				B4C95DAA26293365007F4B80 /* SaveAndLoad.swift in Sources */,
 				3C9CEDB92612FFBB00864CCE /* test.swift in Sources */,
+				876A6117262A0554004AB13E /* DiaryType.swift in Sources */,
 				87235E482605461000719513 /* FloatingMenu.swift in Sources */,
 				87C6C6772617C05B0002A04C /* CustomizeList.swift in Sources */,
 				879F3F582602AE4300C110BC /* Note.xcdatamodeld in Sources */,
+				876A612D262A373F004AB13E /* bla.swift in Sources */,
 				879F3F822602AEAB00C110BC /* ModelData.swift in Sources */,
 				87235E462605461000719513 /* NoteDetail.swift in Sources */,
 				87493877260547DD00C1A43E /* ToDoEvent.swift in Sources */,
 				87235E432605461000719513 /* NoteDetail_2.swift in Sources */,
+				876A61022629F44E004AB13E /* DiaryRow.swift in Sources */,
 				87235E452605461000719513 /* NoteList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,58 @@
+[
+    {
+        "id": 0,
+        "title": "My New Diary :)",
+        "content": "Hi there, it's our group project in the CMSC436 at University of Maryland",
+        "weather": "Sunny",
+        "date": "Apr.14, 2021"
+    },
+    {
+        "id": 1,
+        "title": "Chilling day",
+        "content": "Today is pretty cool, but I couldn't fall asleep though lol.",
+        "weather": "Sunny",
+        "date": "Apr.13, 2021"
+    },
+    {
+        "id": 2,
+        "title": "Yooooooo",
+        "content": "We got our progress, let's GO!!!",
+        "weather": "Sunny",
+        "date": "Apr.12, 2021"
+    },
+    {
+        "id": 3,
+        "title": "Just a-a-a placeholder",
+        "content": "We got our progress, let's GO!!!",
+        "weather": "Sunny",
+        "date": "Apr.11, 2021"
+    },
+    {
+        "id": 4,
+        "title": "Just a-a-a placeholder",
+        "content": "We got our progress, let's GO!!!",
+        "weather": "Sunny",
+        "date": "Apr.10, 2021"
+    },
+    {
+        "id": 5,
+        "title": "Just a-a-a placeholder",
+        "content": "We got our progress, let's GO!!!",
+        "weather": "Sunny",
+        "date": "Apr.9, 2021"
+    },
+    {
+        "id": 6,
+        "title": "Just a-a-a placeholder",
+        "content": "We got our progress, let's GO!!!",
+        "weather": "Sunny",
+        "date": "Apr.8, 2021"
+    },
+    {
+        "id": 7,
+        "title": "Just a-a-a placeholder",
+        "content": "We got our progress, let's GO!!!",
+        "weather": "Sunny",
+        "date": "Apr.7, 2021"
+    }
+]
