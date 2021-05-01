@@ -8,12 +8,13 @@
 import Foundation
 
 struct ToDoEvent: Identifiable, Codable{
-    var id: Int
+    var hasDeleted: Bool = false
+    var id: UUID
     var text: String
     var date: Date = Date()
     var done: Bool = false
-    init(id: Int, text: String) {
+    init(text: String) {
         self.text = text
-        self.id = id
+        self.id = UUID()
     }
 }

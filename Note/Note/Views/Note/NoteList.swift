@@ -29,12 +29,14 @@ struct NoteList: View {
                         .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"]?.opacity(0.3))
                 } else {
                     ForEach(filteredLandmarks) { note in
-                        NavigationLink(destination: NoteDetail(note: note).edgesIgnoringSafeArea(.bottom)) {
-                            NoteRow(note: note)
+                        if !note.hasDeleted {
+                            NavigationLink(destination: NoteDetail(note: note).edgesIgnoringSafeArea(.bottom)) {
+                                NoteRow(note: note)
 
-                        }.simultaneousGesture(TapGesture().onEnded{
-                            modelData.inNotes = true
-                        })
+                            }.simultaneousGesture(TapGesture().onEnded{
+                                modelData.inNotes = true
+                            })
+                        }
                     }
                 }
                 Spacer()

@@ -17,10 +17,13 @@ struct DiaryList: View {
                 ForEach(modelData.diaries) { diary in
                     HStack {
                         Spacer()
-                        DiaryRow(diary: diary)
-                            .padding(.top, 5)
-                            .padding(.bottom, 15)
-                        Spacer()
+                        if !diary.hasDeleted {
+                            DiaryRow(diary: diary)
+                                .padding(.top, 5)
+                                .padding(.bottom, 15)
+                            Spacer()
+                        }
+                        
                     }.frame(width: UIScreen.main.bounds.width)
                 }
             }

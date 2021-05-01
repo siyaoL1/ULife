@@ -11,7 +11,7 @@ import SwiftUI
 struct NoteNew : View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
-    @State var note: NoteType = NoteType(newId: -1)
+    @State var note: NoteType = NoteType()
 
     var body: some View {
         let time = "\(note.dateComponents.year!)/\(note.dateComponents.month!)/\(note.dateComponents.day!)"
@@ -31,7 +31,6 @@ struct NoteNew : View {
                         Spacer()
                         
                         Button(action: {
-                            note.id = modelData.notes.count
                             modelData.addNote(note: note)
                             
                             self.presentationMode.wrappedValue.dismiss()

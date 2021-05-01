@@ -79,7 +79,7 @@ struct ToDoView: View {
                 
                 Button(action: {
                     if !text.isEmpty {
-                        modelData.addEvent(id: modelData.todoList.count, text: self.text)
+                        modelData.addEvent(text: self.text)
                     }
                     self.text = ""
                 }, label: {

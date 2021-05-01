@@ -7,7 +7,8 @@
 import Foundation
 
 struct NoteType: Hashable, Codable, Identifiable {
-    var id: Int
+    var hasDeleted: Bool = false
+    var id: UUID
     var title: String
     var content: String
     var isFavorite: Bool
@@ -21,8 +22,8 @@ struct NoteType: Hashable, Codable, Identifiable {
         return Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: dateFormated)
     }
     
-    init(newId: Int) {
-        self.id = newId
+    init() {
+        self.id = UUID()
         self.title = ""
         self.content = ""
         self.isFavorite = false
@@ -32,4 +33,3 @@ struct NoteType: Hashable, Codable, Identifiable {
         self.date = date
     }
 }
-
