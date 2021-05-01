@@ -7,11 +7,10 @@ import Foundation
 import Combine
 
 class ModelData: ObservableObject {
-    @Published var notes: [NoteType] = load("noteData.json")
-    @Published var diaries: [DiaryType] = load("diaryData.json")
-//    @Published var todoList: [ToDoEvent] = [ToDoEvent]()
-//    @Published var notes: [NoteType]
-    @Published var todoList: [ToDoEvent]
+    @Published var notes: [NoteType] = []
+//    @Published var diaries: [DiaryType] = load("diaryData.json")
+    @Published var diaries: [DiaryType] = []
+    @Published var todoList: [ToDoEvent] = []
     var saveAndLoad: SaveLoadData = SaveLoadData()
     @Published var inNotes: Bool = false
     @Published var showNotesPanel: Bool = true
@@ -40,21 +39,66 @@ class ModelData: ObservableObject {
     ]
     
     init() {
-        self.notes = self.saveAndLoad.loadNoteList(forKey: "noteList") ?? []
-        self.todoList = self.saveAndLoad.loadToDoEventList(forKey: "eventList") ?? []
-//        self.todoList.append(ToDoEvent(id: 0, text: "test1"))
-//        self.todoList.append(ToDoEvent(id: 1, text: "Finish Project"))
-//        self.todoList.append(ToDoEvent(id: 2, text: "Review class"))
+        
+        for note in self.saveAndLoad.loadNoteList() ?? [] {
+            if !note.hasDeleted {
+                self.notes.append(note)
+            }
+        }
+        self.saveAndLoad.saveNoteList(noteList: self.notes)
+        
+        for e in self.saveAndLoad.loadToDoEventList() ?? [] {
+            if !e.hasDeleted {
+                self.todoList.append(e)
+            }
+        }
+        self.saveAndLoad.saveToDoEventList(eventList: self.todoList)
+        
+        for diary in self.saveAndLoad.loadDiaryEventList() ?? [] {
+            if !diary.hasDeleted {
+                self.diaries.append(diary)
+            }
+        }
+        self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
     }
     
-    func addEvent(id: Int, text: String) -> Void {
-        self.todoList.append(ToDoEvent(id: id, text: text))
-        self.saveAndLoad.saveToDoEventList(eventList: self.todoList, forKey: "eventList")
+    func addDiary(diary: DiaryType) -> Void {
+        self.diaries.append(diary)
+        self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
+    }
+    
+    func deleteDiary(id: UUID) -> Void {
+        let index = diaries.firstIndex(where: {
+            $0.id == id
+        })
+        self.diaries[index!].hasDeleted.toggle()
+        self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
+    }
+    
+    func addEvent(text: String) -> Void {
+        self.todoList.append(ToDoEvent(text: text))
+        self.saveAndLoad.saveToDoEventList(eventList: self.todoList)
+    }
+    
+    func deleteEvent(id: UUID) -> Void {
+        let index = todoList.firstIndex(where: {
+            $0.id == id
+        })
+        self.todoList[index!].hasDeleted.toggle()
+        self.saveAndLoad.saveToDoEventList(eventList: self.todoList)
     }
     
     func addNote(note: NoteType) {
         self.notes.append(note)
-        self.saveAndLoad.saveNoteList(noteList: self.notes, forKey: "noteList")
+        self.saveAndLoad.saveNoteList(noteList: self.notes)
+    }
+    
+    func deleteNote(id: UUID) {
+        let index = self.notes.firstIndex(where: {
+            $0.id == id
+        })
+        self.notes[index!].hasDeleted.toggle()
+        self.saveAndLoad.saveNoteList(noteList: self.notes)
     }
 }
 
