@@ -19,10 +19,10 @@ struct CardView: View {
     @EnvironmentObject var modelData: ModelData
     var event: ToDoEvent
     let width : CGFloat = 60
-    @Binding var indices : [Int]
+    @Binding var indices : [UUID]
     @State var offset = CGSize.zero
     @State var scale : CGFloat = 0.5
-    @State var isChecked = false
+    @Binding var isChecked: Bool
     
     var body: some View {
         GeometryReader { geo in
@@ -42,6 +42,7 @@ struct CardView: View {
                         .padding()
                         .onTapGesture {
                             self.isChecked.toggle()
+                            modelData.saveAndLoad.saveToDoEventList(eventList: modelData.todoList)
                         }
                         .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                 }
@@ -57,6 +58,7 @@ struct CardView: View {
                 .background(modelData.colorThemes[modelData.themeID]["Secondary"].opacity(0.15))
                 .onTapGesture {
                     indices.append(event.id)
+                    modelData.deleteEvent(id: event.id)
                  }
              }
 //            .background(modelData.colorThemes[modelData.themeID]["Primary"]!.opacity(0.2))
@@ -84,10 +86,10 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
-    @State static var indices: [Int] = [1]
+    @State static var indices: [UUID] = [UUID()]
     
     static var previews: some View {
-        CardView(event: ToDoEvent(id: 0, text:"abc"), indices : $indices)
+        CardView(event: ToDoEvent(text:"abc"), indices : $indices, isChecked: .constant(false))
             .environmentObject(ModelData())
     }
 }

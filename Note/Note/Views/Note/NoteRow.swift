@@ -26,6 +26,9 @@ struct NoteRow: View {
             Spacer()
             
             Text(time).font(/*@START_MENU_TOKEN@*/.headline/*@END_MENU_TOKEN@*/).fontWeight(.light).foregroundColor(Color.gray).lineLimit(10)
+            Button(action: {
+                modelData.deleteNote(id: self.note.id)
+            }, label: {Text("d")})
             FavoriteButton(isSet: $modelData.notes[noteIndex].isFavorite)
         }
         .padding()

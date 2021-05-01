@@ -24,6 +24,10 @@ struct DiaryRow: View {
                         .cornerRadius(10)
                         .padding(10)
                     Spacer()
+                    Button(action: {
+                        let index = modelData.diaries.firstIndex(where: {$0.id == diary.id})
+                        modelData.diaries[index!].hasDeleted.toggle()
+                    }, label: {Text("D")})
                 }
                 Spacer()
                 VStack(alignment: .leading) {

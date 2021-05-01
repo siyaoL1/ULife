@@ -8,7 +8,8 @@
 import Foundation
 
 struct DiaryType: Hashable, Codable, Identifiable {
-    var id: Int
+    var hasDeleted: Bool = false
+    var id: UUID
     var title: String
     var content: String
     var weather: String
@@ -22,14 +23,14 @@ struct DiaryType: Hashable, Codable, Identifiable {
     }
     
     
-    init(newId: Int) {
+    init() {
         let dateFormat: DateFormatter = {
             let formatter = DateFormatter()
             formatter.dateFormat = "MMM.d, yyyy"
             return formatter
         }()
         
-        self.id = newId
+        self.id = UUID()
         self.title = ""
         self.content = ""
         self.date = dateFormat.string(from: Date())
