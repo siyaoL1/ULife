@@ -44,14 +44,6 @@ struct NoteNew : View {
                         TextField("I feel like ...", text: $note.title)
                             .font(.title)
                         Spacer()
-                        Button(
-                            action: {
-                                let image = body.snapshot()
-                                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-                            }
-                        ){
-                            Image(systemName: "square.and.arrow.up")
-                        }.padding()
                         FavoriteButton(isSet: $note.isFavorite)
                     }
                     Text(time)
