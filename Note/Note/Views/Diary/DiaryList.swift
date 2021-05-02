@@ -44,6 +44,7 @@ struct DiaryList: View {
                         Spacer()
                         if !diary.hasDeleted {
                             DiaryRow(diary: diary)
+                                .environmentObject(modelData)
                                 .padding(.top, 5)
                                 .padding(.bottom, 15)
                                 .onTapGesture() {

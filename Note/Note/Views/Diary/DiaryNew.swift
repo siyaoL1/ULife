@@ -13,47 +13,66 @@ struct DiaryNew: View {
     @State var diary: DiaryType = DiaryType()
     
     var body: some View {
-        let time = "\(diary.dateComponents.year!)/\(diary.dateComponents.month!)/\(diary.dateComponents.day!)"
+        let currTime = Date()
+        let date = DateFormatter.monthDayYearWithComma.string(from: currTime)
+        let weekday = DateFormatter.weekday.string(from: currTime)
+        let time = DateFormatter.time.string(from: currTime)
+        
         ZStack {
             ScrollView {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            HStack {
-                                Image(systemName: "chevron.backward")
-                                Text("Back")
+                ZStack(alignment: .topTrailing) {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Button(action: {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }) {
+                                HStack {
+                                    Image(systemName: "chevron.backward")
+                                    Text("Back")
+                                }
+                            }
+
+                            Spacer()
+
+                            Button(action: {
+                                modelData.addDiary(diary: diary)
+                                self.presentationMode.wrappedValue.dismiss()
+                            }) {
+                                Text("Save")
+                                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                             }
                         }
+                        
+                        VStack(alignment: .leading) {
+                            Text(date)
+                                .font(.system(size: 28, design: .rounded))
+                                .padding(.bottom, 5)
+                            Text(weekday)
+                                .font(.system(size: 20, design: .rounded))
+                            Text(time)
+                                .font(.system(size: 20, design: .rounded))
+                        }.padding(.top, 15)
+                        .padding(.bottom, 30)
 
-                        Spacer()
-
-                        Button(action: {
-                            modelData.addDiary(diary: diary)
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Text("Save")
-                                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+                        HStack {
+                            TextField("I feel like ...", text: $diary.title)
+                                .font(.title)
+                            Spacer()
                         }
-                    }
 
-                    HStack {
-                        TextField("I feel like ...", text: $diary.title)
-                            .font(.title)
-                        Spacer()
-                    }
-                    Text(time)
-                        .font(.subheadline)
-                    Divider()
+                        Divider()
 
-                    TextEditor(text: $diary.content)
-                        .background(Color.clear)
-                        .foregroundColor(.black)
-                        .opacity(0.5)
-                        .frame(height: 400, alignment: .center)
+                        TextEditor(text: $diary.content)
+                            .background(Color.clear)
+                            .foregroundColor(.black)
+                            .opacity(0.5)
+                            .frame(height: 400, alignment: .center)
+                    }.zIndex(0.0)
+                    EmotionPicker()
+                        .offset(x: 9.0, y: 25.0)
+                        .zIndex(1.0)
+                    }
                 }
-            }
             .padding()
             .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
             .background(modelData.colorThemes[modelData.themeID]["Primary"])

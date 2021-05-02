@@ -12,8 +12,13 @@ struct DiaryType: Hashable, Codable, Identifiable {
     var id: UUID
     var title: String
     var content: String
-    var weather: String
+    var emotion: String
     var date: String
+    var rawDate: Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM.d, yyyy"
+        return formatter.date(from: date)!
+    }
     var dateComponents: DateComponents {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM.d, yyyy"
@@ -33,7 +38,7 @@ struct DiaryType: Hashable, Codable, Identifiable {
         self.id = UUID()
         self.title = ""
         self.content = ""
-        self.date = dateFormat.string(from: Date())
-        self.weather = "Happy"
+        self.date = dateFormat.string(from:Date())
+        self.emotion = "Happy"
     }
 }
