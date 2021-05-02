@@ -69,6 +69,7 @@ struct NoteNew : View {
             .padding()
             .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
             .background(modelData.colorThemes[modelData.themeID]["Primary"])
+            .ignoresSafeArea(edges: .bottom)
         }
     }
 }
