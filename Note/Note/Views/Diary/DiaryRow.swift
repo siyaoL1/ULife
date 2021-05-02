@@ -61,7 +61,7 @@ struct DiaryRow: View {
         }
         .frame(width: 330, height: 170, alignment: .topLeading)
         .padding(10)
-        .background(Color(red: 249/255, green: 240/255, blue: 220/255))
+        .background(modelData.colorThemes[modelData.themeID]["Addon"])
         .cornerRadius(10)
         .overlay(
                 RoundedRectangle(cornerRadius: 10)

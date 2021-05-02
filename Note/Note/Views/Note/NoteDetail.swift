@@ -45,7 +45,7 @@ struct NoteDetail : View {
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Save")
-                                .foregroundColor(.yellow)
+                                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                         }
                     }
 

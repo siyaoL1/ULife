@@ -13,19 +13,23 @@ struct DiaryList: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Spacer().frame(height:95)
-            VStack{
-                Text("Hi there")
-                Button(action: {
-                    self.showDiaryDetail = true
-                }) {
-                    MenuItem(icon: "square.and.pencil").environmentObject(modelData)
-                }.sheet(isPresented: $showDiaryDetail, content: { DiaryDetail()})
-            }
-            .frame(width: UIScreen.main.bounds.width, height: 200)
-            .background(Color.orange)
+            Spacer().frame(height:40)
             
             ScrollView(showsIndicators: false) {
+                VStack{
+                    Text("How's your day?")
+                        .fontWeight(.bold)
+                        .font(.system(.largeTitle, design: .rounded))
+                        .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"])
+                    Button(action: {
+                        self.showDiaryDetail = true
+                    }) {
+                        MenuItem(icon: "square.and.pencil").environmentObject(modelData)
+                    }
+                }
+                .frame(width: UIScreen.main.bounds.width, height: 200)
+//                .background(Color.orange)
+                
                 ForEach(modelData.diaries) { diary in
                     HStack {
                         Spacer()
@@ -33,6 +37,9 @@ struct DiaryList: View {
                             DiaryRow(diary: diary)
                                 .padding(.top, 5)
                                 .padding(.bottom, 15)
+                                .onTapGesture {
+                                    showDiaryDetail = true
+                                }
                             Spacer()
                         }
                         
@@ -44,6 +51,7 @@ struct DiaryList: View {
         .padding()
         .frame(width: UIScreen.main.bounds.width, alignment: .top)
         .background(modelData.colorThemes[modelData.themeID]["Primary"])
+        .sheet(isPresented: $showDiaryDetail, content: { DiaryDetail()})
     }
 }
 

@@ -29,13 +29,14 @@ class ModelData: ObservableObject {
          "Secondary": Color.orange,
          "Text": Color(red: 105/255.0, green: 105/255.0, blue: 105/255.0),
          "Background": Color.secondary.opacity(0.2),
-         "Addon": Color(red: 255/255, green: 225/255, blue: 117/255)
+         "Addon": Color(red: 249/255, green: 240/255, blue: 220/255)
         ],
         ["Primary": Color(red: 238/255.0, green: 235/255.0, blue: 255/255.0),
 //            "Primary": Color(red: 222/255.0, green: 245/255.0, blue: 255/255.0),
          "Secondary": Color(red: 177/255.0, green: 168/255.0, blue: 255/255.0),
          "Text": Color(red: 105/255.0, green: 105/255.0, blue: 105/255.0),
-         "Background": Color.secondary.opacity(0.2)
+         "Background": Color.secondary.opacity(0.2),
+         "Addon": Color(red: 245/255, green: 245/255, blue: 245/255)
         ]
     ]
     
@@ -47,6 +48,7 @@ class ModelData: ObservableObject {
         testing.append(newNote)
         
         for note in self.saveAndLoad.loadNoteList() ?? testing {
+            print("added one")
             if !note.hasDeleted {
                 self.notes.append(note)
             }
@@ -61,11 +63,28 @@ class ModelData: ObservableObject {
         }
         self.saveAndLoad.saveToDoEventList(eventList: self.todoList)
         
-        for diary in self.saveAndLoad.loadDiaryEventList() ?? [] {
+        var newDiary = DiaryType()
+        newDiary.title = "I'm a new diary"
+        newDiary.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        var newDiary2 = DiaryType()
+        newDiary2.title = "I'm a new new diary"
+        newDiary2.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        var newDiary3 = DiaryType()
+        newDiary3.title = "I'm a newwww diary"
+        newDiary3.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        var testing2 = [DiaryType]()
+        testing2.append(newDiary)
+        testing2.append(newDiary2)
+        testing2.append(newDiary3)
+        
+        for diary in self.saveAndLoad.loadDiaryEventList() ?? testing2 {
+            print("added one")
             if !diary.hasDeleted {
                 self.diaries.append(diary)
+                
             }
         }
+        print("Got here")
         self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
     }
     
