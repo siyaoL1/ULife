@@ -20,7 +20,7 @@ struct RightView: View {
                 .background(modelData.colorThemes[modelData.themeID]["Primary"])
                 .environmentObject(modelData)
             
-            if !modelData.inNotes {
+//            if !modelData.inNotes {
                 HStack(){
                     Spacer()
                     FloatingMenu()
@@ -28,7 +28,7 @@ struct RightView: View {
                         .padding(.trailing, 30)
                         .environmentObject(modelData)
                 }
-            }
+//            }
         }
         .padding(.top, 55)
         .background(modelData.colorThemes[modelData.themeID]["Primary"])
