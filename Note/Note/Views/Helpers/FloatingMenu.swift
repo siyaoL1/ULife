@@ -49,7 +49,11 @@ struct FloatingMenu: View {
                     .frame(width: 80, height: 80)
                     .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                     .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
-            }.sheet(isPresented: $showMenuAction1, content: { NoteNew().environmentObject(modelData)})
+            }.sheet(isPresented: $showMenuAction1,
+                    content: {
+                        NoteNew().environmentObject(modelData)
+                        
+                    })
         }
     }
     
