@@ -78,18 +78,18 @@ class ModelData: ObservableObject {
         newDiary3.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
         newDiary3.date = "Apr.29, 2021"
         var testing2 = [DiaryType]()
-        testing2.append(newDiary)
-        testing2.append(newDiary2)
         testing2.append(newDiary3)
+        testing2.append(newDiary2)
+        testing2.append(newDiary)
 
         for diary in self.saveAndLoad.loadDiaryEventList() ?? testing2 {
             if !diary.hasDeleted {
-                self.diaries.insert(diary, at: 0)
-                self.diaryDates.insert(diary.date, at: 0)
+                self.diaries.append(diary)
+                self.diaryDates.append(diary.date)
             }
         }
+
         self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
-        print(diaries)
     }
     
     func updateNote() {
