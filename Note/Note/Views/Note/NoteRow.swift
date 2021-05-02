@@ -28,9 +28,10 @@ struct NoteRow: View {
                 HStack {
                     HStack {
                         Text(note.title)
-                            .font(/*@START_MENU_TOKEN@*/.headline/*@END_MENU_TOKEN@*/)
-                            .fontWeight(.light)
+                            .font(.system(.body, design: .rounded))
+//                            .fontWeight(.light)
                             .lineLimit(10)
+                            .padding(.leading, 5)
                         Spacer()
                         Text(time).font(/*@START_MENU_TOKEN@*/.headline/*@END_MENU_TOKEN@*/).fontWeight(.light).foregroundColor(Color.gray).lineLimit(10)
                         
