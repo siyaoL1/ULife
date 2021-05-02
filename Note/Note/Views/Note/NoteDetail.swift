@@ -120,6 +120,5 @@ struct NoteDetail_Previews: PreviewProvider {
 //            NoteDetail(noteID: modelData.notes[0].id)
 //                .environmentObject(modelData)
         }
-        
     }
 }
