@@ -70,7 +70,10 @@ struct NoteDetail: View {
                 }
             , trailing:
                 Button(
-                    action: actionSheet
+                    action: {
+                        let image = body.snapshot()
+                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                    }
                 ){
                     Image(systemName: "square.and.arrow.up")
                 }
@@ -103,4 +106,23 @@ struct NoteDetail_Previews: PreviewProvider {
             .environmentObject(modelData)
     }
 
+}
+
+extension View {
+    func snapshot() -> UIImage {
+        let controller = UIHostingController(rootView: self)
+        let view = controller.view
+
+        let targetSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.8)
+    
+        //print(type(of: controller.view.intrinsicContentSize))
+        view?.bounds = CGRect(origin: .zero, size: targetSize)
+        view?.backgroundColor = .clear
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+
+        return renderer.image { _ in
+            view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        }
+    }
 }

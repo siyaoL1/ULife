@@ -41,13 +41,14 @@ struct NoteList: View {
                 }
                 Spacer()
             }
-            .edgesIgnoringSafeArea(.bottom)
+            
             .navigationBarHidden(true)
             .background(modelData.colorThemes[modelData.themeID]["Primary"])
             .background(NavigationConfigurator { nc in
                 nc.navigationBar.barTintColor = UIColor(modelData.colorThemes[modelData.themeID]["Primary"]!);
                 nc.navigationBar.titleTextAttributes = [.foregroundColor : modelData.colorThemes[modelData.themeID]["Primary"]!]
                         })
+            .edgesIgnoringSafeArea(.bottom)
         }
 
 //        .clipShape(RoundedRectangle(cornerRadius: 44))
