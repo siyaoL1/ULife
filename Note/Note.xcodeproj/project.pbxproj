@@ -12,10 +12,9 @@
 		3C3372C1262A73F300BFA52B /* NoteDetailInDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3372C0262A73F300BFA52B /* NoteDetailInDropDown.swift */; };
 		3C3372C6262A745900BFA52B /* DropMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3372C5262A745900BFA52B /* DropMenu.swift */; };
 		3C9CEDB92612FFBB00864CCE /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9CEDB82612FFBB00864CCE /* test.swift */; };
-		87235E432605461000719513 /* NoteDetail_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E362605461000719513 /* NoteDetail_2.swift */; };
+		87235E432605461000719513 /* NoteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E362605461000719513 /* NoteDetail.swift */; };
 		87235E442605461000719513 /* NoteNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E372605461000719513 /* NoteNew.swift */; };
 		87235E452605461000719513 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E382605461000719513 /* NoteList.swift */; };
-		87235E462605461000719513 /* NoteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E392605461000719513 /* NoteDetail.swift */; };
 		87235E472605461000719513 /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E3A2605461000719513 /* NoteRow.swift */; };
 		87235E482605461000719513 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E3B2605461000719513 /* FloatingMenu.swift */; };
 		87235E492605461000719513 /* MultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E3D2605461000719513 /* MultilineTextView.swift */; };
@@ -77,10 +76,9 @@
 		3C3372C0262A73F300BFA52B /* NoteDetailInDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailInDropDown.swift; sourceTree = "<group>"; };
 		3C3372C5262A745900BFA52B /* DropMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropMenu.swift; sourceTree = "<group>"; };
 		3C9CEDB82612FFBB00864CCE /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
-		87235E362605461000719513 /* NoteDetail_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetail_2.swift; sourceTree = "<group>"; };
+		87235E362605461000719513 /* NoteDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetail.swift; sourceTree = "<group>"; };
 		87235E372605461000719513 /* NoteNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteNew.swift; sourceTree = "<group>"; };
 		87235E382605461000719513 /* NoteList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
-		87235E392605461000719513 /* NoteDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetail.swift; sourceTree = "<group>"; };
 		87235E3A2605461000719513 /* NoteRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
 		87235E3B2605461000719513 /* FloatingMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
 		87235E3D2605461000719513 /* MultilineTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultilineTextView.swift; sourceTree = "<group>"; };
@@ -154,10 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				3C3372C0262A73F300BFA52B /* NoteDetailInDropDown.swift */,
-				87235E362605461000719513 /* NoteDetail_2.swift */,
+				87235E362605461000719513 /* NoteDetail.swift */,
 				87235E372605461000719513 /* NoteNew.swift */,
 				87235E382605461000719513 /* NoteList.swift */,
-				87235E392605461000719513 /* NoteDetail.swift */,
 				87235E3A2605461000719513 /* NoteRow.swift */,
 			);
 			path = Note;
@@ -483,9 +480,8 @@
 				879F3F822602AEAB00C110BC /* ModelData.swift in Sources */,
 				87D87348262A78D600F9A70B /* bla.swift in Sources */,
 				87D87349262A78D600F9A70B /* DiaryRow.swift in Sources */,
-				87235E462605461000719513 /* NoteDetail.swift in Sources */,
 				87493877260547DD00C1A43E /* ToDoEvent.swift in Sources */,
-				87235E432605461000719513 /* NoteDetail_2.swift in Sources */,
+				87235E432605461000719513 /* NoteDetail.swift in Sources */,
 				3C3372BC262A73D200BFA52B /* NoteViewInDropDown.swift in Sources */,
 				3C3372B7262A73BC00BFA52B /* CalendarDropDown.swift in Sources */,
 				87235E452605461000719513 /* NoteList.swift in Sources */,

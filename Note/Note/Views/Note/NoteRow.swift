@@ -76,7 +76,7 @@ struct NoteRow: View {
                 showNoteDetail = true
                 modelData.currNote = note.id
             }
-            .sheet(isPresented: $showNoteDetail, content: { NoteDetail_2()})
+            .sheet(isPresented: $showNoteDetail, content: { NoteDetail()})
         
     }
 }
