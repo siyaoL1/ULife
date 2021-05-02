@@ -22,7 +22,6 @@ struct NoteList: View {
             Toggle(isOn: $showFavoritesOnly) {
                 Text("Favorites only")
                     .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
-
             }.padding(20)
 
             if (filteredLandmarks.count == 0) {

@@ -10,6 +10,11 @@ import SwiftUI
 struct DiaryList: View {
     @EnvironmentObject var modelData: ModelData
     @State var showDiaryDetail = false
+    let dateFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM.d, yyyy"
+        return formatter
+    }()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -17,15 +22,18 @@ struct DiaryList: View {
             
             ScrollView(showsIndicators: false) {
                 VStack{
-//                    根据今天有没有记日记变显示的东西， Welcome Back, anything new?
-                    Text("How's your day?")
-                        .fontWeight(.bold)
-                        .font(.system(.largeTitle, design: .rounded))
-                        .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"])
-                    Button(action: {
-                        self.showDiaryDetail = true
-                    }) {
-                        MenuItem(icon: "square.and.pencil").environmentObject(modelData)
+                    if (modelData.lastDayOfDiary != dateFormat.string(from: Date())) {
+                        Text("How's your day?")
+                            .fontWeight(.bold)
+                            .font(.system(.largeTitle, design: .rounded))
+                            .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"])
+                        
+                        NewButton()
+                    } else {
+                        Text("Welcome back! Anything new?")
+                            .fontWeight(.bold)
+                            .font(.system(.largeTitle, design: .rounded))
+                            .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"])
                     }
                 }
                 .frame(width: UIScreen.main.bounds.width, height: 200)
@@ -38,9 +46,11 @@ struct DiaryList: View {
                             DiaryRow(diary: diary)
                                 .padding(.top, 5)
                                 .padding(.bottom, 15)
-                                .onTapGesture {
+                                .onTapGesture() {
                                     showDiaryDetail = true
+                                    modelData.currDiary = diary.id
                                 }
+                                .sheet(isPresented: $showDiaryDetail, content: { DiaryDetail()})
                             Spacer()
                         }
                         
@@ -52,7 +62,6 @@ struct DiaryList: View {
         .padding()
         .frame(width: UIScreen.main.bounds.width, alignment: .top)
         .background(modelData.colorThemes[modelData.themeID]["Primary"])
-        .sheet(isPresented: $showDiaryDetail, content: { DiaryDetail()})
     }
 }
 

@@ -22,6 +22,8 @@ class ModelData: ObservableObject {
     @Published var showSearchBar: Bool = false
     @Published var showCollapseBack: Bool = true
     @Published var currNote: UUID = UUID()
+    @Published var currDiary: UUID = UUID()
+    @Published var lastDayOfDiary: String = "May.2, 2021"
     
     @Published var themeID: Int = 0
     let colorThemes: [[String:Color]] = [
@@ -48,7 +50,6 @@ class ModelData: ObservableObject {
         testing.append(newNote)
         
         for note in self.saveAndLoad.loadNoteList() ?? testing {
-            print("added one")
             if !note.hasDeleted {
                 self.notes.append(note)
             }
@@ -66,30 +67,35 @@ class ModelData: ObservableObject {
         var newDiary = DiaryType()
         newDiary.title = "I'm a new diary"
         newDiary.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        newDiary.date = "Apr.10, 2021"
         var newDiary2 = DiaryType()
         newDiary2.title = "I'm a new new diary"
         newDiary2.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        newDiary2.date = "Apr.15, 2021"
         var newDiary3 = DiaryType()
         newDiary3.title = "I'm a newwww diary"
         newDiary3.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        newDiary3.date = "Apr.29, 2021"
         var testing2 = [DiaryType]()
-        testing2.append(newDiary)
-        testing2.append(newDiary2)
-        testing2.append(newDiary3)
+        testing2.insert(newDiary, at: 0)
+        testing2.insert(newDiary2, at: 0)
+        testing2.insert(newDiary3, at: 0)
         
+        var latest: String = ""
         for diary in self.saveAndLoad.loadDiaryEventList() ?? testing2 {
-            print("added one")
             if !diary.hasDeleted {
                 self.diaries.append(diary)
-                
+                latest = diary.date
             }
         }
-        print("Got here")
+
+        lastDayOfDiary = latest
         self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
     }
     
     func addDiary(diary: DiaryType) -> Void {
-        self.diaries.append(diary)
+        self.diaries.insert(diary, at: 0)
+        self.lastDayOfDiary = diary.date
         self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
     }
     
