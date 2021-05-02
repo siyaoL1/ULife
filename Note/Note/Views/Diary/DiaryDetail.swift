@@ -35,6 +35,12 @@ struct DiaryDetail: View {
                             }
 
                             Spacer()
+                            Button(action: {
+                                modelData.updateDiary()
+                                self.presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Text("Svae")
+                            })
 
                             Button(action: {
                                 modelData.diaries[diaryIndex].hasDeleted.toggle()

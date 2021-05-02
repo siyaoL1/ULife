@@ -93,6 +93,14 @@ class ModelData: ObservableObject {
         lastDayOfDiary = latest
         self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
     }
+    
+    func updateNote() {
+        self.saveAndLoad.saveNoteList(noteList: self.notes)
+    }
+    
+    func updateDiary() {
+        self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
+    }
 
     func addDiary(diary: DiaryType) -> Void {
         self.diaries.insert(diary, at: 0)
