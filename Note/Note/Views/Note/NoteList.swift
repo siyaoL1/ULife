@@ -18,41 +18,25 @@ struct NoteList: View {
     }
 
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                Toggle(isOn: $showFavoritesOnly) {
-                    Text("Favorites only")
-                }.padding(20)
+        VStack(spacing: 0) {
+            Toggle(isOn: $showFavoritesOnly) {
+                Text("Favorites only")
+            }.padding(20)
 
-                if (filteredLandmarks.count == 0) {
-                    Text("Nothing to see right now...")
-                        .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"]?.opacity(0.3))
-                } else {
-                    ForEach(filteredLandmarks) { note in
-                        if !note.hasDeleted {
-                            NavigationLink(destination: NoteDetail(note: note).edgesIgnoringSafeArea(.bottom)) {
-                                NoteRow(note: note)
-
-                            }.simultaneousGesture(TapGesture().onEnded{
-                                modelData.inNotes = true
-                            })
-                        }
+            if (filteredLandmarks.count == 0) {
+                Text("Nothing to see right now...")
+                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"]?.opacity(0.3))
+            } else {
+                ForEach(filteredLandmarks) { note in
+                    if !note.hasDeleted {
+                        NoteRow(note: note)
                     }
                 }
-                Spacer()
             }
-            
-            .navigationBarHidden(true)
-            .background(modelData.colorThemes[modelData.themeID]["Primary"])
-            .background(NavigationConfigurator { nc in
-                nc.navigationBar.barTintColor = UIColor(modelData.colorThemes[modelData.themeID]["Primary"]!);
-                nc.navigationBar.titleTextAttributes = [.foregroundColor : modelData.colorThemes[modelData.themeID]["Primary"]!]
-                        })
-            .edgesIgnoringSafeArea(.bottom)
+            Spacer()
         }
-
-//        .clipShape(RoundedRectangle(cornerRadius: 44))
-
+        .edgesIgnoringSafeArea(.bottom)
+        .background(modelData.colorThemes[modelData.themeID]["Primary"])
     }
 }
 

@@ -1,28 +1,46 @@
 //
-//  NoteDetail.swift
+//  NoteNew.swift
 //  Note
 //
-//  Created by Siyao Li on 3/17/21.
+//  Created by Siyao Li on 3/19/21.
 //
 
 import SwiftUI
 
-struct NoteDetail_2: View {
+
+struct NoteDetail_2 : View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
-    
-    var note: NoteType
-    
+
     var noteIndex: Int {
-        modelData.notes.firstIndex(where: { $0.id == note.id })!
+        modelData.notes.firstIndex(where: { $0.id == modelData.currNote })!
     }
-        
+
     var body: some View {
-        
-        let time = "\(note.dateComponents.year!)/\(note.dateComponents.month!)/\(note.dateComponents.day!)"
+        let time = "\(modelData.notes[noteIndex].dateComponents.year!)/\(modelData.notes[noteIndex].dateComponents.month!)/\(modelData.notes[noteIndex].dateComponents.day!)"
         ZStack {
             ScrollView {
                 VStack(alignment: .leading) {
+                    HStack {
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            HStack {
+                                Image(systemName: "chevron.backward")
+                                Text("Back")
+                            }
+                        }
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Text("Save")
+                                .foregroundColor(.yellow)
+                        }
+                    }
+                    
                     HStack {
                         TextField("I feel like ...", text: $modelData.notes[noteIndex].title)
                             .font(.title)
@@ -45,19 +63,10 @@ struct NoteDetail_2: View {
             .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
             .background(Color(red: 249/255, green: 247/255, blue: 236/255))
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-            Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-                HStack {
-                    Image(systemName: "chevron.backward")
-                    Text("")
-                }
-            }
-        )
+
     }
-    
 }
+
 
 struct NoteDetail_2_Previews: PreviewProvider {
     init() {
@@ -66,8 +75,16 @@ struct NoteDetail_2_Previews: PreviewProvider {
     static var modelData = ModelData()
     
     static var previews: some View {
-        NoteDetail_2(note: modelData.notes[0])
-            .environmentObject(modelData)
+        VStack {
+            Button(action: {
+                
+            }) {
+                Text("AddNote")
+                    .foregroundColor(.yellow)
+            }
+//            NoteDetail_2(noteID: modelData.notes[0].id)
+//                .environmentObject(modelData)
+        }
+        
     }
-
 }
