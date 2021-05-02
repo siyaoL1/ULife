@@ -68,7 +68,7 @@ struct DiaryDetail: View {
                             .background(Color.clear)
                             .foregroundColor(.black)
                             .opacity(0.5)
-                            .frame(height: 400, alignment: .center)
+                            .frame(height: 500, alignment: .center)
                     }.zIndex(0.0)
                     EmotionPicker()
                         .offset(x: 9.0, y: 25.0)
