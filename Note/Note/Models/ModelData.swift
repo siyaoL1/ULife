@@ -22,6 +22,7 @@ class ModelData: ObservableObject {
     @Published var showSearchBar: Bool = false
     @Published var showCollapseBack: Bool = true
     @Published var currNote: UUID = UUID()
+    @Published var image: UIImage = UIImage()
     
     @Published var themeID: Int = 0
     let colorThemes: [[String:Color]] = [

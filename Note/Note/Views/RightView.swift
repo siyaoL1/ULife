@@ -10,17 +10,31 @@ import SwiftUI
 struct RightView: View {
     @EnvironmentObject var modelData: ModelData
     
+    func action() {
+        withAnimation(.easeInOut) {
+            modelData.showCalendarDropDown = true
+            modelData.showSearchBar = false
+        }
+    }
+    
     var body: some View {
         ZStack {
             modelData.colorThemes[modelData.themeID]["Primary"]
             
-            NoteList()
-                .background(modelData.colorThemes[modelData.themeID]["Primary"])
-                .ignoresSafeArea()
-                .background(modelData.colorThemes[modelData.themeID]["Primary"])
-                .environmentObject(modelData)
-            
-//            if !modelData.inNotes {
+            if modelData.showCalendarPanel {
+                // Need to use asymmetric transition due to the ZStack disappearing sequence.
+                DropMenu()
+                    .zIndex(1)
+                    .transition(.asymmetric(
+                                    insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
+                                    removal: AnyTransition.opacity))
+            } else {
+                NoteList()
+                    .background(modelData.colorThemes[modelData.themeID]["Primary"])
+                    .ignoresSafeArea()
+                    .background(modelData.colorThemes[modelData.themeID]["Primary"])
+                    .environmentObject(modelData)
+                
                 HStack(){
                     Spacer()
                     FloatingMenu()
@@ -28,12 +42,11 @@ struct RightView: View {
                         .padding(.trailing, 30)
                         .environmentObject(modelData)
                 }
-//            }
+            }
         }
         .padding(.top, 55)
         .background(modelData.colorThemes[modelData.themeID]["Primary"])
         .edgesIgnoringSafeArea(.all)
-        
     }
 }
 
