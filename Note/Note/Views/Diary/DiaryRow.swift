@@ -20,7 +20,7 @@ struct DiaryRow: View {
         VStack {
             HStack(spacing: 0) {
                 VStack {
-                    Image(systemName: emotionIcon[diary.weather] ?? "face.smiling")
+                    Image(systemName: emotionIcon[diary.emotion] ?? "face.smiling")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 80, height: 80)

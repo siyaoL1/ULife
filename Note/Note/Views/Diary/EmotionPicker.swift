@@ -15,35 +15,55 @@ struct EmotionPicker: View {
                        "Sick": "cross.case"
     ]
     
+    var diaryIndex: Int {
+        modelData.diaries.firstIndex(where: { $0.id == modelData.currDiary })!
+    }
+    
     var body: some View {
         VStack{
-            Text("Dropdown").onTapGesture{
-                self.expand.toggle()
-            }
+            Image(systemName: emotionIcon[modelData.diaries[diaryIndex].emotion]!)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100, height: 100)
+                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+                .cornerRadius(10)
+                .padding(5)
+            
+            Image(systemName: expand ? "chevron.up" : "chevron.down")
+                .resizable()
+                .frame(width: 13, height: 8)
+                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+                .onTapGesture{
+                    self.expand.toggle()
+                }
             if expand {
-                ScrollView {
-                    ForEach(Array(emotionIcon.keys), id: \.self) { key in
-                        Image(systemName: emotionIcon[key]!)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100, height: 100)
-                            .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
-                            .cornerRadius(10)
-                            .padding(10)
-                    }
-                    
-                    Button(action: {}) {
-                        Text("Dropdown")
-                    }
-                    Button(action: {}) {
-                        Text("Dropdown")
-                    }
-                    Button(action: {}) {
-                        Text("Dropdown")
+                ScrollView(showsIndicators: false) {
+                    ForEach(Array(emotionIcon.keys).sorted(), id: \.self) { key in
+                        Button(
+                            action: {
+                                withAnimation {
+                                    modelData.diaries[diaryIndex].emotion = key
+                                }
+                            }
+                        ){
+                            Image(systemName: emotionIcon[key]!)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+                                .cornerRadius(10)
+                        }
+                       
                     }
                 }
-                .frame(height: 100)
-                .background(Color.green)
+                .frame(height: 300)
+                .padding(5)
+                .background(modelData.colorThemes[modelData.themeID]["Addon"])
+//                .cornerRadius(10.0)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(modelData.colorThemes[modelData.themeID]["Background"]!, lineWidth: 2)
+                )
             }
         }
         .padding(10)

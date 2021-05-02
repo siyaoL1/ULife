@@ -16,44 +16,64 @@ struct DiaryDetail: View {
     }
     
     var body: some View {
-        let time = "\(modelData.diaries[diaryIndex].dateComponents.year!)/\(modelData.diaries[diaryIndex].dateComponents.month!)/\(modelData.diaries[diaryIndex].dateComponents.day!)"
+        let date = DateFormatter.monthDayYearWithComma.string(from: modelData.diaries[diaryIndex].rawDate)
+        let weekday = DateFormatter.weekday.string(from: modelData.diaries[diaryIndex].rawDate)
+        let time = DateFormatter.time.string(from: modelData.diaries[diaryIndex].rawDate)
+
         ZStack {
             ScrollView {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            HStack {
-                                Image(systemName: "chevron.backward")
-                                Text("Back")
+                ZStack(alignment: .topTrailing) {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Button(action: {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }) {
+                                HStack {
+                                    Image(systemName: "chevron.backward")
+                                    Text("Back")
+                                }
+                            }
+
+                            Spacer()
+
+                            Button(action: {
+                                modelData.diaries[diaryIndex].hasDeleted.toggle()
+                                self.presentationMode.wrappedValue.dismiss()
+                            }) {
+                                Text("Delete")
+                                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                             }
                         }
-
-                        Spacer()
-
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Text("Save")
-                                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+                        
+                        VStack(alignment: .leading) {
+                            Text(date)
+                                .font(.system(size: 28, design: .rounded))
+                                .padding(.bottom, 5)
+                            Text(weekday)
+                                .font(.system(size: 20, design: .rounded))
+                            Text(time)
+                                .font(.system(size: 20, design: .rounded))
+                        }.padding(.top, 15)
+                        .padding(.bottom, 30)
+                        
+                        HStack {
+                            TextField("I feel like ...", text: $modelData.diaries[diaryIndex].title)
+                                .font(.title)
+                            Spacer()
                         }
-                    }
+                        
+                        Divider()
 
-                    HStack {
-                        TextField("I feel like ...", text: $modelData.diaries[diaryIndex].title)
-                            .font(.title)
-                        Spacer()
-                    }
-                    Text(time)
-                        .font(.subheadline)
-                    Divider()
-
-                    TextEditor(text: $modelData.diaries[diaryIndex].content)
-                        .background(Color.clear)
-                        .foregroundColor(.black)
-                        .opacity(0.5)
-                        .frame(height: 400, alignment: .center)
+                        TextEditor(text: $modelData.diaries[diaryIndex].content)
+                            .background(Color.clear)
+                            .foregroundColor(.black)
+                            .opacity(0.5)
+                            .frame(height: 400, alignment: .center)
+                    }.zIndex(0.0)
+                    EmotionPicker()
+                        .offset(x: 9.0, y: 25.0)
+                        .zIndex(1.0)
+                        
                 }
             }
             .padding()
@@ -63,11 +83,45 @@ struct DiaryDetail: View {
 
         }
     }
-        
-//        Button(action: {
-//            let index = modelData.diaries.firstIndex(where: {$0.id == diary.id})
-//            modelData.diaries[index!].hasDeleted.toggle()
-//        }, label: {Text("D")})
+
+}
+
+extension DateFormatter {
+//    static var monthFormatter: DateFormatter {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "MMMM"
+//        return formatter
+//    }
+//
+//    static var dayFormatter: DateFormatter {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "d"
+//        return formatter
+//    }
+
+    static var monthDayYearWithComma: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM dd, yyyy"
+        return formatter
+    }
+    
+    static var weekday: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE"
+        return formatter
+    }
+    
+    static var time: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:m a"
+        return formatter
+    }
+//
+//    static var monthAndYearF: DateFormatter {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "MMMM yyyy"
+//        return formatter
+//    }
 }
 
 
