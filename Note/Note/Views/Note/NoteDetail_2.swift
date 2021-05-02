@@ -24,7 +24,6 @@ struct NoteDetail_2 : View {
                     HStack {
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
-//                            modelData.inNotes = false
                         }) {
                             HStack {
                                 Image(systemName: "chevron.backward")
@@ -36,7 +35,6 @@ struct NoteDetail_2 : View {
                         
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
-//                            modelData.inNotes = false
                         }) {
                             Text("Save")
                                 .foregroundColor(.yellow)
