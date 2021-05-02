@@ -10,22 +10,35 @@ import SwiftUI
 struct DiaryList: View {
     @EnvironmentObject var modelData: ModelData
     @State var showDiaryDetail = false
+    let dateFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM.d, yyyy"
+        return formatter
+    }()
     
     var body: some View {
         VStack(spacing: 0) {
-            Spacer().frame(height:95)
-            VStack{
-                Text("Hi there")
-                Button(action: {
-                    self.showDiaryDetail = true
-                }) {
-                    MenuItem(icon: "square.and.pencil").environmentObject(modelData)
-                }.sheet(isPresented: $showDiaryDetail, content: { DiaryDetail()})
-            }
-            .frame(width: UIScreen.main.bounds.width, height: 200)
-            .background(Color.orange)
+            Spacer().frame(height:40)
             
             ScrollView(showsIndicators: false) {
+                VStack{
+                    if (modelData.lastDayOfDiary != dateFormat.string(from: Date())) {
+                        Text("How's your day?")
+                            .fontWeight(.bold)
+                            .font(.system(.largeTitle, design: .rounded))
+                            .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"])
+                        
+                        NewButton()
+                    } else {
+                        Text("Welcome back! Anything new?")
+                            .fontWeight(.bold)
+                            .font(.system(.largeTitle, design: .rounded))
+                            .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"])
+                    }
+                }
+                .frame(width: UIScreen.main.bounds.width, height: 200)
+//                .background(Color.orange)
+                
                 ForEach(modelData.diaries) { diary in
                     HStack {
                         Spacer()
@@ -33,6 +46,11 @@ struct DiaryList: View {
                             DiaryRow(diary: diary)
                                 .padding(.top, 5)
                                 .padding(.bottom, 15)
+                                .onTapGesture() {
+                                    showDiaryDetail = true
+                                    modelData.currDiary = diary.id
+                                }
+                                .sheet(isPresented: $showDiaryDetail, content: { DiaryDetail()})
                             Spacer()
                         }
                         

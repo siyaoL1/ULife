@@ -12,7 +12,7 @@ struct NoteDetail : View {
     @Environment(\.presentationMode) var presentationMode
     @State var showAlert = false
     @State var showConfirmation = false
-    
+
     func returnView() -> some View{
         let time = "\(modelData.notes[noteIndex].dateComponents.year!)/\(modelData.notes[noteIndex].dateComponents.month!)/\(modelData.notes[noteIndex].dateComponents.day!)"
         return
@@ -29,9 +29,9 @@ struct NoteDetail : View {
                                 .font(.subheadline)
                             Spacer()
                         }
-                        
+
                         Divider()
-                        
+
                         TextEditor(text: $modelData.notes[noteIndex].content)
                             .background(Color.clear)
                             .foregroundColor(.black)
@@ -44,12 +44,12 @@ struct NoteDetail : View {
                 .background(modelData.colorThemes[modelData.themeID]["Primary"])
             }
     }
-    
+
     var noteIndex: Int {
         modelData.notes.firstIndex(where: { $0.id == modelData.currNote })!
     }
-    
-    
+
+
     var body: some View {
         let time = "\(modelData.notes[noteIndex].dateComponents.year!)/\(modelData.notes[noteIndex].dateComponents.month!)/\(modelData.notes[noteIndex].dateComponents.day!)"
         ZStack {
@@ -69,10 +69,10 @@ struct NoteDetail : View {
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Save")
-                                .foregroundColor(.yellow)
+                                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                         }
                     }
-                    
+
                     HStack {
                         TextField("I feel like ...", text: $modelData.notes[noteIndex].title)
                             .font(.title)
@@ -89,7 +89,7 @@ struct NoteDetail : View {
                             Alert(
                                 title: Text("Save your current note as a picture?"),
                                 primaryButton: .default(Text("OK"), action: {
-                                    
+
                                     let image = returnView().snapshot()
                                     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                                 }),
@@ -101,7 +101,7 @@ struct NoteDetail : View {
                     Text(time)
                         .font(.subheadline)
                     Divider()
-                    
+
                     TextEditor(text: $modelData.notes[noteIndex].content)
                         .background(Color.clear)
                         .foregroundColor(.black)
@@ -113,7 +113,8 @@ struct NoteDetail : View {
             .padding()
             .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
             .background(modelData.colorThemes[modelData.themeID]["Primary"])
-            
+            .ignoresSafeArea(edges: .bottom)
+
         }
     }
 }
@@ -122,15 +123,15 @@ extension View {
     func snapshot() -> UIImage {
         let controller = UIHostingController(rootView: self)
         let view = controller.view
-        
+
         let targetSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.8)
-        
+
         //print(type(of: controller.view.intrinsicContentSize))
         view?.bounds = CGRect(origin: .zero, size: targetSize)
         view?.backgroundColor = .clear
-        
+
         let renderer = UIGraphicsImageRenderer(size: targetSize)
-        
+
         return renderer.image { _ in
             view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
         }
@@ -142,11 +143,11 @@ struct NoteDetail_Previews: PreviewProvider {
         UITextView.appearance().backgroundColor = .clear
     }
     static var modelData = ModelData()
-    
+
     static var previews: some View {
         VStack {
             Button(action: {
-                
+
             }) {
                 Text("AddNote")
                     .foregroundColor(.yellow)

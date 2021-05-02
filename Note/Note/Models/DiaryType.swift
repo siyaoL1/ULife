@@ -34,6 +34,6 @@ struct DiaryType: Hashable, Codable, Identifiable {
         self.title = ""
         self.content = ""
         self.date = dateFormat.string(from: Date())
-        self.weather = "Sunny"
+        self.weather = "Happy"
     }
 }

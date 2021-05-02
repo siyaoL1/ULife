@@ -10,13 +10,13 @@ import SwiftUI
 struct NoteList: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showFavoritesOnly = false
-    
+
     var filteredLandmarks: [NoteType] {
         modelData.notes.filter { note in
             (!showFavoritesOnly || note.isFavorite)
         }
     }
-   
+
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -26,6 +26,7 @@ struct NoteList: View {
 //                }
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
+                        .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                 }.padding(20)
 
                 if (filteredLandmarks.count == 0) {

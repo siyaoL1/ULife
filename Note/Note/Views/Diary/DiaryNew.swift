@@ -1,22 +1,19 @@
 //
-//  DiaryDetail.swift
+//  DiaryNew.swift
 //  Note
 //
-//  Created by Siyao Li on 4/16/21.
+//  Created by Siyao Li on 5/2/21.
 //
 
 import SwiftUI
 
-struct DiaryDetail: View {
+struct DiaryNew: View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
-    
-    var diaryIndex: Int {
-        modelData.diaries.firstIndex(where: { $0.id == modelData.currDiary })!
-    }
+    @State var diary: DiaryType = DiaryType()
     
     var body: some View {
-        let time = "\(modelData.diaries[diaryIndex].dateComponents.year!)/\(modelData.diaries[diaryIndex].dateComponents.month!)/\(modelData.diaries[diaryIndex].dateComponents.day!)"
+        let time = "\(diary.dateComponents.year!)/\(diary.dateComponents.month!)/\(diary.dateComponents.day!)"
         ZStack {
             ScrollView {
                 VStack(alignment: .leading) {
@@ -33,6 +30,7 @@ struct DiaryDetail: View {
                         Spacer()
 
                         Button(action: {
+                            modelData.addDiary(diary: diary)
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Save")
@@ -41,7 +39,7 @@ struct DiaryDetail: View {
                     }
 
                     HStack {
-                        TextField("I feel like ...", text: $modelData.diaries[diaryIndex].title)
+                        TextField("I feel like ...", text: $diary.title)
                             .font(.title)
                         Spacer()
                     }
@@ -49,7 +47,7 @@ struct DiaryDetail: View {
                         .font(.subheadline)
                     Divider()
 
-                    TextEditor(text: $modelData.diaries[diaryIndex].content)
+                    TextEditor(text: $diary.content)
                         .background(Color.clear)
                         .foregroundColor(.black)
                         .opacity(0.5)
@@ -63,16 +61,10 @@ struct DiaryDetail: View {
 
         }
     }
-        
-//        Button(action: {
-//            let index = modelData.diaries.firstIndex(where: {$0.id == diary.id})
-//            modelData.diaries[index!].hasDeleted.toggle()
-//        }, label: {Text("D")})
 }
 
-
-struct DiaryDetail_Previews: PreviewProvider {
+struct DiaryNew_Previews: PreviewProvider {
     static var previews: some View {
-        DiaryDetail()
+        DiaryNew()
     }
 }
