@@ -21,6 +21,7 @@ class ModelData: ObservableObject {
     @Published var alwaysFalse: Bool = false
     @Published var showSearchBar: Bool = false
     @Published var showCollapseBack: Bool = true
+    @Published var currNote: UUID = UUID()
     
     @Published var themeID: Int = 0
     let colorThemes: [[String:Color]] = [
@@ -39,12 +40,18 @@ class ModelData: ObservableObject {
     ]
     
     init() {
+        var newNote = NoteType()
+        newNote.title = "I'm a new note"
+        newNote.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        var testing = [NoteType]()
+        testing.append(newNote)
         
-        for note in self.saveAndLoad.loadNoteList() ?? [] {
+        for note in self.saveAndLoad.loadNoteList() ?? testing {
             if !note.hasDeleted {
                 self.notes.append(note)
             }
         }
+        
         self.saveAndLoad.saveNoteList(noteList: self.notes)
         
         for e in self.saveAndLoad.loadToDoEventList() ?? [] {

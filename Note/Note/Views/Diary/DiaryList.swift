@@ -9,10 +9,22 @@ import SwiftUI
 
 struct DiaryList: View {
     @EnvironmentObject var modelData: ModelData
-
+    @State var showDiaryDetail = false
+    
     var body: some View {
         VStack(spacing: 0) {
             Spacer().frame(height:95)
+            VStack{
+                Text("Hi there")
+                Button(action: {
+                    self.showDiaryDetail = true
+                }) {
+                    MenuItem(icon: "square.and.pencil").environmentObject(modelData)
+                }.sheet(isPresented: $showDiaryDetail, content: { DiaryDetail()})
+            }
+            .frame(width: UIScreen.main.bounds.width, height: 200)
+            .background(Color.orange)
+            
             ScrollView(showsIndicators: false) {
                 ForEach(modelData.diaries) { diary in
                     HStack {
