@@ -24,7 +24,8 @@ class ModelData: ObservableObject {
     @Published var currNote: UUID = UUID()
     @Published var currDiary: UUID = UUID()
     @Published var lastDayOfDiary: String = "May.2, 2021"
-    
+    @Published var image: UIImage = UIImage()
+
     @Published var themeID: Int = 0
     let colorThemes: [[String:Color]] = [
         ["Primary": Color(red: 249/255, green: 247/255, blue: 236/255),
@@ -41,29 +42,29 @@ class ModelData: ObservableObject {
          "Addon": Color(red: 245/255, green: 242/255, blue: 255/255)
         ]
     ]
-    
+
     init() {
         var newNote = NoteType()
         newNote.title = "I'm a new note"
         newNote.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
         var testing = [NoteType]()
         testing.append(newNote)
-        
+
         for note in self.saveAndLoad.loadNoteList() ?? testing {
             if !note.hasDeleted {
                 self.notes.append(note)
             }
         }
-        
+
         self.saveAndLoad.saveNoteList(noteList: self.notes)
-        
+
         for e in self.saveAndLoad.loadToDoEventList() ?? [] {
             if !e.hasDeleted {
                 self.todoList.append(e)
             }
         }
         self.saveAndLoad.saveToDoEventList(eventList: self.todoList)
-        
+
         var newDiary = DiaryType()
         newDiary.title = "I'm a new diary"
         newDiary.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
@@ -80,7 +81,7 @@ class ModelData: ObservableObject {
         testing2.insert(newDiary, at: 0)
         testing2.insert(newDiary2, at: 0)
         testing2.insert(newDiary3, at: 0)
-        
+
         var latest: String = ""
         for diary in self.saveAndLoad.loadDiaryEventList() ?? testing2 {
             if !diary.hasDeleted {
@@ -92,13 +93,13 @@ class ModelData: ObservableObject {
         lastDayOfDiary = latest
         self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
     }
-    
+
     func addDiary(diary: DiaryType) -> Void {
         self.diaries.insert(diary, at: 0)
         self.lastDayOfDiary = diary.date
         self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
     }
-    
+
     func deleteDiary(id: UUID) -> Void {
         let index = diaries.firstIndex(where: {
             $0.id == id
@@ -106,12 +107,12 @@ class ModelData: ObservableObject {
         self.diaries[index!].hasDeleted.toggle()
         self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
     }
-    
+
     func addEvent(text: String) -> Void {
         self.todoList.append(ToDoEvent(text: text))
         self.saveAndLoad.saveToDoEventList(eventList: self.todoList)
     }
-    
+
     func deleteEvent(id: UUID) -> Void {
         let index = todoList.firstIndex(where: {
             $0.id == id
@@ -119,12 +120,12 @@ class ModelData: ObservableObject {
         self.todoList[index!].hasDeleted.toggle()
         self.saveAndLoad.saveToDoEventList(eventList: self.todoList)
     }
-    
+
     func addNote(note: NoteType) {
         self.notes.append(note)
         self.saveAndLoad.saveNoteList(noteList: self.notes)
     }
-    
+
     func deleteNote(id: UUID) {
         let index = self.notes.firstIndex(where: {
             $0.id == id

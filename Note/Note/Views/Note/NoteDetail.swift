@@ -7,22 +7,48 @@
 
 import SwiftUI
 
-
 struct NoteDetail : View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
+    @State var showAlert = false
+    @State var showConfirmation = false
+
+    func returnView() -> some View{
+        let time = "\(modelData.notes[noteIndex].dateComponents.year!)/\(modelData.notes[noteIndex].dateComponents.month!)/\(modelData.notes[noteIndex].dateComponents.day!)"
+        return
+            ZStack {
+                ScrollView {
+                    VStack{
+                        HStack {
+                            TextField("I feel like ...", text: $modelData.notes[noteIndex].title)
+                                .font(.title)
+                            Spacer()
+                        }
+                        HStack {
+                            Text(time)
+                                .font(.subheadline)
+                            Spacer()
+                        }
+
+                        Divider()
+
+                        TextEditor(text: $modelData.notes[noteIndex].content)
+                            .background(Color.clear)
+                            .foregroundColor(.black)
+                            .opacity(0.5)
+                            .frame(height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    }
+                }
+                .padding()
+                .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
+                .background(modelData.colorThemes[modelData.themeID]["Primary"])
+            }
+    }
 
     var noteIndex: Int {
         modelData.notes.firstIndex(where: { $0.id == modelData.currNote })!
     }
 
-    func actionSheet() {
-        guard let data = URL(string: "https://www.google.com") else { return }
-        let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-        UIApplication.shared.windows.first?.rootViewController?.present(
-            av, animated: true, completion: nil
-        )
-    }
 
     var body: some View {
         let time = "\(modelData.notes[noteIndex].dateComponents.year!)/\(modelData.notes[noteIndex].dateComponents.month!)/\(modelData.notes[noteIndex].dateComponents.day!)"
@@ -38,9 +64,7 @@ struct NoteDetail : View {
                                 Text("Back")
                             }
                         }
-
                         Spacer()
-
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
@@ -55,12 +79,23 @@ struct NoteDetail : View {
                         Spacer()
                         Button(
                             action: {
-                                let image = body.snapshot()
-                                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                                showConfirmation = true
                             }
                         ){
                             Image(systemName: "square.and.arrow.up")
-                        }.padding()
+                        }
+                        .padding()
+                        .alert(isPresented: $showConfirmation) {
+                            Alert(
+                                title: Text("Save your current note as a picture?"),
+                                primaryButton: .default(Text("OK"), action: {
+
+                                    let image = returnView().snapshot()
+                                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                                }),
+                                secondaryButton: .cancel()
+                            )
+                        }
                         FavoriteButton(isSet: $modelData.notes[noteIndex].isFavorite)
                     }
                     Text(time)
@@ -73,7 +108,7 @@ struct NoteDetail : View {
                         .opacity(0.5)
                         .frame(height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
-//                MultilineTextView(text: $input)
+                //                MultilineTextView(text: $input)
             }
             .padding()
             .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
@@ -83,7 +118,6 @@ struct NoteDetail : View {
         }
     }
 }
-
 
 extension View {
     func snapshot() -> UIImage {
@@ -118,8 +152,8 @@ struct NoteDetail_Previews: PreviewProvider {
                 Text("AddNote")
                     .foregroundColor(.yellow)
             }
-//            NoteDetail(noteID: modelData.notes[0].id)
-//                .environmentObject(modelData)
+            //            NoteDetail(noteID: modelData.notes[0].id)
+            //                .environmentObject(modelData)
         }
     }
 }

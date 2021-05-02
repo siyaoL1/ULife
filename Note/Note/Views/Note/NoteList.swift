@@ -18,26 +18,31 @@ struct NoteList: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            Toggle(isOn: $showFavoritesOnly) {
-                Text("Favorites only")
-                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
-            }.padding(20)
+        ZStack {
+            VStack(spacing: 0) {
+//                if modelData.showMainPanel {
+//                    CalendarView()
+//                        .transition(.opacity)
+//                }
+                Toggle(isOn: $showFavoritesOnly) {
+                    Text("Favorites only")
+                }.padding(20)
 
-            if (filteredLandmarks.count == 0) {
-                Text("Nothing to see right now...")
-                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"]?.opacity(0.3))
-            } else {
-                ForEach(filteredLandmarks) { note in
-                    if !note.hasDeleted {
-                        NoteRow(note: note)
+                if (filteredLandmarks.count == 0) {
+                    Text("Nothing to see right now...")
+                        .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"]?.opacity(0.3))
+                } else {
+                    ForEach(filteredLandmarks) { note in
+                        if !note.hasDeleted {
+                            NoteRow(note: note)
+                        }
                     }
                 }
+                Spacer()
             }
-            Spacer()
+            .edgesIgnoringSafeArea(.bottom)
+            .background(modelData.colorThemes[modelData.themeID]["Primary"])
         }
-        .edgesIgnoringSafeArea(.bottom)
-        .background(modelData.colorThemes[modelData.themeID]["Primary"])
     }
 }
 
