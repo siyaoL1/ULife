@@ -66,6 +66,7 @@ struct NoteDetail : View {
                         }
                         Spacer()
                         Button(action: {
+                            modelData.updateNote()
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Save")
