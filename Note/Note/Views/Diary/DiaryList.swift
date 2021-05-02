@@ -17,6 +17,7 @@ struct DiaryList: View {
             
             ScrollView(showsIndicators: false) {
                 VStack{
+//                    根据今天有没有记日记变显示的东西， Welcome Back, anything new?
                     Text("How's your day?")
                         .fontWeight(.bold)
                         .font(.system(.largeTitle, design: .rounded))

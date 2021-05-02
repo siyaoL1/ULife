@@ -36,7 +36,7 @@ class ModelData: ObservableObject {
          "Secondary": Color(red: 177/255.0, green: 168/255.0, blue: 255/255.0),
          "Text": Color(red: 105/255.0, green: 105/255.0, blue: 105/255.0),
          "Background": Color.secondary.opacity(0.2),
-         "Addon": Color(red: 245/255, green: 245/255, blue: 245/255)
+         "Addon": Color(red: 245/255, green: 242/255, blue: 255/255)
         ]
     ]
     
