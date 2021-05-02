@@ -23,7 +23,7 @@ class ModelData: ObservableObject {
     @Published var showCollapseBack: Bool = true
     @Published var currNote: UUID = UUID()
     @Published var currDiary: UUID = UUID()
-    @Published var lastDayOfDiary: String = "May.2, 2021"
+    @Published var diaryDates: [String] = []
     @Published var image: UIImage = UIImage()
 
     @Published var themeID: Int = 0
@@ -78,20 +78,18 @@ class ModelData: ObservableObject {
         newDiary3.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
         newDiary3.date = "Apr.29, 2021"
         var testing2 = [DiaryType]()
-        testing2.insert(newDiary, at: 0)
-        testing2.insert(newDiary2, at: 0)
-        testing2.insert(newDiary3, at: 0)
+        testing2.append(newDiary)
+        testing2.append(newDiary2)
+        testing2.append(newDiary3)
 
-        var latest: String = ""
         for diary in self.saveAndLoad.loadDiaryEventList() ?? testing2 {
             if !diary.hasDeleted {
-                self.diaries.append(diary)
-                latest = diary.date
+                self.diaries.insert(diary, at: 0)
+                self.diaryDates.insert(diary.date, at: 0)
             }
         }
-
-        lastDayOfDiary = latest
         self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
+        print(diaries)
     }
     
     func updateNote() {
@@ -104,7 +102,7 @@ class ModelData: ObservableObject {
 
     func addDiary(diary: DiaryType) -> Void {
         self.diaries.insert(diary, at: 0)
-        self.lastDayOfDiary = diary.date
+        self.diaryDates.insert(diary.date, at: 0)
         self.saveAndLoad.saveDiaryList(diaryList: self.diaries)
     }
 

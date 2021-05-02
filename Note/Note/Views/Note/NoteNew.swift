@@ -54,7 +54,7 @@ struct NoteNew : View {
                         .background(Color.clear)
                         .foregroundColor(.black)
                         .opacity(0.5)
-                        .frame(height: 400, alignment: .center)
+                        .frame(height: 600, alignment: .center)
                 }
 //                MultilineTextView(text: $input)
             }

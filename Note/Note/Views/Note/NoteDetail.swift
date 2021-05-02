@@ -83,7 +83,7 @@ struct NoteDetail : View {
                                 showConfirmation = true
                             }
                         ){
-                            Image(systemName: "square.and.arrow.up")
+                            Image(systemName: "photo.on.rectangle.angled")
                         }
                         .padding()
                         .alert(isPresented: $showConfirmation) {
@@ -107,7 +107,7 @@ struct NoteDetail : View {
                         .background(Color.clear)
                         .foregroundColor(.black)
                         .opacity(0.5)
-                        .frame(height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(height: 600, alignment: .center)
                 }
                 //                MultilineTextView(text: $input)
             }

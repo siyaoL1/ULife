@@ -123,6 +123,10 @@ struct ContentView: View {
                                     insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)), //AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
                                     removal: AnyTransition.opacity))
             }
+        }.onShake {
+            withAnimation {
+                modelData.themeID = modelData.themeID == 0 ? 1 : 0
+            }
         }
         
     }

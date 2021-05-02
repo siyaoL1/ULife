@@ -36,19 +36,23 @@ struct DiaryDetail: View {
 
                             Spacer()
                             Button(action: {
-                                modelData.updateDiary()
-                                self.presentationMode.wrappedValue.dismiss()
-                            }, label: {
-                                Text("Svae")
-                            })
-
-                            Button(action: {
                                 modelData.diaries[diaryIndex].hasDeleted.toggle()
+                                if let index = modelData.diaryDates.firstIndex(of: modelData.diaries[diaryIndex].date) {
+                                    modelData.diaryDates.remove(at: index)
+                                }
                                 self.presentationMode.wrappedValue.dismiss()
                             }) {
                                 Text("Delete")
-                                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                             }
+                            .padding(.trailing, 10)
+                            
+                            Button(action: {
+                                modelData.updateDiary()
+                                self.presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Text("Save")
+                                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+                            })
                         }
                         
                         VStack(alignment: .leading) {
@@ -74,7 +78,7 @@ struct DiaryDetail: View {
                             .background(Color.clear)
                             .foregroundColor(.black)
                             .opacity(0.5)
-                            .frame(height: 400, alignment: .center)
+                            .frame(height: 500, alignment: .center)
                     }.zIndex(0.0)
                     EmotionPicker()
                         .offset(x: 9.0, y: 25.0)
@@ -119,7 +123,7 @@ extension DateFormatter {
     
     static var time: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "h:m a"
+        formatter.dateFormat = "h:mm a"
         return formatter
     }
 //
