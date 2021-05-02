@@ -35,7 +35,7 @@ struct NoteList: View {
                             modelData.currNote = note.id
                         }) {
                             NoteRow(note: note)
-                        }.sheet(isPresented: $showNoteDetail, content: { NoteDetail_2(noteID: note.id)})
+                        }.sheet(isPresented: $showNoteDetail, content: { NoteDetail_2()})
                         .simultaneousGesture(TapGesture().onEnded{
                             modelData.inNotes = true
                         })

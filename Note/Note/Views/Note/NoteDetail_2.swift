@@ -11,11 +11,9 @@ import SwiftUI
 struct NoteDetail_2 : View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
-    
-    var noteID: UUID
-    
+
     var noteIndex: Int {
-        modelData.notes.firstIndex(where: { $0.id == noteID })!
+        modelData.notes.firstIndex(where: { $0.id == modelData.currNote })!
     }
 
     var body: some View {
@@ -25,6 +23,7 @@ struct NoteDetail_2 : View {
                 VStack(alignment: .leading) {
                     HStack {
                         Button(action: {
+                            modelData.inNotes = false
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             HStack {
