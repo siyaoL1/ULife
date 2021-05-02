@@ -22,7 +22,7 @@ struct DiaryList: View {
             
             ScrollView(showsIndicators: false) {
                 VStack{
-                    if (modelData.lastDayOfDiary != dateFormat.string(from: Date())) {
+                    if (!modelData.diaryDates.contains(dateFormat.string(from: Date()))) {
                         Text("How's your day?")
                             .fontWeight(.bold)
                             .font(.system(.largeTitle, design: .rounded))
