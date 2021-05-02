@@ -36,7 +36,7 @@ struct NoteNew : View {
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Save")
-                                .foregroundColor(.yellow)
+                                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                         }
                     }
                     
@@ -44,6 +44,14 @@ struct NoteNew : View {
                         TextField("I feel like ...", text: $note.title)
                             .font(.title)
                         Spacer()
+                        Button(
+                            action: {
+                                let image = body.snapshot()
+                                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                            }
+                        ){
+                            Image(systemName: "square.and.arrow.up")
+                        }.padding()
                         FavoriteButton(isSet: $note.isFavorite)
                     }
                     Text(time)
@@ -54,26 +62,14 @@ struct NoteNew : View {
                         .background(Color.clear)
                         .foregroundColor(.black)
                         .opacity(0.5)
-                        .frame(height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(height: 400, alignment: .center)
                 }
 //                MultilineTextView(text: $input)
             }
             .padding()
             .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
-            .background(Color(red: 249/255, green: 247/255, blue: 236/255))
+            .background(modelData.colorThemes[modelData.themeID]["Primary"])
         }
-//        .navigationBarTitleDisplayMode(.inline)
-//        .navigationBarBackButtonHidden(true)
-//        .navigationBarItems(leading:
-//            Button(action: {
-//                modelData.notes.append(note)
-//                self.presentationMode.wrappedValue.dismiss()
-//            }) {
-//                HStack {
-//                    Image(systemName: "chevron.backward")
-//                    Text("Save")
-//                }
-//            })
     }
 }
 
