@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EmotionPicker: View {
+    @EnvironmentObject var modelData: ModelData
     @State var expand = false
     let emotionIcon = ["Sleepy": "zzz", "Fire":"flame", "Music":"music.note",
                        "Happy": "face.smiling", "Heart": "heart.fill", "Game": "gamecontroller",
@@ -21,6 +22,16 @@ struct EmotionPicker: View {
             }
             if expand {
                 ScrollView {
+                    ForEach(Array(emotionIcon.keys), id: \.self) { key in
+                        Image(systemName: emotionIcon[key]!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100, height: 100)
+                            .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+                            .cornerRadius(10)
+                            .padding(10)
+                    }
+                    
                     Button(action: {}) {
                         Text("Dropdown")
                     }
@@ -36,7 +47,7 @@ struct EmotionPicker: View {
             }
         }
         .padding(10)
-        
+//        .background(Color.green)
         .cornerRadius(10)
         .animation(.spring())
         .alignmentGuide(VerticalAlignment.center) { $0[.top] }
@@ -46,5 +57,6 @@ struct EmotionPicker: View {
 struct EmotionPicker_Previews: PreviewProvider {
     static var previews: some View {
         EmotionPicker()
+            .environmentObject(ModelData())
     }
 }
