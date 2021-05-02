@@ -16,7 +16,7 @@ struct NoteRow: View {
     
     func actionSheet() {
         // If you want to use an image
-        let image : UIImage = modelData.image
+        let image : UIImage = returnView().snapshot()
         let activityViewController : UIActivityViewController = UIActivityViewController(
             activityItems: [image], applicationActivities: nil)
         
@@ -26,27 +26,47 @@ struct NoteRow: View {
         
         // Pre-configuring activity items
         activityViewController.activityItemsConfiguration = [
-            UIActivity.ActivityType.message
+            UIActivity.ActivityType.message,
+            UIActivity.ActivityType.airDrop
         ] as? UIActivityItemsConfigurationReading
-        
-        // Anything you want to exclude
-        activityViewController.excludedActivityTypes = [
-            UIActivity.ActivityType.postToWeibo,
-            UIActivity.ActivityType.print,
-            UIActivity.ActivityType.assignToContact,
-            UIActivity.ActivityType.saveToCameraRoll,
-            UIActivity.ActivityType.addToReadingList,
-            UIActivity.ActivityType.postToFlickr,
-            UIActivity.ActivityType.postToVimeo,
-            UIActivity.ActivityType.postToTencentWeibo,
-            UIActivity.ActivityType.postToFacebook
-        ]
         
         activityViewController.isModalInPresentation = true
         //self.present(activityViewController, animated: true, completion: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(
             activityViewController, animated: true, completion: nil
         )
+    }
+    
+    func returnView() -> some View{
+        let time = "\(modelData.notes[noteIndex].dateComponents.year!)/\(modelData.notes[noteIndex].dateComponents.month!)/\(modelData.notes[noteIndex].dateComponents.day!)"
+        return
+            ZStack {
+                ScrollView {
+                    VStack{
+                        HStack {
+                            TextField("I feel like ...", text: $modelData.notes[noteIndex].title)
+                                .font(.title)
+                            Spacer()
+                        }
+                        HStack {
+                            Text(time)
+                                .font(.subheadline)
+                            Spacer()
+                        }
+                        
+                        Divider()
+                        
+                        TextEditor(text: $modelData.notes[noteIndex].content)
+                            .background(Color.clear)
+                            .foregroundColor(.black)
+                            .opacity(0.5)
+                            .frame(height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    }
+                }
+                .padding()
+                .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
+                .background(modelData.colorThemes[modelData.themeID]["Primary"])
+            }
     }
     
     var note: NoteType
@@ -118,7 +138,6 @@ struct NoteRow: View {
             modelData.currNote = note.id
         }
         .sheet(isPresented: $showNoteDetail, content: { NoteDetail()})
-        
     }
 }
 
