@@ -36,7 +36,7 @@ struct DiaryDetail: View {
 
                             Spacer()
                             Button(action: {
-                                modelData.diaries[diaryIndex].hasDeleted.toggle()
+                                modelData.deleteDiary(id: modelData.currDiary)
                                 if let index = modelData.diaryDates.firstIndex(of: modelData.diaries[diaryIndex].date) {
                                     modelData.diaryDates.remove(at: index)
                                 }
