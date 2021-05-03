@@ -13,6 +13,9 @@ struct MiddleView: View {
     var body: some View {
         ZStack(alignment: .top) {
             DiaryPanel()
+            Image("Image")
+                    .resizable()
+                    .scaledToFit()
     
             if modelData.showMainPanel {
                 MainPanelBar(t:"")
