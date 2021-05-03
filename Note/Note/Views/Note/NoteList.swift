@@ -33,9 +33,11 @@ struct NoteList: View {
                     Text("Nothing to see right now...")
                         .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"]?.opacity(0.3))
                 } else {
-                    ForEach(filteredLandmarks) { note in
-                        if !note.hasDeleted {
-                            NoteRow(note: note)
+                    ScrollView(showsIndicators: false) {
+                        ForEach(filteredLandmarks) { note in
+                            if !note.hasDeleted {
+                                NoteRow(note: note)
+                            }
                         }
                     }
                 }
