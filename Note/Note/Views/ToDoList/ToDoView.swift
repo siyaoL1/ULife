@@ -14,57 +14,13 @@ struct ToDoView: View {
     @State var text: String = ""
     @State var indices: [Int] = [1]
     
-//    HStack {
-//        Text("New Event")
-//                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
-//        Spacer()
-//    }
+    var filteredToDos: [ToDoEvent] {
+        modelData.todoList.filter { todo in
+            !todo.hasDeleted
+        }
+    }
+    
     var body: some View {
-//        NavigationView {
-//            VStack {
-//                List {
-//                    Section(header: Text("New Event")
-//                                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])) {
-//                        HStack {
-//                            TextField("To do ...", text: $text)
-//
-//                            Button(action: {
-//                                if !text.isEmpty {
-//                                    self.todolist.addEvent(id: Date(), name: self.text)
-//                                }
-//                                self.text = ""
-//                            }, label: {
-//                                Text("add")
-//                            })
-//                        }
-//                    }
-//                    Section {
-//                        ForEach(self.todolist.todolist) {event in
-//                            VStack(alignment: .leading) {
-//                                CardView(event: event)
-//                            }
-//
-//                        }.onDelete(perform: { indexSet in
-//                            if let index = indexSet.first {
-//                                let event = self.todolist.todolist[index]
-//                                self.todolist.todolist.removeAll(where: {$0.id == event.id})
-//                            } else {return}
-//
-//                        })
-//
-//                    }
-//                }
-//
-//            }
-//            //            .navigationBarTitle("To Do List", displayMode: .inline)
-////            .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
-//            .background(Color.white)
-//            .navigationBarTitleDisplayMode(.inline)
-//            .navigationBarBackButtonHidden(true)
-//            .navigationBarHidden(true)
-//        }
-//        .edgesIgnoringSafeArea([.top])
-        
         VStack {
             HStack {
                 Text("NEW EVENT")
@@ -79,7 +35,7 @@ struct ToDoView: View {
                 
                 Button(action: {
                     if !text.isEmpty {
-                        modelData.addEvent(id: modelData.todoList.count, text: self.text)
+                        modelData.addEvent(text: self.text)
                     }
                     self.text = ""
                 }, label: {
@@ -90,8 +46,14 @@ struct ToDoView: View {
             .background(Color.white)
             .padding(.bottom, 20)
             
-            CustomizeList()
-                .environmentObject(modelData)
+            if (filteredToDos.count == 0) {
+                Text("You don't have any to-do right now...")
+                    .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"]?.opacity(0.3))
+            } else {
+                CustomizeList()
+                    .environmentObject(modelData)
+            }
+            
 
             
             Spacer()

@@ -17,7 +17,7 @@ struct SettingView: View {
     var body: some View {
         GeometryReader { geo in
             HStack {
-                Spacer().frame(width: 71)
+                Spacer().frame(width: 130)
                 ZStack {
                     modelData.colorThemes[modelData.themeID]["Primary"]
                     VStack {
@@ -31,7 +31,7 @@ struct SettingView: View {
                             }
                         }
                         .padding(.top, 35)
-                        .padding(.leading, 270)
+                        .padding(.leading, 200)
                         .padding(.bottom, 20)
                             
                         Text("ULife").font(.title).fontWeight(.medium)
@@ -87,7 +87,7 @@ struct SettingView: View {
                     .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"])
 //                    .padding(.top, 60)
                 }
-                .frame(width: geo.size.width - 70, height: 400, alignment: .topTrailing)
+                .frame(width: geo.size.width - 140, height: 380, alignment: .topTrailing)
                 .cornerRadius(40)
             }
         }

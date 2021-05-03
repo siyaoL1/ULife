@@ -41,7 +41,7 @@ struct ToNoteView : View {
             .background(Color.white)
             
             ForEach(NotesOfTheDate) { note in
-                NavigationLink(destination: NoteDetail(note: note)) {
+                NavigationLink(destination: NoteDetail()) {
                     NoteRow(note: note).edgesIgnoringSafeArea(.bottom)
                 }
                 

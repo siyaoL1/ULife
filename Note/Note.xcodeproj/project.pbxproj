@@ -12,10 +12,10 @@
 		3C3372C1262A73F300BFA52B /* NoteDetailInDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3372C0262A73F300BFA52B /* NoteDetailInDropDown.swift */; };
 		3C3372C6262A745900BFA52B /* DropMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3372C5262A745900BFA52B /* DropMenu.swift */; };
 		3C9CEDB92612FFBB00864CCE /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9CEDB82612FFBB00864CCE /* test.swift */; };
-		87235E432605461000719513 /* NoteDetail_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E362605461000719513 /* NoteDetail_2.swift */; };
+		3CC813D4263F84F10013C389 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC813D3263F84F10013C389 /* InfoView.swift */; };
+		87235E432605461000719513 /* NoteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E362605461000719513 /* NoteDetail.swift */; };
 		87235E442605461000719513 /* NoteNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E372605461000719513 /* NoteNew.swift */; };
 		87235E452605461000719513 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E382605461000719513 /* NoteList.swift */; };
-		87235E462605461000719513 /* NoteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E392605461000719513 /* NoteDetail.swift */; };
 		87235E472605461000719513 /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E3A2605461000719513 /* NoteRow.swift */; };
 		87235E482605461000719513 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E3B2605461000719513 /* FloatingMenu.swift */; };
 		87235E492605461000719513 /* MultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87235E3D2605461000719513 /* MultilineTextView.swift */; };
@@ -27,6 +27,8 @@
 		8749387C2605493D00C1A43E /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8749387B2605493D00C1A43E /* SwipeDirection.swift */; };
 		876A6117262A0554004AB13E /* DiaryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A6116262A0554004AB13E /* DiaryType.swift */; };
 		876A611C262A0F15004AB13E /* diaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = 876A611B262A0F15004AB13E /* diaryData.json */; };
+		876E1B0E263F5C9800DB52CC /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E1B0D263F5C9800DB52CC /* SwiftUIView.swift */; };
+		876E1B16263F5F8A00DB52CC /* NewEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876E1B15263F5F8A00DB52CC /* NewEmotion.swift */; };
 		879F3F502602AE4300C110BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879F3F4F2602AE4300C110BC /* Assets.xcassets */; };
 		879F3F532602AE4300C110BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879F3F522602AE4300C110BC /* Preview Assets.xcassets */; };
 		879F3F552602AE4300C110BC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F3F542602AE4300C110BC /* Persistence.swift */; };
@@ -38,7 +40,6 @@
 		879F3F872602AEB900C110BC /* NoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F3F862602AEB900C110BC /* NoteApp.swift */; };
 		879F3F902602AECF00C110BC /* noteData.json in Resources */ = {isa = PBXBuildFile; fileRef = 879F3F8F2602AECF00C110BC /* noteData.json */; };
 		87C6C6772617C05B0002A04C /* CustomizeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C6C6762617C05B0002A04C /* CustomizeList.swift */; };
-		87D87348262A78D600F9A70B /* bla.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D87343262A78D500F9A70B /* bla.swift */; };
 		87D87349262A78D600F9A70B /* DiaryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D87344262A78D600F9A70B /* DiaryRow.swift */; };
 		87D8734A262A78D600F9A70B /* DiaryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D87345262A78D600F9A70B /* DiaryDetail.swift */; };
 		87D8734B262A78D600F9A70B /* DiaryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D87346262A78D600F9A70B /* DiaryList.swift */; };
@@ -51,6 +52,9 @@
 		87DF0AB82616B9DE001E32A8 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DF0AB72616B9DE001E32A8 /* LeftView.swift */; };
 		87DF0AC02616B9EE001E32A8 /* RightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DF0ABF2616B9EE001E32A8 /* RightView.swift */; };
 		87DF0AC82616BF15001E32A8 /* ToNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DF0AC72616BF15001E32A8 /* ToNoteView.swift */; };
+		87E01A6D263F24BD00DDCC4C /* DiaryNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E01A6C263F24BD00DDCC4C /* DiaryNew.swift */; };
+		87E01A72263F26C600DDCC4C /* NewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E01A71263F26C600DDCC4C /* NewButton.swift */; };
+		87E01A77263F2D2300DDCC4C /* EmotionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E01A76263F2D2300DDCC4C /* EmotionPicker.swift */; };
 		B4C95DAA26293365007F4B80 /* SaveAndLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C95DA926293364007F4B80 /* SaveAndLoad.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,10 +81,10 @@
 		3C3372C0262A73F300BFA52B /* NoteDetailInDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailInDropDown.swift; sourceTree = "<group>"; };
 		3C3372C5262A745900BFA52B /* DropMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropMenu.swift; sourceTree = "<group>"; };
 		3C9CEDB82612FFBB00864CCE /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
-		87235E362605461000719513 /* NoteDetail_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetail_2.swift; sourceTree = "<group>"; };
+		3CC813D3263F84F10013C389 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		87235E362605461000719513 /* NoteDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetail.swift; sourceTree = "<group>"; };
 		87235E372605461000719513 /* NoteNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteNew.swift; sourceTree = "<group>"; };
 		87235E382605461000719513 /* NoteList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
-		87235E392605461000719513 /* NoteDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetail.swift; sourceTree = "<group>"; };
 		87235E3A2605461000719513 /* NoteRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
 		87235E3B2605461000719513 /* FloatingMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
 		87235E3D2605461000719513 /* MultilineTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultilineTextView.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		8749387B2605493D00C1A43E /* SwipeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDirection.swift; sourceTree = "<group>"; };
 		876A6116262A0554004AB13E /* DiaryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryType.swift; sourceTree = "<group>"; };
 		876A611B262A0F15004AB13E /* diaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = diaryData.json; sourceTree = "<group>"; };
+		876E1B0D263F5C9800DB52CC /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		876E1B15263F5F8A00DB52CC /* NewEmotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEmotion.swift; sourceTree = "<group>"; };
 		879F3F482602AE4200C110BC /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879F3F4F2602AE4300C110BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		879F3F522602AE4300C110BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -109,7 +115,6 @@
 		879F3F862602AEB900C110BC /* NoteApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteApp.swift; sourceTree = "<group>"; };
 		879F3F8F2602AECF00C110BC /* noteData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = noteData.json; sourceTree = "<group>"; };
 		87C6C6762617C05B0002A04C /* CustomizeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeList.swift; sourceTree = "<group>"; };
-		87D87343262A78D500F9A70B /* bla.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bla.swift; sourceTree = "<group>"; };
 		87D87344262A78D600F9A70B /* DiaryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryRow.swift; sourceTree = "<group>"; };
 		87D87345262A78D600F9A70B /* DiaryDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryDetail.swift; sourceTree = "<group>"; };
 		87D87346262A78D600F9A70B /* DiaryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryList.swift; sourceTree = "<group>"; };
@@ -122,6 +127,9 @@
 		87DF0AB72616B9DE001E32A8 /* LeftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		87DF0ABF2616B9EE001E32A8 /* RightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightView.swift; sourceTree = "<group>"; };
 		87DF0AC72616BF15001E32A8 /* ToNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToNoteView.swift; sourceTree = "<group>"; };
+		87E01A6C263F24BD00DDCC4C /* DiaryNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryNew.swift; sourceTree = "<group>"; };
+		87E01A71263F26C600DDCC4C /* NewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewButton.swift; sourceTree = "<group>"; };
+		87E01A76263F2D2300DDCC4C /* EmotionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionPicker.swift; sourceTree = "<group>"; };
 		B4C95DA926293364007F4B80 /* SaveAndLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndLoad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,10 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				3C3372C0262A73F300BFA52B /* NoteDetailInDropDown.swift */,
-				87235E362605461000719513 /* NoteDetail_2.swift */,
+				87235E362605461000719513 /* NoteDetail.swift */,
 				87235E372605461000719513 /* NoteNew.swift */,
 				87235E382605461000719513 /* NoteList.swift */,
-				87235E392605461000719513 /* NoteDetail.swift */,
 				87235E3A2605461000719513 /* NoteRow.swift */,
 			);
 			path = Note;
@@ -166,11 +173,13 @@
 		87235E3C2605461000719513 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3C9CEDB82612FFBB00864CCE /* test.swift */,
 				3C3372C5262A745900BFA52B /* DropMenu.swift */,
 				87235E3B2605461000719513 /* FloatingMenu.swift */,
 				87DF0AA22616B4AC001E32A8 /* MainPanelBar.swift */,
 				87235E3D2605461000719513 /* MultilineTextView.swift */,
 				87235E3E2605461000719513 /* FavoriteButton.swift */,
+				876E1B0D263F5C9800DB52CC /* SwiftUIView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -283,15 +292,15 @@
 			children = (
 				87D87342262A78D500F9A70B /* Diary */,
 				87DF0A972616B476001E32A8 /* Calendar */,
-				3C9CEDB82612FFBB00864CCE /* test.swift */,
 				87421804261807D50019613D /* Setting */,
 				8749386E260547BA00C1A43E /* ToDoList */,
-				87235E402605461000719513 /* ContentView.swift */,
 				87235E3C2605461000719513 /* Helpers */,
 				87235E352605461000719513 /* Note */,
+				87235E402605461000719513 /* ContentView.swift */,
 				87DF0AAC2616B6B8001E32A8 /* MiddleView.swift */,
 				87DF0AB72616B9DE001E32A8 /* LeftView.swift */,
 				87DF0ABF2616B9EE001E32A8 /* RightView.swift */,
+				3CC813D3263F84F10013C389 /* InfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,11 +308,14 @@
 		87D87342262A78D500F9A70B /* Diary */ = {
 			isa = PBXGroup;
 			children = (
-				87D87343262A78D500F9A70B /* bla.swift */,
 				87D87344262A78D600F9A70B /* DiaryRow.swift */,
 				87D87345262A78D600F9A70B /* DiaryDetail.swift */,
 				87D87346262A78D600F9A70B /* DiaryList.swift */,
 				87D87347262A78D600F9A70B /* DiaryPanel.swift */,
+				87E01A6C263F24BD00DDCC4C /* DiaryNew.swift */,
+				87E01A71263F26C600DDCC4C /* NewButton.swift */,
+				87E01A76263F2D2300DDCC4C /* EmotionPicker.swift */,
+				876E1B15263F5F8A00DB52CC /* NewEmotion.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -455,6 +467,8 @@
 				879F3F552602AE4300C110BC /* Persistence.swift in Sources */,
 				3C3372C1262A73F300BFA52B /* NoteDetailInDropDown.swift in Sources */,
 				87493872260547BA00C1A43E /* ToDoView.swift in Sources */,
+				876E1B16263F5F8A00DB52CC /* NewEmotion.swift in Sources */,
+				87E01A6D263F24BD00DDCC4C /* DiaryNew.swift in Sources */,
 				8749387C2605493D00C1A43E /* SwipeDirection.swift in Sources */,
 				87235E4A2605461000719513 /* FavoriteButton.swift in Sources */,
 				87DF0AA32616B4AC001E32A8 /* MainPanelBar.swift in Sources */,
@@ -467,6 +481,7 @@
 				87235E442605461000719513 /* NoteNew.swift in Sources */,
 				87235E492605461000719513 /* MultilineTextView.swift in Sources */,
 				87235E4C2605461000719513 /* ContentView.swift in Sources */,
+				876E1B0E263F5C9800DB52CC /* SwiftUIView.swift in Sources */,
 				879F3F872602AEB900C110BC /* NoteApp.swift in Sources */,
 				87235E472605461000719513 /* NoteRow.swift in Sources */,
 				87493871260547BA00C1A43E /* CardView.swift in Sources */,
@@ -474,6 +489,8 @@
 				87D8734A262A78D600F9A70B /* DiaryDetail.swift in Sources */,
 				87D8734B262A78D600F9A70B /* DiaryList.swift in Sources */,
 				B4C95DAA26293365007F4B80 /* SaveAndLoad.swift in Sources */,
+				3CC813D4263F84F10013C389 /* InfoView.swift in Sources */,
+				87E01A72263F26C600DDCC4C /* NewButton.swift in Sources */,
 				3C9CEDB92612FFBB00864CCE /* test.swift in Sources */,
 				87D8734C262A78D600F9A70B /* DiaryPanel.swift in Sources */,
 				876A6117262A0554004AB13E /* DiaryType.swift in Sources */,
@@ -481,14 +498,13 @@
 				87C6C6772617C05B0002A04C /* CustomizeList.swift in Sources */,
 				879F3F582602AE4300C110BC /* Note.xcdatamodeld in Sources */,
 				879F3F822602AEAB00C110BC /* ModelData.swift in Sources */,
-				87D87348262A78D600F9A70B /* bla.swift in Sources */,
 				87D87349262A78D600F9A70B /* DiaryRow.swift in Sources */,
-				87235E462605461000719513 /* NoteDetail.swift in Sources */,
 				87493877260547DD00C1A43E /* ToDoEvent.swift in Sources */,
-				87235E432605461000719513 /* NoteDetail_2.swift in Sources */,
+				87235E432605461000719513 /* NoteDetail.swift in Sources */,
 				3C3372BC262A73D200BFA52B /* NoteViewInDropDown.swift in Sources */,
 				3C3372B7262A73BC00BFA52B /* CalendarDropDown.swift in Sources */,
 				87235E452605461000719513 /* NoteList.swift in Sources */,
+				87E01A77263F2D2300DDCC4C /* EmotionPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +663,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Note/Preview Content\"";
+				DEVELOPMENT_TEAM = WH6U4U889K;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Note/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -654,7 +671,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SiyaoLi.Note;
+				PRODUCT_BUNDLE_IDENTIFIER = SiyaoLi.Note1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -668,6 +685,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Note/Preview Content\"";
+				DEVELOPMENT_TEAM = WH6U4U889K;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Note/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -675,7 +693,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SiyaoLi.Note;
+				PRODUCT_BUNDLE_IDENTIFIER = SiyaoLi.Note1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

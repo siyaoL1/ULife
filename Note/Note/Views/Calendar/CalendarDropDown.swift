@@ -114,12 +114,24 @@ struct CalendarDropDown: View {
                             }
                         }
                     }
+                    .padding(.top, 10)
                     .padding(.horizontal, 5)
                     .navigationBarHidden(true)
                     .onAppear {
                         item.scrollTo(Calendar.current.dateComponents([.year,.month,.day], from: Date()), anchor: .bottom)
                     }
                     .background(modelData.colorThemes[modelData.themeID]["Primary"])
+//                    .gesture(
+//                        DragGesture()
+//                            .onEnded({gesture in
+//                                withAnimation {
+//                                    let direction = detectDirection(value: gesture)
+//                                    if direction == .up {
+//                                        modelData.showCalendarPanel = false
+//                                    }
+//                                 }
+//                            })
+//                    )
                 }
             }
         }

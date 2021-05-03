@@ -11,7 +11,7 @@ import SwiftUI
 struct NoteNew : View {
     @EnvironmentObject var modelData: ModelData
     @Environment(\.presentationMode) var presentationMode
-    @State var note: NoteType = NoteType(newId: -1)
+    @State var note: NoteType = NoteType()
 
     var body: some View {
         let time = "\(note.dateComponents.year!)/\(note.dateComponents.month!)/\(note.dateComponents.day!)"
@@ -31,13 +31,12 @@ struct NoteNew : View {
                         Spacer()
                         
                         Button(action: {
-                            note.id = modelData.notes.count
                             modelData.addNote(note: note)
                             
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Save")
-                                .foregroundColor(.yellow)
+                                .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                         }
                     }
                     
@@ -55,26 +54,15 @@ struct NoteNew : View {
                         .background(Color.clear)
                         .foregroundColor(.black)
                         .opacity(0.5)
-                        .frame(height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(height: 600, alignment: .center)
                 }
 //                MultilineTextView(text: $input)
             }
             .padding()
             .foregroundColor(Color(red: 77/255, green: 77/255, blue: 77/255))
-            .background(Color(red: 249/255, green: 247/255, blue: 236/255))
+            .background(modelData.colorThemes[modelData.themeID]["Primary"])
+            .ignoresSafeArea(edges: .bottom)
         }
-//        .navigationBarTitleDisplayMode(.inline)
-//        .navigationBarBackButtonHidden(true)
-//        .navigationBarItems(leading:
-//            Button(action: {
-//                modelData.notes.append(note)
-//                self.presentationMode.wrappedValue.dismiss()
-//            }) {
-//                HStack {
-//                    Image(systemName: "chevron.backward")
-//                    Text("Save")
-//                }
-//            })
     }
 }
 

@@ -9,11 +9,15 @@ import SwiftUI
 
 struct MiddleView: View {
     @EnvironmentObject var modelData: ModelData
-    
+ 
     var body: some View {
         ZStack(alignment: .top) {
             DiaryPanel()
-    
+            
+            if modelData.showMainPanel && !modelData.showSettingPanel{
+                InfoView()
+            }
+
             if modelData.showMainPanel {
                 MainPanelBar(t:"")
                     .transition(.opacity)

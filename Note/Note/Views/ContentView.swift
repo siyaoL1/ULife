@@ -50,10 +50,20 @@ struct ContentView: View {
                             self.index += 1
                         }
                     } else if direction == .down {
-                        modelData.showSearchBar = true
+                        if self.index == 1 {
+                            modelData.showSearchBar = true
+                        }
+                        if self.index == 2 {
+                            modelData.showCalendarPanel = true
+                        }
                     } else if direction == .up {
-                        modelData.showSearchBar = false
+                        if self.index == 1 {
+                            modelData.showSearchBar = false
+                        }
                         modelData.showCalendarDropDown = false
+                        if self.index == 2 {
+                            modelData.showCalendarPanel = false
+                        }
                     }
                  }
             })
@@ -91,14 +101,14 @@ struct ContentView: View {
                     .zIndex(0)
             }
             
-            if modelData.showCalendarPanel {
-                // Need to use asymmetric transition due to the ZStack disappearing sequence.
-                CalendarView().zIndex(1)
-                    .transition(.asymmetric(
-                                    insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
-                                    removal: AnyTransition.opacity))
-                    
-            }
+//            if modelData.showCalendarPanel {
+//                // Need to use asymmetric transition due to the ZStack disappearing sequence.
+//                CalendarView().zIndex(1)
+//                    .transition(.asymmetric(
+//                                    insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
+//                                    removal: AnyTransition.opacity))
+//
+//            }
             
             if modelData.showSettingPanel {
                 SettingView().zIndex(1)
@@ -112,6 +122,10 @@ struct ContentView: View {
                     .transition(.asymmetric(
                                     insertion: AnyTransition.opacity.animation(.easeInOut(duration: 0.6)), //AnyTransition.opacity.animation(.easeInOut(duration: 0.6)),
                                     removal: AnyTransition.opacity))
+            }
+        }.onShake {
+            withAnimation {
+                modelData.themeID = modelData.themeID == 0 ? 1 : 0
             }
         }
         

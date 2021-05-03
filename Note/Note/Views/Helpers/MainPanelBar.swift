@@ -42,12 +42,12 @@ struct MainPanelBar: View {
                     .animation(.easeOut)
                     .transition(.scale)
                 
-                Button(action:{action()}) {
-                    Image(systemName: "calendar")
-                        .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
-                        .font(.system(size: 25.0))
-                        .animation(.easeInOut)
-                }
+//                Button(action:{action()}) {
+//                    Image(systemName: "calendar")
+//                        .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
+//                        .font(.system(size: 25.0))
+//                        .animation(.easeInOut)
+//                }
             }
 
             Spacer()

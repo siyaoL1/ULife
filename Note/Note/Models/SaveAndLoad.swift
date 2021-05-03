@@ -10,24 +10,41 @@ import Foundation
 
 class SaveLoadData {
     
-    func saveToDoEventList(eventList: [ToDoEvent], forKey: String) -> Bool {
+    func saveDiaryList(diaryList:[DiaryType]) -> Bool {
+        let encoder = PropertyListEncoder()
+        if let data = try?encoder.encode(diaryList) {
+            return saveData(data:data, forKey: "diaryList")
+        }
+        return false
+    }
+    
+    func saveToDoEventList(eventList: [ToDoEvent]) -> Bool {
         let encoder = PropertyListEncoder()
         if let data = try?encoder.encode(eventList) {
-            return saveData(data:data, forKey: forKey)
+            return saveData(data:data, forKey: "eventList")
         }
         return false
     }
     
-    func saveNoteList(noteList: [NoteType], forKey: String) -> Bool {
+    func saveNoteList(noteList: [NoteType]) -> Bool {
         let encoder = PropertyListEncoder()
         if let data = try?encoder.encode(noteList) {
-            return saveData(data:data, forKey: forKey)
+            return saveData(data:data, forKey: "noteList")
         }
         return false
     }
     
-    func loadToDoEventList(forKey: String) -> [ToDoEvent]? {
-        if let data = loadData(forKey: forKey) {
+    func loadDiaryEventList() -> [DiaryType]? {
+        if let data = loadData(forKey: "diaryList") {
+            let decoder = PropertyListDecoder()
+            let eventList = try?decoder.decode([DiaryType].self, from: data)
+            return eventList
+        }
+        return nil
+    }
+    
+    func loadToDoEventList() -> [ToDoEvent]? {
+        if let data = loadData(forKey: "eventList") {
             let decoder = PropertyListDecoder()
             let eventList = try?decoder.decode([ToDoEvent].self, from: data)
             return eventList
@@ -35,8 +52,8 @@ class SaveLoadData {
         return nil
     }
     
-    func loadNoteList(forKey: String) -> [NoteType]? {
-        if let data = loadData(forKey: forKey) {
+    func loadNoteList() -> [NoteType]? {
+        if let data = loadData(forKey: "noteList") {
             let decoder = PropertyListDecoder()
             let noteList = try?decoder.decode([NoteType].self, from: data)
             return noteList

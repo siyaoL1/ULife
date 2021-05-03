@@ -18,38 +18,34 @@ struct NoteList: View {
     }
 
     var body: some View {
-        NavigationView {
+        ZStack {
             VStack(spacing: 0) {
+//                if modelData.showMainPanel {
+//                    CalendarView()
+//                        .transition(.opacity)
+//                }
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
+                        .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                 }.padding(20)
 
                 if (filteredLandmarks.count == 0) {
                     Text("Nothing to see right now...")
                         .foregroundColor(modelData.colorThemes[modelData.themeID]["Text"]?.opacity(0.3))
                 } else {
-                    ForEach(filteredLandmarks) { note in
-                        NavigationLink(destination: NoteDetail(note: note).edgesIgnoringSafeArea(.bottom)) {
-                            NoteRow(note: note)
-
-                        }.simultaneousGesture(TapGesture().onEnded{
-                            modelData.inNotes = true
-                        })
+                    ScrollView(showsIndicators: false) {
+                        ForEach(filteredLandmarks) { note in
+                            if !note.hasDeleted {
+                                NoteRow(note: note)
+                            }
+                        }
                     }
                 }
                 Spacer()
             }
             .edgesIgnoringSafeArea(.bottom)
-            .navigationBarHidden(true)
             .background(modelData.colorThemes[modelData.themeID]["Primary"])
-            .background(NavigationConfigurator { nc in
-                nc.navigationBar.barTintColor = UIColor(modelData.colorThemes[modelData.themeID]["Primary"]!);
-                nc.navigationBar.titleTextAttributes = [.foregroundColor : modelData.colorThemes[modelData.themeID]["Primary"]!]
-                        })
         }
-
-//        .clipShape(RoundedRectangle(cornerRadius: 44))
-
     }
 }
 

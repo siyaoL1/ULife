@@ -19,13 +19,13 @@ struct FloatingMenu: View {
     var body: some View {
         VStack {
             Spacer()
-            if showMenuItem1 {
-                    Button(action: {
-                        self.showMenuAction1 = true
-                    }) {
-                        MenuItem(icon: "square.and.pencil").environmentObject(modelData)
-                    }.sheet(isPresented: $showMenuAction1, content: { NoteNew()})
-            }
+//            if showMenuItem1 {
+//                    Button(action: {
+//                        self.showMenuAction1 = true
+//                    }) {
+//                        MenuItem(icon: "square.and.pencil").environmentObject(modelData)
+//                    }.sheet(isPresented: $showMenuAction1, content: { NoteNew()})
+//            }
 //            if showMenuItem2 {
 //                VStack{
 //                    Button(action: {
@@ -35,20 +35,25 @@ struct FloatingMenu: View {
 //                    }
 //                }.sheet(isPresented: $showMenuAction2, content: { ToDoView()})
 //            }
-            if showMenuItem3 {
-                VStack{
-                    MenuItem(icon: "camera.fill").environmentObject(modelData)
-                }
-            }
+//            if showMenuItem3 {
+//                VStack{
+//                    MenuItem(icon: "camera.fill").environmentObject(modelData)
+//                }
+//            }
             Button(action: {
-                self.showMenu()
+//                self.showMenu()
+                self.showMenuAction1 = true
             }) {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
                     .frame(width: 80, height: 80)
                     .foregroundColor(modelData.colorThemes[modelData.themeID]["Secondary"])
                     .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
-            }
+            }.sheet(isPresented: $showMenuAction1,
+                    content: {
+                        NoteNew().environmentObject(modelData)
+                        
+                    })
         }
     }
     
