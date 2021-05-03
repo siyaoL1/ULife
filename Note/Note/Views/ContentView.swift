@@ -37,13 +37,13 @@ struct ContentView: View {
             .onEnded({gesture in
                 withAnimation {
                     let direction = detectDirection(value: gesture)
-                    if gesture.startLocation.x < CGFloat(10.0) && direction == .left {
+                    if gesture.startLocation.x < CGFloat(25.0) && direction == .left {
                         //print("left edge swipe")
                         if self.index > 0 {
                             self.prevIndex = index
                             self.index -= 1
                         }
-                    } else if gesture.startLocation.x > CGFloat(UIScreen.main.bounds.size.width - 10.0) && direction == .right {
+                    } else if gesture.startLocation.x > CGFloat(UIScreen.main.bounds.size.width - 25.0) && direction == .right {
                         //print("rigth edge swipe")
                         if self.index < 2 {
                             self.prevIndex = index
