@@ -17,6 +17,11 @@ struct MiddleView: View {
             if modelData.showMainPanel && !modelData.showSettingPanel{
                 InfoView()
             }
+
+            if modelData.showMainPanel {
+                MainPanelBar(t:"")
+                    .transition(.opacity)
+            }
         }.background(Color.white)
     }
 }
