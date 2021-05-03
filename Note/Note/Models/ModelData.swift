@@ -46,7 +46,7 @@ class ModelData: ObservableObject {
     init() {
         var newNote = NoteType()
         newNote.title = "I'm a new note"
-        newNote.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        newNote.content = "This is the content, I don't know what to write, but I'm still gonna write some some thing, yea."
         var testing = [NoteType]()
         testing.append(newNote)
 
@@ -66,17 +66,20 @@ class ModelData: ObservableObject {
         self.saveAndLoad.saveToDoEventList(eventList: self.todoList)
 
         var newDiary = DiaryType()
-        newDiary.title = "I'm a new diary"
-        newDiary.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        newDiary.title = "My first diary"
+        newDiary.content = "Hey there, this is our group project for CMSC436."
         newDiary.date = "Apr.10, 2021"
+        newDiary.emotion = "Sleepy"
         var newDiary2 = DiaryType()
-        newDiary2.title = "I'm a new new diary"
-        newDiary2.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        newDiary2.title = "I'm a new diary!"
+        newDiary2.content = "Today's weather is pretty good, btw our team members are Hongyang Lin, Youhan Dou, and Siyao Li."
         newDiary2.date = "Apr.15, 2021"
+        newDiary2.emotion = "Happy"
         var newDiary3 = DiaryType()
         newDiary3.title = "I'm a newwww diary"
-        newDiary3.content = "This is the content, asdfh jalsdfk lasdjflaksjdf klaj sdflk aj sdfla dsjdf."
+        newDiary3.content = "Final week is coming up, the dues are getting a bit crazy you know..."
         newDiary3.date = "Apr.29, 2021"
+        newDiary3.emotion = "Heart"
         var testing2 = [DiaryType]()
         testing2.append(newDiary3)
         testing2.append(newDiary2)
